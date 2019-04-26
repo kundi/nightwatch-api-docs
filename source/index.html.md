@@ -3,13 +3,12 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - ruby
-  - python
-  - javascript
+  # - ruby
+  # - python
+  # - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+  - <a href='https://nightwatch.io'>Sign Up for Nightwatch</a>
 
 includes:
   - errors
@@ -19,121 +18,66 @@ search: true
 
 # Introduction
 
-Welcome to the Nightwatch API! You can use our API to access Nightwatch API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the [Nightwatch](https://nightwatch.io) API docs! Here you can find guides on how to interact with data associated with your Nightwatch account using HTTP requests (REST API).
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+If you don't have an account yet, [sign up](https://app.nightwatch.io) for a Nightwatch account
 
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
 # Authentication
 
-> To authorize, use this code:
 
-```ruby
-require 'kittn'
+Nightwatch API uses `access_token` authentication. You need to provide your `access_token` for all requests you issue against our API.
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+`https://api.nightwatch.io/some_action?access_token=ACCESS_TOKEN`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>ACCESS_TOKEN</code> with your personal access token.
 </aside>
 
-# Kittens
+# Access Token
 
-## Get All Kittens
+## Obtain an access token for your user
 
-```ruby
+<!-- ```ruby
 require 'kittn'
 
 api = Kittn::APIClient.authorize!('meowmeowmeow')
 api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+``` -->
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+curl 'https://api.nightwatch.io/api/v1/token'
+-H 'Content-Type: application/json'
+--data-binary '{"email":"YOUR_EMAIL","password":"YOUR_PASSWORD"}
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "access_token": "TOKEN"
   }
-]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint gets you the access token that you must include with all your requests.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`POST https://api.nightwatch.io/api/v1/token`
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+Parameter | Description
+--------- | -----------
+email | Your Nightwatch e-mail
+password | Your Nightwatch password
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="notice">
+  This token is permanent and you only need to get it once. It is only necessary to get it again when you revoke it.
 </aside>
 
-## Get a Specific Kitten
+## Revoke an access token for your user
 
 ```ruby
 require 'kittn'
@@ -173,19 +117,44 @@ let max = api.kittens.get(2);
 }
 ```
 
-This endpoint retrieves a specific kitten.
+# Groups
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+A group is a top-level container for your URLs and global views.
+
+<aside class="notice">Having at least one group is the prerequisite for adding URLs, keywords and other resources.</aside>
+
+## List groups
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN`
 
-### URL Parameters
+```shell
+  curl 'https://api.nightwatch.io/api/v1/url_groups?access_token=6e7157c356ebbf8193512c3496c58304f7179706bfa625e8af0986ed074423c9' -H 'Content-Type: application/json'
+```
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+> The above command returns JSON structured like this:
+
+```json
+  [{"id":36242,"name":"Testing","url_count":13,"url_type":null,"group_type":"static","dynamic_view_count":1}, {...}, ...]
+```
+
+## Create a group
+
+### HTTP Request
+
+`GET https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN`
+
+```shell
+  curl 'https://api.nightwatch.io/api/v1/url_groups?access_token=6e7157c356ebbf8193512c3496c58304f7179706bfa625e8af0986ed074423c9' -H 'Content-Type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+  [{"id":36242,"name":"Testing","url_count":13,"url_type":null,"group_type":"static","dynamic_view_count":1}, {...}, ...]
+```
+
 
 ## Delete a Specific Kitten
 
