@@ -85,7 +85,7 @@ A group is a top-level container for your URLs and global views.
 ## List groups
 
 ```shell
-  curl 'https://api.nightwatch.io/api/v1/url_groups?access_token=6e7157c356ebbf8193512c3496c58304f7179706bfa625e8af0986ed074423c9' \
+  curl 'https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN' \
     -H 'Content-Type: application/json'
 ```
 
@@ -114,7 +114,7 @@ A group is a top-level container for your URLs and global views.
 ## Get a group
 
 ```shell
-  curl 'https://api.nightwatch.io/api/v1/url_groups/36242?access_token=6e7157c356ebbf8193512c3496c58304f7179706bfa625e8af0986ed074423c9'
+  curl 'https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN'
     -H 'Content-Type: application/json'
 ```
 
@@ -146,7 +146,7 @@ group_id  | The id of the group
 ## Create a group
 
 ```shell
-  curl 'https://api.nightwatch.io/api/v1/url_groups?access_token=6e7157c356ebbf8193512c3496c58304f7179706bfa625e8af0986ed074423c9'
+  curl 'https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN'
     -X POST
     -H 'Content-Type: application/json'
     -d '
@@ -186,7 +186,7 @@ name      | The name of the group
 ## Update a group
 
 ```shell
-  curl 'https://api.nightwatch.io/api/v1/url_groups/36242?access_token=6e7157c356ebbf8193512c3496c58304f7179706bfa625e8af0986ed074423c9'
+  curl 'https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN'
     -X PUT
     -H 'Content-Type: application/json'
     -d '
@@ -232,7 +232,7 @@ name      | The name of the group
 ## Delete a group
 
 ```shell
-  curl 'https://api.nightwatch.io/api/v1/url_groups/36242?access_token=6e7157c356ebbf8193512c3496c58304f7179706bfa625e8af0986ed074423c9'
+  curl 'https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN'
     -X DELETE
     -H 'Content-Type: application/json'
 ```
