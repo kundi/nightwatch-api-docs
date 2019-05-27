@@ -73,6 +73,37 @@ password | Your Nightwatch password
 </aside>
 
 
+## Revoke access token for your user
+
+```shell
+curl 'https://api.nightwatch.io/api/v1/token'
+  -X DELETE
+  -H 'Content-Type: application/json'
+  -d '{"email": "YOUR_EMAIL", "password": "YOUR_PASSWORD"}
+```
+
+> The above command returns JSON structured like this:
+
+```json
+  {
+    "access_token": "TOKEN"
+  }
+```
+
+This will destroy your permanent API token. You can use this if your token becomes compromised.
+
+### HTTP Request
+
+`DELETE https://api.nightwatch.io/api/v1/token`
+
+### Body Parameters
+
+Parameter | Description
+--------- | -----------
+email | Your Nightwatch e-mail
+password | Your Nightwatch password
+
+
 
 # Groups
 
