@@ -230,6 +230,9 @@
                   <li>
                     <a href="#obtain-an-access-token-for-your-user" class="toc-h2 toc-link" data-title="Obtain an access token for your user">Obtain an access token for your user</a>
                   </li>
+                  <li>
+                    <a href="#revoke-access-token-for-your-user" class="toc-h2 toc-link" data-title="Revoke access token for your user">Revoke access token for your user</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -310,6 +313,37 @@ You must replace <code>ACCESS_TOKEN</code> with your personal access token.
 <aside class="notice">
   This token is permanent and you only need to get it once. It is only necessary to get it again when you revoke it.
 </aside>
+<h2 id='revoke-access-token-for-your-user'>Revoke access token for your user</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/token'</span>
+  -X DELETE
+  -H <span class="s1">'Content-Type: application/json'</span>
+  -d <span class="s1">'{"email": "YOUR_EMAIL", "password": "YOUR_PASSWORD"}
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TOKEN"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This will destroy your permanent API token. You can use this if your token becomes compromised.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>DELETE https://api.nightwatch.io/api/v1/token</code></p>
+<h3 id='body-parameters-2'>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>Your Nightwatch e-mail</td>
+</tr>
+<tr>
+<td>password</td>
+<td>Your Nightwatch password</td>
+</tr>
+</tbody></table>
 <h1 id='groups'>Groups</h1>
 <p>A group is a top-level container for your URLs and global views.</p>
 
@@ -331,7 +365,7 @@ You must replace <code>ACCESS_TOKEN</code> with your personal access token.
     </span><span class="p">},</span><span class="w">
     </span><span class="err">...</span><span class="w">
   </span><span class="p">]</span><span class="w">
-</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN</code></p>
 <h2 id='get-a-group'>Get a group</h2><pre class="highlight shell tab-shell"><code>  curl <span class="s1">'https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN'</span>
     -H <span class="s1">'Content-Type: application/json'</span>
@@ -347,7 +381,7 @@ You must replace <code>ACCESS_TOKEN</code> with your personal access token.
     </span><span class="s2">"group_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"static"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"dynamic_view_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://api.nightwatch.io/api/v1/url_groups/&lt;group_id&gt;?access_token=ACCESS_TOKEN</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -383,9 +417,9 @@ You must replace <code>ACCESS_TOKEN</code> with your personal access token.
     </span><span class="s2">"group_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"static"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"dynamic_view_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
 <p><code>POST https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN</code></p>
-<h3 id='body-parameters-2'>Body Parameters</h3>
+<h3 id='body-parameters-3'>Body Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -419,7 +453,7 @@ You must replace <code>ACCESS_TOKEN</code> with your personal access token.
     </span><span class="s2">"group_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"static"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"dynamic_view_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-6'>HTTP Request</h3>
 <p><code>PUT https://api.nightwatch.io/api/v1/url_groups/&lt;group_id&gt;?access_token=ACCESS_TOKEN</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
@@ -433,7 +467,7 @@ You must replace <code>ACCESS_TOKEN</code> with your personal access token.
 <td>The id of the group</td>
 </tr>
 </tbody></table>
-<h3 id='body-parameters-3'>Body Parameters</h3>
+<h3 id='body-parameters-4'>Body Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -460,7 +494,7 @@ You must replace <code>ACCESS_TOKEN</code> with your personal access token.
     </span><span class="s2">"group_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"static"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"dynamic_view_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-6'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-7'>HTTP Request</h3>
 <p><code>DELETE https://api.nightwatch.io/api/v1/url_groups/&lt;group_id&gt;?access_token=ACCESS_TOKEN</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
