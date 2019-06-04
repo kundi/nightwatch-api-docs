@@ -1,0 +1,35 @@
+---
+title: API Reference
+
+language_tabs: # must be one of https://git.io/vQNgJ
+  - shell
+  # - ruby
+  # - python
+  # - javascript
+
+toc_footers:
+  - <a href='https://nightwatch.io'>Sign Up for Nightwatch</a>
+
+search: true
+---
+
+# Introduction
+
+Welcome to the [Nightwatch](https://nightwatch.io) API docs! Here you can find guides on how to interact with data associated with your Nightwatch account using HTTP requests (REST API).
+
+If you don't have an account yet, [sign up](https://app.nightwatch.io) for a Nightwatch account
+
+
+# Authentication
+
+Nightwatch API uses `access_token` authentication. You need to provide your `access_token` URL parameter for all requests you issue against our API.
+
+`https://api.nightwatch.io/some_action?access_token=ACCESS_TOKEN`
+
+<aside class="notice">
+  You must replace <code>ACCESS_TOKEN</code> with your personal access token.
+</aside>
+
+<%= partial "endpoints/access_token" %>
+<%= partial "endpoints/groups" %>
+<%= partial "endpoints/keywords" %>
