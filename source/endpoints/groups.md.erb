@@ -41,9 +41,9 @@ You must replace <code>ACCESS_TOKEN</code> with your personal access token.
 ## Obtain an access token for your user
 
 ```shell
-curl 'https://api.nightwatch.io/api/v1/token'
-  -X POST
-  -H 'Content-Type: application/json'
+curl 'https://api.nightwatch.io/api/v1/token' \\
+  -X POST \\
+  -H 'Content-Type: application/json' \\
   -d '{"email": "YOUR_EMAIL", "password": "YOUR_PASSWORD"}
 ```
 
@@ -65,8 +65,8 @@ This endpoint gets you the access token that you must include with all your requ
 
 Parameter | Description
 --------- | -----------
-email | Your Nightwatch e-mail
-password | Your Nightwatch password
+email     | Your Nightwatch e-mail
+password  | Your Nightwatch password
 
 <aside class="notice">
   This token is permanent and you only need to get it once. It is only necessary to get it again when you revoke it.
@@ -76,18 +76,18 @@ password | Your Nightwatch password
 ## Revoke access token for your user
 
 ```shell
-curl 'https://api.nightwatch.io/api/v1/token'
-  -X DELETE
-  -H 'Content-Type: application/json'
+curl 'https://api.nightwatch.io/api/v1/token' \\
+  -X DELETE \\
+  -H 'Content-Type: application/json' \\
   -d '{"email": "YOUR_EMAIL", "password": "YOUR_PASSWORD"}
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-  {
-    "access_token": "TOKEN"
-  }
+{
+  "access_token": "TOKEN"
+}
 ```
 
 This will destroy your permanent API token. You can use this if your token becomes compromised.
@@ -100,8 +100,8 @@ This will destroy your permanent API token. You can use this if your token becom
 
 Parameter | Description
 --------- | -----------
-email | Your Nightwatch e-mail
-password | Your Nightwatch password
+email     | Your Nightwatch e-mail
+password  | Your Nightwatch password
 
 
 
@@ -111,29 +111,27 @@ A group is a top-level container for your URLs and global views.
 
 <aside class="notice">Having at least one group is the prerequisite for adding URLs, keywords and other resources.</aside>
 
-
-
 ## List groups
 
 ```shell
-  curl 'https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN' \\
-    -H 'Content-Type: application/json'
+curl 'https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN' \\
+  -H 'Content-Type: application/json'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-  [
-    {
-      "id": 36242,
-      "name": "Example group",
-      "url_count": 0,
-      "url_type": null,
-      "group_type": "static",
-      "dynamic_view_count": 0
-    },
-    ...
-  ]
+[
+  {
+    "id": 36242,
+    "name": "Example group",
+    "url_count": 0,
+    "url_type": null,
+    "group_type": "static",
+    "dynamic_view_count": 0
+  },
+  ...
+]
 ```
 
 ### HTTP Request
@@ -145,26 +143,26 @@ A group is a top-level container for your URLs and global views.
 ## Get a group
 
 ```shell
-  curl 'https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN' \\
-    -H 'Content-Type: application/json'
+curl 'https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN' \
+  -H 'Content-Type: application/json'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-  {
-    "id": 36242,
-    "name": "Renamed group",
-    "url_count": 0,
-    "url_type": null,
-    "group_type": "static",
-    "dynamic_view_count": 0
-  }
+{
+  "id": 36242,
+  "name": "Renamed group",
+  "url_count": 0,
+  "url_type": null,
+  "group_type": "static",
+  "dynamic_view_count": 0
+}
 ```
 
 ### HTTP Request
 
-`GET https://api.nightwatch.io/api/v1/url_groups/<group_id>?access_token=ACCESS_TOKEN`
+`GET https://api.nightwatch.io/api/v1/url_groups/GROUP_ID?access_token=ACCESS_TOKEN`
 
 ### URL Parameters
 
@@ -177,29 +175,29 @@ group_id  | The id of the group
 ## Create a group
 
 ```shell
-  curl 'https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN' \\
-    -X POST \\
-    -H 'Content-Type: application/json' \\
-    -d '
-      {
-        "url_group": {
-          "name": "Example group",
-        }
+curl 'https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN' \\
+  -X POST \\
+  -H 'Content-Type: application/json' \\
+  -d '
+    {
+      "url_group": {
+        "name": "Example group",
       }
-    '
+    }
+  '
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-  {
-    "id": 36242,
-    "name": "Example group",
-    "url_count": 0,
-    "url_type": null,
-    "group_type": "static",
-    "dynamic_view_count": 0
-  }
+{
+  "id": 36242,
+  "name": "Example group",
+  "url_count": 0,
+  "url_type": null,
+  "group_type": "static",
+  "dynamic_view_count": 0
+}
 ```
 
 ### HTTP Request
@@ -217,34 +215,34 @@ name      | The name of the group
 ## Update a group
 
 ```shell
-  curl 'https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN' \\
-    -X PUT \\
-    -H 'Content-Type: application/json' \\
-    -d '
-      {
-        "url_group": {
-          "name": "Renamed group",
-        }
-      }
-    '
+curl 'https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN' \\
+-X PUT \\
+-H 'Content-Type: application/json' \\
+-d '
+  {
+    "url_group": {
+      "name": "Renamed group",
+    }
+  }
+'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-  {
-    "id": 36242,
-    "name": "Renamed group",
-    "url_count": 0,
-    "url_type": null,
-    "group_type": "static",
-    "dynamic_view_count": 0
-  }
+{
+  "id": 36242,
+  "name": "Renamed group",
+  "url_count": 0,
+  "url_type": null,
+  "group_type": "static",
+  "dynamic_view_count": 0
+}
 ```
 
 ### HTTP Request
 
-`PUT https://api.nightwatch.io/api/v1/url_groups/<group_id>?access_token=ACCESS_TOKEN`
+`PUT https://api.nightwatch.io/api/v1/url_groups/GROUP_ID?access_token=ACCESS_TOKEN`
 
 ### URL Parameters
 
@@ -262,27 +260,27 @@ name      | The name of the group
 ## Delete a group
 
 ```shell
-  curl 'https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN' \\
-    -X DELETE \\
-    -H 'Content-Type: application/json'
+curl 'https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN' \\
+  -X DELETE \\
+  -H 'Content-Type: application/json'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-  {
-    "id": 36242,
-    "name": "Example group",
-    "url_count": 0,
-    "url_type": null,
-    "group_type": "static",
-    "dynamic_view_count": 0
-  }
+{
+  "id": 36242,
+  "name": "Example group",
+  "url_count": 0,
+  "url_type": null,
+  "group_type": "static",
+  "dynamic_view_count": 0
+}
 ```
 
 ### HTTP Request
 
-`DELETE https://api.nightwatch.io/api/v1/url_groups/<group_id>?access_token=ACCESS_TOKEN`
+`DELETE https://api.nightwatch.io/api/v1/url_groups/GROUP_ID?access_token=ACCESS_TOKEN`
 
 ### URL Parameters
 
