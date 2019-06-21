@@ -1,0 +1,35 @@
+<h1 id='access-token'>Access Token</h1><h2 id='obtain-an-access-token-for-your-user'>Obtain an access token for your user</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/token'</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -d <span class="s1">'{"email": "YOUR_EMAIL", "password": "YOUR_PASSWORD"}
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TOKEN"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint gets you the access token that you must include with all your requests.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://api.nightwatch.io/api/v1/token</code></p>
+<h3 id='body-parameters'>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>Your Nightwatch e-mail</td>
+</tr>
+<tr>
+<td>password</td>
+<td>Your Nightwatch password</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+  This token is permanent and you only need to get it once. It is only necessary to get it again when you revoke it.
+</aside>

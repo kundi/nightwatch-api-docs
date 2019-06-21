@@ -230,9 +230,6 @@
                   <li>
                     <a href="#obtain-an-access-token-for-your-user" class="toc-h2 toc-link" data-title="Obtain an access token for your user">Obtain an access token for your user</a>
                   </li>
-                  <li>
-                    <a href="#revoke-access-token-for-your-user" class="toc-h2 toc-link" data-title="Revoke access token for your user">Revoke access token for your user</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -256,7 +253,21 @@
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#keywords" class="toc-h1 toc-link" data-title="Keywords">Keywords</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-keywords" class="toc-h2 toc-link" data-title="List keywords">List keywords</a>
+                  </li>
+                  <li>
+                    <a href="#add-keywords" class="toc-h2 toc-link" data-title="Add keywords">Add keywords</a>
+                  </li>
+                  <li>
+                    <a href="#remove-keywords" class="toc-h2 toc-link" data-title="Remove keywords">Remove keywords</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-keyword" class="toc-h2 toc-link" data-title="Update a keyword">Update a keyword</a>
+                  </li>
+              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -271,16 +282,17 @@
 
 <p>If you don&#39;t have an account yet, <a href="https://app.nightwatch.io">sign up</a> for a Nightwatch account</p>
 <h1 id='authentication'>Authentication</h1>
-<p>Nightwatch API uses <code>access_token</code> authentication. You need to provide your <code>access_token</code> for all requests you issue against our API.</p>
+<p>Nightwatch API uses <code>access_token</code> authentication. You need to provide your <code>access_token</code> URL parameter for all requests you issue against our API.</p>
 
 <p><code>https://api.nightwatch.io/some_action?access_token=ACCESS_TOKEN</code></p>
 
 <aside class="notice">
-You must replace <code>ACCESS_TOKEN</code> with your personal access token.
+  You must replace <code>ACCESS_TOKEN</code> with your personal access token.
 </aside>
-<h1 id='access-token'>Access Token</h1><h2 id='obtain-an-access-token-for-your-user'>Obtain an access token for your user</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/token'</span>
-  -X POST
-  -H <span class="s1">'Content-Type: application/json'</span>
+
+<h1 id='access-token'>Access Token</h1><h2 id='obtain-an-access-token-for-your-user'>Obtain an access token for your user</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/token'</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -d <span class="s1">'{"email": "YOUR_EMAIL", "password": "YOUR_PASSWORD"}
 </span></code></pre>
 <blockquote>
@@ -313,76 +325,48 @@ You must replace <code>ACCESS_TOKEN</code> with your personal access token.
 <aside class="notice">
   This token is permanent and you only need to get it once. It is only necessary to get it again when you revoke it.
 </aside>
-<h2 id='revoke-access-token-for-your-user'>Revoke access token for your user</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/token'</span>
-  -X DELETE
-  -H <span class="s1">'Content-Type: application/json'</span>
-  -d <span class="s1">'{"email": "YOUR_EMAIL", "password": "YOUR_PASSWORD"}
-</span></code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TOKEN"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This will destroy your permanent API token. You can use this if your token becomes compromised.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>DELETE https://api.nightwatch.io/api/v1/token</code></p>
-<h3 id='body-parameters-2'>Body Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>email</td>
-<td>Your Nightwatch e-mail</td>
-</tr>
-<tr>
-<td>password</td>
-<td>Your Nightwatch password</td>
-</tr>
-</tbody></table>
+
 <h1 id='groups'>Groups</h1>
+
 <p>A group is a top-level container for your URLs and global views.</p>
 
 <aside class="notice">Having at least one group is the prerequisite for adding URLs, keywords and other resources.</aside>
-<h2 id='list-groups'>List groups</h2><pre class="highlight shell tab-shell"><code>  curl <span class="s1">'https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN'</span> <span class="se">\</span>
-    -H <span class="s1">'Content-Type: application/json'</span>
+
+<p><h2 id='list-groups'>List groups</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example group"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"url_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"url_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"group_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"static"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"dynamic_view_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="err">...</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example group&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;url_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;group_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;static&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;dynamic_view_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN</code></p>
-<h2 id='get-a-group'>Get a group</h2><pre class="highlight shell tab-shell"><code>  curl <span class="s1">'https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN'</span>
-    -H <span class="s1">'Content-Type: application/json'</span>
+<h2 id='get-a-group'>Get a group</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN&#39;</span> <span class="se">&lt;/span&gt;
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Renamed group"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"url_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"url_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"group_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"static"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"dynamic_view_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET https://api.nightwatch.io/api/v1/url_groups/&lt;group_id&gt;?access_token=ACCESS_TOKEN</code></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Renamed group&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;url_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;group_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;static&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;dynamic_view_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/url_groups/GROUP_ID?access_token=ACCESS_TOKEN</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -395,31 +379,31 @@ You must replace <code>ACCESS_TOKEN</code> with your personal access token.
 <td>The id of the group</td>
 </tr>
 </tbody></table>
-<h2 id='create-a-group'>Create a group</h2><pre class="highlight shell tab-shell"><code>  curl <span class="s1">'https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN'</span>
-    -X POST
-    -H <span class="s1">'Content-Type: application/json'</span>
-    -d <span class="s1">'
-      {
-        "url_group": {
-          "name": "Example group",
-        }
+<h2 id='create-a-group'>Create a group</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
+  -d <span class="s1">&#39;
+    {
+      &quot;url_group&quot;: {
+        &quot;name&quot;: &quot;Example group&quot;,
       }
-    '</span>
+    }
+  &#39;</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example group"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"url_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"url_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"group_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"static"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"dynamic_view_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example group&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;url_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;group_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;static&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;dynamic_view_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN</code></p>
-<h3 id='body-parameters-3'>Body Parameters</h3>
+<h3 id='body-parameters'>Body Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -431,30 +415,30 @@ You must replace <code>ACCESS_TOKEN</code> with your personal access token.
 <td>The name of the group</td>
 </tr>
 </tbody></table>
-<h2 id='update-a-group'>Update a group</h2><pre class="highlight shell tab-shell"><code>  curl <span class="s1">'https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN'</span>
-    -X PUT
-    -H <span class="s1">'Content-Type: application/json'</span>
-    -d <span class="s1">'
-      {
-        "url_group": {
-          "name": "Renamed group",
-        }
-      }
-    '</span>
+<h2 id='update-a-group'>Update a group</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
+-X PUT <span class="se">\</span>
+-H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
+-d <span class="s1">&#39;
+  {
+    &quot;url_group&quot;: {
+      &quot;name&quot;: &quot;Renamed group&quot;,
+    }
+  }
+&#39;</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Renamed group"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"url_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"url_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"group_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"static"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"dynamic_view_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-6'>HTTP Request</h3>
-<p><code>PUT https://api.nightwatch.io/api/v1/url_groups/&lt;group_id&gt;?access_token=ACCESS_TOKEN</code></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Renamed group&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;url_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;group_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;static&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;dynamic_view_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT https://api.nightwatch.io/api/v1/url_groups/GROUP_ID?access_token=ACCESS_TOKEN</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -467,7 +451,7 @@ You must replace <code>ACCESS_TOKEN</code> with your personal access token.
 <td>The id of the group</td>
 </tr>
 </tbody></table>
-<h3 id='body-parameters-4'>Body Parameters</h3>
+<h3 id='body-parameters-2'>Body Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -479,23 +463,23 @@ You must replace <code>ACCESS_TOKEN</code> with your personal access token.
 <td>The name of the group</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-group'>Delete a group</h2><pre class="highlight shell tab-shell"><code>  curl <span class="s1">'https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN'</span>
-    -X DELETE
-    -H <span class="s1">'Content-Type: application/json'</span>
+<h2 id='delete-a-group'>Delete a group</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
+  -X DELETE <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example group"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"url_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"url_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"group_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"static"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"dynamic_view_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-7'>HTTP Request</h3>
-<p><code>DELETE https://api.nightwatch.io/api/v1/url_groups/&lt;group_id&gt;?access_token=ACCESS_TOKEN</code></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example group&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;url_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;group_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;static&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;dynamic_view_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE https://api.nightwatch.io/api/v1/url_groups/GROUP_ID?access_token=ACCESS_TOKEN</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -507,65 +491,236 @@ You must replace <code>ACCESS_TOKEN</code> with your personal access token.
 <td>group_id</td>
 <td>The id of the group</td>
 </tr>
-</tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+</tbody></table></p>
+
+<h1 id='keywords'>Keywords</h1>
+
+<p>Keywords are queries or terms that are used to perform searches in search engines.</p>
+
+<aside class="notice">Keywords are uniquely defined with a specific combination of query, location, language, search engine, term and mobile setting.
+<br><br>
+  The prerequisite for adding keywords is the existence of a URL. All keywords need to be referenced to a specific URL.
 </aside>
 
-<p>The Kittn API uses the following error codes:</p>
-
+<p><h2 id='list-keywords'>List keywords</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;last_processed_at&quot;</span><span class="p">:</span><span class="s2">&quot;2019-06-04T00:18:23.187Z&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;query&quot;</span><span class="p">:</span><span class="s2">&quot;goji berries&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="s2">&quot;2016-10-08T11:30:07.923Z&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;position&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;search_keyword_url_id&quot;</span><span class="p">:</span><span class="mi">22199</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;mobile&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;local_search&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;google_hl&quot;</span><span class="p">:</span><span class="s2">&quot;sl&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;google_gl&quot;</span><span class="p">:</span><span class="s2">&quot;si&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;last_day_change&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;last_week_change&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;last_month_change&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;uri&quot;</span><span class="p">:</span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;result_url&quot;</span><span class="p">:</span><span class="s2">&quot;https://topgojiberries.com/&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;last_position_change&quot;</span><span class="p">:[</span><span class="mi">-1</span><span class="p">,</span><span class="s2">&quot;2019-05-26T00:18:40.646Z&quot;</span><span class="p">,</span><span class="kc">true</span><span class="p">],</span><span class="w">
+      </span><span class="s2">&quot;results_count&quot;</span><span class="p">:</span><span class="mi">2770</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;adwords_local_search_volume&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;adwords_local_average_cpc&quot;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;adwords_global_search_volume&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;adwords_global_average_cpc&quot;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;position_type&quot;</span><span class="p">:</span><span class="s2">&quot;organic&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;position_organic&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;position_places&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;position_places_image&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;position_local_pack&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;position_featured_snippet&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;position_knowledge_panel&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;tags&quot;</span><span class="p">:[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;Branded&quot;</span><span class="p">,</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Branded&quot;</span><span class="p">},{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;Difficult&quot;</span><span class="p">,</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Difficult&quot;</span><span class="p">}],</span><span class="w">
+      </span><span class="s2">&quot;engine&quot;</span><span class="p">:</span><span class="s2">&quot;google&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;http://topgojiberries.com&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;previous_position&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;best_position&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;position_changed_during_last_day&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;position_changed_during_last_week&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;position_changed_during_last_month&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;historic_positions&quot;</span><span class="p">:[</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="w">
+      </span><span class="s2">&quot;last_historic_position_on&quot;</span><span class="p">:</span><span class="s2">&quot;2019-06-04&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;position_change&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;available_serp_features&quot;</span><span class="p">:{</span><span class="s2">&quot;places_image&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="s2">&quot;organic&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">&quot;local_pack&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="s2">&quot;knowledge_panel&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">&quot;featured_snippet&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Parameter</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td>sort</td>
+<td>The name of the field to sort by. <br><br>Possible values: id, query, google_gl, google_hl, last_processed_at, created_at, updated_at, position, position_type, position_organic, position_places, position_places_image, position_changed_by, position_changed_status, position_changed_at, position_local_pack, position_featured_snippet, position_knowledge_panel, local_search, position_changed_during_last_day, position_changed_during_last_week, position_changed_during_last_month, mobile, engine, previous_position, best_position, available_serp_features, adwords_global_search_volume, adwords_global_average_cpc, adwords_local_search_volume, adwords_local_average_cpc</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>direction</td>
+<td>The direction to sort by. <br><br>Possible values: asc, desc</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>search</td>
+<td>A general search string to filter by keywords&#39; term, tags, result URL and location</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>page</td>
+<td>Page number (pagination)</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>limit</td>
+<td>Amount of keywords in a page</td>
 </tr>
 </tbody></table>
+<h3 id='response-headers'>Response headers</h3>
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-Page-Count</td>
+<td>Number of pages for specified page limit</td>
+</tr>
+<tr>
+<td>X-Total-Count</td>
+<td>Total number of keywords</td>
+</tr>
+</tbody></table>
+<h2 id='add-keywords'>Add keywords</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/batch_create?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">&#39;{&quot;keywords&quot;:&quot;keyword1\nkeyword2\nkeyword3&quot;,
+        &quot;tags&quot;:[],
+        &quot;google_gl&quot;:&quot;us&quot;,
+        &quot;google_hl&quot;:&quot;en&quot;,
+        &quot;mobile&quot;:false,
+        &quot;desktop&quot;:true,
+        &quot;search_engine&quot;:
+        &quot;google&quot;
+      }&#39;</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;query&quot;</span><span class="p">:</span><span class="s2">&quot;keyword1&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;query&quot;</span><span class="p">:</span><span class="s2">&quot;keyword2&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN</code></p>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>keywords*</td>
+<td>Search queries separated by new lines (\n)</td>
+</tr>
+<tr>
+<td>google_hl*</td>
+<td>Search language code (see <a href="https://developers.google.com/custom-search/docs/ref_languages">here</a> for available options)</td>
+</tr>
+<tr>
+<td>google_gl*</td>
+<td>Search geolocation code (see <a href="https://developers.google.com/custom-search/docs/xml_results_appendices#countryCodes">here</a> for available options)</td>
+</tr>
+<tr>
+<td>search_engine*</td>
+<td>Search engine (&#39;google&#39;, &#39;youtube&#39;, &#39;places&#39;, &#39;bing&#39; or &#39;yahoo&#39;)</td>
+</tr>
+<tr>
+<td>adwords_location_id</td>
+<td>Search location Criteria ID (see <a href="https://developers.google.com/ad-exchange/rtb/geotargeting">here</a> for available options)</td>
+</tr>
+<tr>
+<td>mobile</td>
+<td>Search adjusted for mobile devices (true or false, default: false)</td>
+</tr>
+<tr>
+<td>desktop</td>
+<td>Search adjusted for desktop devices (true or false, default: true)</td>
+</tr>
+</tbody></table></p>
+
+<p>Parameters marked with * are mandatory.</p>
+
+<aside class="notice">
+  Creating keywords with both mobile and desktop set to true will create 2 separate instances for every provided keyword.
+</aside>
+
+<p><h2 id='remove-keywords'>Remove keywords</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/batch_destroy?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
+  -d <span class="s1">&#39;{&quot;keyword_ids&quot;:[&quot;1&quot;,&quot;2&quot;]}&#39;</span>
+</code></pre>
+<blockquote>
+<p>The above command returns a HTTP 204 response.</p>
+</blockquote>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/batch_destroy?access_token=ACCESS_TOKEN</code></p>
+<h3 id='parameters-2'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>keyword_ids*</td>
+<td>An array of keyword IDs for removal</td>
+</tr>
+</tbody></table></p>
+
+<p>Parameters marked with * are mandatory.</p>
+
+<p><h2 id='update-a-keyword'>Update a keyword</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/KEYWORD_ID?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json; charset=UTF-8&#39;</span> <span class="se">\</span>
+  -d <span class="s1">&#39;{&quot;keyword&quot;:
+       {&quot;tags&quot;:[&quot;Branded&quot;]&quot;}
+      }&#39;</span>
+</code></pre>
+<blockquote>
+<p>The above command returns a HTTP 204 response.</p>
+</blockquote>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/KEYWORD_ID?access_token=ACCESS_TOKEN</code></p>
+<h3 id='parameters-3'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tags</td>
+<td>An array of tags</td>
+</tr>
+</tbody></table></p>
+
+<aside class="notice">
+  Currently keyword tags are the only attribute that can be updated on a keyword.
+</aside>
 
       </div>
       <div class="dark-box">

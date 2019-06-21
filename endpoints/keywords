@@ -1,0 +1,224 @@
+<h1 id='keywords'>Keywords</h1>
+<p>Keywords are queries or terms that are used to perform searches in search engines.</p>
+
+<aside class="notice">Keywords are uniquely defined with a specific combination of query, location, language, search engine, term and mobile setting.
+<br><br>
+  The prerequisite for adding keywords is the existence of a URL. All keywords need to be referenced to a specific URL.
+</aside>
+<h2 id='list-keywords'>List keywords</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_processed_at"</span><span class="p">:</span><span class="s2">"2019-06-04T00:18:23.187Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"query"</span><span class="p">:</span><span class="s2">"goji berries"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2016-10-08T11:30:07.923Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="mi">22199</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"mobile"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"local_search"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"google_hl"</span><span class="p">:</span><span class="s2">"sl"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"google_gl"</span><span class="p">:</span><span class="s2">"si"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_day_change"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_week_change"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_month_change"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"result_url"</span><span class="p">:</span><span class="s2">"https://topgojiberries.com/"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_position_change"</span><span class="p">:[</span><span class="mi">-1</span><span class="p">,</span><span class="s2">"2019-05-26T00:18:40.646Z"</span><span class="p">,</span><span class="kc">true</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"results_count"</span><span class="p">:</span><span class="mi">2770</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"adwords_local_search_volume"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"adwords_local_average_cpc"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"adwords_global_search_volume"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"adwords_global_average_cpc"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_type"</span><span class="p">:</span><span class="s2">"organic"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_organic"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_places"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_places_image"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_local_pack"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_featured_snippet"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_knowledge_panel"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tags"</span><span class="p">:[{</span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"Branded"</span><span class="p">,</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Branded"</span><span class="p">},{</span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"Difficult"</span><span class="p">,</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Difficult"</span><span class="p">}],</span><span class="w">
+      </span><span class="s2">"engine"</span><span class="p">:</span><span class="s2">"google"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"http://topgojiberries.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"previous_position"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"best_position"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_changed_during_last_day"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_changed_during_last_week"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_changed_during_last_month"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"historic_positions"</span><span class="p">:[</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"last_historic_position_on"</span><span class="p">:</span><span class="s2">"2019-06-04"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_change"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"available_serp_features"</span><span class="p">:{</span><span class="s2">"places_image"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="s2">"organic"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"local_pack"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="s2">"knowledge_panel"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"featured_snippet"</span><span class="p">:</span><span class="kc">false</span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sort</td>
+<td>The name of the field to sort by. <br><br>Possible values: id, query, google_gl, google_hl, last_processed_at, created_at, updated_at, position, position_type, position_organic, position_places, position_places_image, position_changed_by, position_changed_status, position_changed_at, position_local_pack, position_featured_snippet, position_knowledge_panel, local_search, position_changed_during_last_day, position_changed_during_last_week, position_changed_during_last_month, mobile, engine, previous_position, best_position, available_serp_features, adwords_global_search_volume, adwords_global_average_cpc, adwords_local_search_volume, adwords_local_average_cpc</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>The direction to sort by. <br><br>Possible values: asc, desc</td>
+</tr>
+<tr>
+<td>search</td>
+<td>A general search string to filter by keywords&#39; term, tags, result URL and location</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Page number (pagination)</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Amount of keywords in a page</td>
+</tr>
+</tbody></table>
+<h3 id='response-headers'>Response headers</h3>
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-Page-Count</td>
+<td>Number of pages for specified page limit</td>
+</tr>
+<tr>
+<td>X-Total-Count</td>
+<td>Total number of keywords</td>
+</tr>
+</tbody></table>
+<h2 id='add-keywords'>Add keywords</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/batch_create?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\\</span>
+  -X POST <span class="se">\\</span>
+  -d <span class="s1">'{"keywords":"keyword1\nkeyword2\nkeyword3",
+        "tags":[],
+        "google_gl":"us",
+        "google_hl":"en",
+        "mobile":false,
+        "desktop":true,
+        "search_engine":
+        "google"
+      }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"query"</span><span class="p">:</span><span class="s2">"keyword1"</span><span class="p">,</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"query"</span><span class="p">:</span><span class="s2">"keyword2"</span><span class="p">,</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN</code></p>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>keywords*</td>
+<td>Search queries separated by new lines (\n)</td>
+</tr>
+<tr>
+<td>google_hl*</td>
+<td>Search language code (see <a href="https://developers.google.com/custom-search/docs/ref_languages">here</a> for available options)</td>
+</tr>
+<tr>
+<td>google_gl*</td>
+<td>Search geolocation code (see <a href="https://developers.google.com/custom-search/docs/xml_results_appendices#countryCodes">here</a> for available options)</td>
+</tr>
+<tr>
+<td>search_engine*</td>
+<td>Search engine (&#39;google&#39;, &#39;youtube&#39;, &#39;places&#39;, &#39;bing&#39; or &#39;yahoo&#39;)</td>
+</tr>
+<tr>
+<td>adwords_location_id</td>
+<td>Search location Criteria ID (see <a href="https://developers.google.com/ad-exchange/rtb/geotargeting">here</a> for available options)</td>
+</tr>
+<tr>
+<td>mobile</td>
+<td>Search adjusted for mobile devices (true or false, default: false)</td>
+</tr>
+<tr>
+<td>desktop</td>
+<td>Search adjusted for desktop devices (true or false, default: true)</td>
+</tr>
+</tbody></table>
+
+<p>Parameters marked with * are mandatory.</p>
+
+<aside class="notice">
+  Creating keywords with both mobile and desktop set to true will create 2 separate instances for every provided keyword.
+</aside>
+<h2 id='remove-keywords'>Remove keywords</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/batch_destroy?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\\</span>
+  -d <span class="s1">'{"keyword_ids":["1","2"]}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns a HTTP 204 response.</p>
+</blockquote>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/batch_destroy?access_token=ACCESS_TOKEN</code></p>
+<h3 id='parameters-2'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>keyword_ids*</td>
+<td>An array of keyword IDs for removal</td>
+</tr>
+</tbody></table>
+
+<p>Parameters marked with * are mandatory.</p>
+<h2 id='update-a-keyword'>Update a keyword</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/KEYWORD_ID?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -X PUT <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json; charset=UTF-8'</span> <span class="se">\\</span>
+  -d <span class="s1">'{"keyword":
+       {"tags":["Branded"]"}
+      }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns a HTTP 204 response.</p>
+</blockquote>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/KEYWORD_ID?access_token=ACCESS_TOKEN</code></p>
+<h3 id='parameters-3'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tags</td>
+<td>An array of tags</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+  Currently keyword tags are the only attribute that can be updated on a keyword.
+</aside>
