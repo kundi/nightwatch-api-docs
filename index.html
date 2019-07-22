@@ -253,6 +253,29 @@
               </ul>
           </li>
           <li>
+            <a href="#urls" class="toc-h1 toc-link" data-title="URLs">URLs</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#url-data" class="toc-h2 toc-link" data-title="URL data">URL data</a>
+                  </li>
+                  <li>
+                    <a href="#list-urls" class="toc-h2 toc-link" data-title="List URLs">List URLs</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-url" class="toc-h2 toc-link" data-title="Get a URL">Get a URL</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-url" class="toc-h2 toc-link" data-title="Create a URL">Create a URL</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-url" class="toc-h2 toc-link" data-title="Update a URL">Update a URL</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-url" class="toc-h2 toc-link" data-title="Delete a URL">Delete a URL</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#keywords" class="toc-h1 toc-link" data-title="Keywords">Keywords</a>
               <ul class="toc-list-h2">
                   <li>
@@ -332,38 +355,38 @@
 
 <aside class="notice">Having at least one group is the prerequisite for adding URLs, keywords and other resources.</aside>
 
-<p><h2 id='list-groups'>List groups</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
-  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+<h2 id='list-groups'>List groups</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example group&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;url_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;group_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;static&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;dynamic_view_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example group"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"group_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"static"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dynamic_view_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="err">...</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN</code></p>
-<h2 id='get-a-group'>Get a group</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN&#39;</span> <span class="se">&lt;/span&gt;
-  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+<h2 id='get-a-group'>Get a group</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Renamed group&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;url_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;group_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;static&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;dynamic_view_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Renamed group"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"group_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"static"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"dynamic_view_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://api.nightwatch.io/api/v1/url_groups/GROUP_ID?access_token=ACCESS_TOKEN</code></p>
@@ -379,27 +402,27 @@
 <td>The id of the group</td>
 </tr>
 </tbody></table>
-<h2 id='create-a-group'>Create a group</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
-  -X POST <span class="se">\</span>
-  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
-  -d <span class="s1">&#39;
+<h2 id='create-a-group'>Create a group</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -X POST <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\\</span>
+  -d <span class="s1">'
     {
-      &quot;url_group&quot;: {
-        &quot;name&quot;: &quot;Example group&quot;,
+      "url_group": {
+        "name": "Example group",
       }
     }
-  &#39;</span>
+  '</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example group&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;url_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;group_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;static&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;dynamic_view_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example group"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"group_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"static"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"dynamic_view_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN</code></p>
@@ -415,27 +438,27 @@
 <td>The name of the group</td>
 </tr>
 </tbody></table>
-<h2 id='update-a-group'>Update a group</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
--X PUT <span class="se">\</span>
--H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
--d <span class="s1">&#39;
+<h2 id='update-a-group'>Update a group</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+-X PUT <span class="se">\\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\\</span>
+-d <span class="s1">'
   {
-    &quot;url_group&quot;: {
-      &quot;name&quot;: &quot;Renamed group&quot;,
+    "url_group": {
+      "name": "Renamed group",
     }
   }
-&#39;</span>
+'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Renamed group&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;url_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;group_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;static&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;dynamic_view_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Renamed group"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"group_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"static"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"dynamic_view_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>PUT https://api.nightwatch.io/api/v1/url_groups/GROUP_ID?access_token=ACCESS_TOKEN</code></p>
@@ -463,7 +486,587 @@
 <td>The name of the group</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-group'>Delete a group</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
+<h2 id='delete-a-group'>Delete a group</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/url_groups/36242?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -X DELETE <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example group"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"group_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"static"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"dynamic_view_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE https://api.nightwatch.io/api/v1/url_groups/GROUP_ID?access_token=ACCESS_TOKEN</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>group_id</td>
+<td>The id of the group</td>
+</tr>
+</tbody></table>
+
+<h1 id='urls'>URLs</h1>
+<p>URLs represent a site or domain for which a set of keywords are being tracked.
+URLs can also contain backlinks, and are used to perform site audits on.
+Althought these two last functionalities have their own endpoint, but their
+specific settings are configured with the URL endpoint.</p>
+
+<aside class="notice">
+  URLs belong to a URL group, having at least one group is the prerequisite for
+  adding URLs, keywords and other resources.
+</aside>
+<h2 id='url-data'>URL data</h2>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>URL ID</td>
+</tr>
+<tr>
+<td>url_type</td>
+<td>URL engine type (deprecated)</td>
+</tr>
+<tr>
+<td>url</td>
+<td>URL</td>
+</tr>
+<tr>
+<td>last_processed_at</td>
+<td>Time when number of Google indexed pages was last retrieved</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Time when this URL was created</td>
+</tr>
+<tr>
+<td>keyword_count</td>
+<td>Number of keywords this URL has</td>
+</tr>
+<tr>
+<td>domain_authority</td>
+<td>Domain authority ranking</td>
+</tr>
+<tr>
+<td>domain_authority_change</td>
+<td>Last observed change in domain authority</td>
+</tr>
+<tr>
+<td>google_indexed</td>
+<td>Number of pages indexed by Google</td>
+</tr>
+<tr>
+<td>keyword_changes</td>
+<td>How many keywords went up (1), went down (-1), or stayed the same (0)</td>
+</tr>
+<tr>
+<td>url_group_id</td>
+<td>Group ID this URL belongs to</td>
+</tr>
+<tr>
+<td>places_info</td>
+<td>Place extended matching data</td>
+</tr>
+<tr>
+<td>places_info.place_cid</td>
+<td>Match place by CID</td>
+</tr>
+<tr>
+<td>places_info.place_title</td>
+<td>Match place by title</td>
+</tr>
+<tr>
+<td>places_info.place_description</td>
+<td>Places description, informational, no matching is performed on description</td>
+</tr>
+<tr>
+<td>url_info</td>
+<td>Places_info alias</td>
+</tr>
+<tr>
+<td>places_match</td>
+<td>Place&#39;s CID (<code>cid_&lt;CID&gt;</code> format) or, if CID is empty, place&#39;s title</td>
+</tr>
+<tr>
+<td>places_keyword</td>
+<td>(deprecated)</td>
+</tr>
+<tr>
+<td>places_image_title</td>
+<td>Title for tracking in image carousel</td>
+</tr>
+<tr>
+<td>custom_name</td>
+<td>Custom URL name</td>
+</tr>
+<tr>
+<td>youtube_video_id</td>
+<td>Youtube video ID, for Youtube video tracking purposes</td>
+</tr>
+<tr>
+<td>youtube_channel</td>
+<td>Youtube channel name, for Youtube channel tracking purposes</td>
+</tr>
+<tr>
+<td>competitors</td>
+<td>List of competitors this URL has</td>
+</tr>
+<tr>
+<td>google_indexed_change</td>
+<td>Daily change of number of pages index by Google</td>
+</tr>
+<tr>
+<td>report_count</td>
+<td>How many reports this URL has</td>
+</tr>
+<tr>
+<td>google_analytics_profile_id</td>
+<td>Google Analytics profile ID, might be empty if GA integration is not setup</td>
+</tr>
+<tr>
+<td>country_code</td>
+<td>ISO3166 alpha-2 country code</td>
+</tr>
+<tr>
+<td>language_code</td>
+<td>ISO639 language code</td>
+</tr>
+<tr>
+<td>search_console_url</td>
+<td>Google Search Console URL this URL matches with</td>
+</tr>
+<tr>
+<td>backlinks_enabled</td>
+<td>Whether backlinks are enabled for this URL</td>
+</tr>
+<tr>
+<td>backlinks_status</td>
+<td>Backlinks status data (read only)</td>
+</tr>
+<tr>
+<td>backlinks_count</td>
+<td>Total number of backlinks</td>
+</tr>
+<tr>
+<td>google_analytics_updated_at</td>
+<td>Last time GA data was updated</td>
+</tr>
+<tr>
+<td>backlinks_fetching_enabled</td>
+<td>Whether this URL has recurring backlinks fetching enabled</td>
+</tr>
+<tr>
+<td>include_local_pack_in_main_position</td>
+<td>Whether to include local pack rankings in the main one (boolean, default: true)</td>
+</tr>
+<tr>
+<td>include_places_image_in_main_position</td>
+<td>Whether to include image carousel rankings in the main one (boolean, default: true)</td>
+</tr>
+<tr>
+<td>include_featured_snippet_in_main_position</td>
+<td>Whether to include feature snippets rankings in the main one (boolean, default: true)</td>
+</tr>
+<tr>
+<td>include_knowledge_panel_in_main_position</td>
+<td>Whether to include knowledge panel rankings in the main one (boolean, default: true)</td>
+</tr>
+<tr>
+<td>crawling_session_path_ignore_pattern</td>
+<td>Ignore path patterns for site audits</td>
+</tr>
+<tr>
+<td>crawling_session_url_params_enabled</td>
+<td>Whether to include query parameters in site audits (boolean, default: true)</td>
+</tr>
+<tr>
+<td>crawling_session_follow_nofollow_links</td>
+<td>Whether to follow nofollow links in site audits (boolean, default: true)</td>
+</tr>
+<tr>
+<td>match_subdomains</td>
+<td>Whether to match subdomains (boolean, default: false)</td>
+</tr>
+<tr>
+<td>match_nested_urls</td>
+<td>Whether to match subpaths in the URL (boolean, default: true)</td>
+</tr>
+<tr>
+<td>site_audit_interval</td>
+<td>Recurring site audit intervals (in seconds, accepted valud are: 604800 (1 week) and 2592000 (30 days))</td>
+</tr>
+<tr>
+<td>backlinks_settings.ignored_domains</td>
+<td>List of domain backlinks from will be ignored</td>
+</tr>
+<tr>
+<td>backlinks_settings.min_url_rating</td>
+<td>Minimum URL rating for backlink domains</td>
+</tr>
+<tr>
+<td>next_site_audit_crawl_at</td>
+<td>Next time a recurring site audit will happen (read only)</td>
+</tr>
+<tr>
+<td>site_audit_interval</td>
+<td>Recurring site audit intervals (in seconds, accepted valud are: 604800 (1 week) and 2592000 (30 days))</td>
+</tr>
+<tr>
+<td>backlinks_settings.ignored_domains</td>
+<td>List of domain backlinks from will be ignored</td>
+</tr>
+<tr>
+<td>backlinks_settings.min_url_rating</td>
+<td>Minimum URL rating for backlink domains</td>
+</tr>
+<tr>
+<td>seo_metrics</td>
+<td>Moz, Majestic, and Ahref SEO metrics</td>
+</tr>
+<tr>
+<td>seo_metrics_changes</td>
+<td>Last observed changes for Moz, Majestic, and Ahref SEO metrics</td>
+</tr>
+<tr>
+<td>match_subdomains</td>
+<td>Whether to match URL subdomains</td>
+</tr>
+<tr>
+<td>match_nested_urls</td>
+<td>Whether to match URL subpaths</td>
+</tr>
+</tbody></table>
+
+<p><h2 id='list-urls'>List URLs</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31234</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;google&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;url_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.com&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;last_processed_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-07-21T00:00:53.892Z&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2013-10-08T17:38:43.800Z&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;keyword_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;domain_authority&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;domain_authority_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;google_indexed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;keyword_changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;-1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">&quot;url_group_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36241</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;places_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;places_match&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;places_keyword&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;places_image_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;custom_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/urls?access_token=ACCESS_TOKEN</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>group_id</td>
+<td>Only return URLs belonging to this group (optional)</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-url'>Get a URL</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/31234?access_token=ACCESS_TOKEN&#39;</span> <span class="se">&lt;/span&gt;
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31234</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;google&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;url_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.com&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;last_processed_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-07-21T00:00:53.892Z&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2013-10-08T17:38:43.800Z&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;keyword_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;domain_authority&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;domain_authority_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;google_indexed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;keyword_changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;-1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">&quot;url_group_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36241</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;places_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;places_match&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;places_keyword&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;places_image_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;custom_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/urls/URL_ID?access_token=ACCESS_TOKEN</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url_id</td>
+<td>The id of the URL to be fetched</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-url'>Create a URL</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
+  -d <span class="s1">&#39;
+    {
+      &quot;url&quot;: {
+        &quot;url&quot;: &quot;example.com&quot;,
+        &quot;custom_name&quot;: &quot;Example Site&quot;,
+        &quot;country_code&quot;: &quot;us&quot;,
+        &quot;language_code&quot;: &quot;en&quot;,
+        &quot;places_match&quot;: null,
+        &quot;match_nested_urls&quot;: false,
+        &quot;match_subdomains&quot;: false,
+        &quot;url_group_id&quot;: 1234,
+      }
+    }
+  &#39;</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31234</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;google&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;url_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.com&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;last_processed_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-07-21T00:00:53.892Z&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2013-10-08T17:38:43.800Z&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;keyword_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;domain_authority&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;domain_authority_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;google_indexed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;keyword_changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;-1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">&quot;url_group_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36241</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;places_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;places_match&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;places_keyword&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;places_image_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;custom_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://api.nightwatch.io/api/v1/urls?access_token=ACCESS_TOKEN</code></p>
+<h3 id='body-parameters'>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url*</td>
+<td>URL to track</td>
+</tr>
+<tr>
+<td>custom_name</td>
+<td>Custom URL name, used for displaying purposes</td>
+</tr>
+<tr>
+<td>country_code*</td>
+<td>ISO3166 alpha-2 coutry code</td>
+</tr>
+<tr>
+<td>language_code*</td>
+<td>ISO639-1 language code</td>
+</tr>
+<tr>
+<td>places_match</td>
+<td>Place name or CID</td>
+</tr>
+<tr>
+<td>match_nested_urls</td>
+<td>Whether to match subpaths in the URL</td>
+</tr>
+<tr>
+<td>match_subdomains</td>
+<td>Whether to match subdomains</td>
+</tr>
+<tr>
+<td>url_group_id*</td>
+<td>Group this URL will belong to</td>
+</tr>
+</tbody></table></p>
+
+<p>Parameters marked with * are mandatory.</p>
+
+<p><em>Note</em>: country and language codes are used for retrieving the number of indexed
+pages by Google, and as a default setting for keywords. However, keywords have
+their own location and language specification, and are not affected by these
+settings.</p>
+
+<p><h2 id='update-a-url'>Update a URL</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/31234?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
+-X PUT <span class="se">\</span>
+-H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
+-d <span class="s1">&#39;
+  {
+    &quot;url&quot;: {
+      &quot;url&quot;: &quot;www.example.com&quot;
+      &quot;custom_name&quot;: &quot;Example URL&quot;
+      &quot;country_code&quot;: &quot;si&quot;
+      &quot;language_code&quot;: &quot;sl&quot;
+      &quot;places_match&quot;: &quot;cid_123456789&quot;
+      &quot;match_nested_urls&quot;: true
+      &quot;match_subdomains&quot;: false
+      &quot;url_group_id&quot;: 12345
+    }
+  }
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31234</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;google&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;url_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.com&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;last_processed_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-07-21T00:00:53.892Z&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2013-10-08T17:38:43.800Z&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;keyword_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;domain_authority&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;domain_authority_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;google_indexed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;keyword_changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;-1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">&quot;url_group_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36241</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;places_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;places_match&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;places_keyword&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;places_image_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;custom_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT https://api.nightwatch.io/api/v1/urls/URL_ID?access_token=ACCESS_TOKEN</code></p>
+<h3 id='body-parameters-2'>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URL_ID</td>
+<td>URL ID</td>
+</tr>
+<tr>
+<td>url_group_id</td>
+<td>Group ID this URL belong to</td>
+</tr>
+<tr>
+<td>places_match</td>
+<td>Place name or CID</td>
+</tr>
+<tr>
+<td>custom_name</td>
+<td>Custom URL name, used for displaying purposes</td>
+</tr>
+<tr>
+<td>country_code</td>
+<td>ISO3166 alpha-2 country code</td>
+</tr>
+<tr>
+<td>language_code</td>
+<td>ISO639 language code</td>
+</tr>
+<tr>
+<td>include_local_pack_in_main_position</td>
+<td>Whether to include local pack rankings in the main one (boolean, default: true)</td>
+</tr>
+<tr>
+<td>include_places_image_in_main_position</td>
+<td>Whether to include image carousel rankings in the main one (boolean, default: true)</td>
+</tr>
+<tr>
+<td>include_featured_snippet_in_main_position</td>
+<td>Whether to include feature snippets rankings in the main one (boolean, default: true)</td>
+</tr>
+<tr>
+<td>include_knowledge_panel_in_main_position</td>
+<td>Whether to include knowledge panel rankings in the main one (boolean, default: true)</td>
+</tr>
+<tr>
+<td>crawling_session_path_ignore_pattern</td>
+<td>Ignore path patterns for site audits</td>
+</tr>
+<tr>
+<td>crawling_session_url_params_enabled</td>
+<td>Whether to include query parameters in site audits (boolean, default: true)</td>
+</tr>
+<tr>
+<td>crawling_session_follow_nofollow_links</td>
+<td>Whether to follow nofollow links in site audits (boolean, default: true)</td>
+</tr>
+<tr>
+<td>match_subdomains</td>
+<td>Whether to match subdomains (boolean, default: false)</td>
+</tr>
+<tr>
+<td>match_nested_urls</td>
+<td>Whether to match subpaths in the URL (boolean, default: true)</td>
+</tr>
+<tr>
+<td>site_audit_interval</td>
+<td>Recurring site audit intervals (in seconds, accepted valud are: 604800 (1 week) and 2592000 (30 days))</td>
+</tr>
+<tr>
+<td>backlinks_settings.ignored_domains</td>
+<td>List of domain backlinks from will be ignored</td>
+</tr>
+<tr>
+<td>backlinks_settings.min_url_rating</td>
+<td>Minimum URL rating for backlink domains</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-url'>Delete a URL</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/31234?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
   -X DELETE <span class="se">\</span>
   -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
 </code></pre>
@@ -471,15 +1074,31 @@
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36242</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example group&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;url_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;group_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;static&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;dynamic_view_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31234</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;google&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;url_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.com&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;last_processed_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-07-21T00:00:53.892Z&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2013-10-08T17:38:43.800Z&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;keyword_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;domain_authority&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;domain_authority_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;google_indexed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;keyword_changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;-1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">&quot;url_group_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36241</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;places_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;places_match&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;places_keyword&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;places_image_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;custom_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="err">...</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
-<p><code>DELETE https://api.nightwatch.io/api/v1/url_groups/GROUP_ID?access_token=ACCESS_TOKEN</code></p>
+<p><code>DELETE https://api.nightwatch.io/api/v1/urls/URL_ID?access_token=ACCESS_TOKEN</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
