@@ -29,6 +29,14 @@ curl 'https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&url_ids%
       name: "average_position",
       series:  [["2019-04-22", 100], ...]
     }, ...
+  ],
+  competitor_series: [
+    {
+      competitor_id: 123,
+      competitor_url: "example.com",
+      name: "average_position",
+      series:  [["2019-04-22", 3], ...]
+    }, ...
   ]
 ]
 ```
@@ -39,7 +47,7 @@ curl 'https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&url_ids%
 
 Parameter | Description
 --------- | -----------
-url_ids   | Array of URL ids
+url_ids*   | Array of URL ids
 with_competitors | Include competititor URL series (true or false, default: true)
 date_from* | Start date for series in YYYY-MM-DD format (e.g 2019-01-02)
 date_to*   | End date for series in YYYY-MM-DD format (e.g. 2019-04-02)
@@ -89,7 +97,12 @@ curl 'https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&keyword_
     }, ...
   ],
   competitor_series: [
-    ...
+    {
+      competitor_id: 123,
+      competitor_url: "example.com",
+      name: "position",
+      series:  [["2019-04-22", 3], ...]
+    }, ...
   ]
 ]
 ```
@@ -100,7 +113,7 @@ curl 'https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&keyword_
 
 Parameter | Description
 --------- | -----------
-keyword_ids  | Array of keyword ids
+keyword_ids*  | Array of keyword ids
 date_from* | Start date for series in YYYY-MM-DD format (e.g 2019-01-02)
 date_to*   | End date for series in YYYY-MM-DD format (e.g. 2019-04-02)
 
@@ -115,6 +128,10 @@ position_organic | Keyword's organic rank
 position_local_pack | Keyword's local pack rank
 position_places | Keywords rank in Google Places (when engine is Google Places)
 position_places_image | Keywords rank in image carousel (when engine is Google)
+clicks | Number of organic search clicks (when Search Console property is connected)
+impressions | Number of organic search impressions (when Search Console property is connected)
+search_console_position | Search Console average position (when Search Console property is connected)
+ctr | Search Console CTR (when Search Console property is connected)
 
 ## Keyword view series
 
@@ -156,6 +173,7 @@ search_visibility_index   | Search visibility index ([more info](https://docs.ni
 click_potential | Click potential ([more info](https://docs.nightwatch.io/article/51-metrics-explanation))
 keyword_distribution | Distribution of keyword positions in Top 3, Top 10, Top 100, No rank
 total_keywords | Number of keywords that fall into view's filters on specified days
+up_down | Number of keywords whose position increased and decreased
 
 ## Group series
 
@@ -197,6 +215,7 @@ search_visibility_index   | Search visibility index ([more info](https://docs.ni
 click_potential | Click potential ([more info](https://docs.nightwatch.io/article/51-metrics-explanation))
 keyword_distribution | Distribution of keyword positions in Top 3, Top 10, Top 100, No rank
 total_keywords | Number of keywords in the group on specified days
+up_down | Number of keywords whose position increased and decreased
 
 ## Backlink series (all)
 
