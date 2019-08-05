@@ -315,6 +315,14 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#data-stats" class="toc-h1 toc-link" data-title="Data Stats">Data Stats</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#keyword-stats" class="toc-h2 toc-link" data-title="Keyword Stats">Keyword Stats</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://nightwatch.io'>Sign Up for Nightwatch</a></li>
@@ -1887,6 +1895,246 @@ and calculate statistics.</p>
 <tr>
 <td>backlinks_referring_subnets</td>
 <td>Referring Subnets</td>
+</tr>
+</tbody></table>
+
+<h1 id='data-stats'>Data Stats</h1>
+
+<p>Calculates statistics for a specified URL or View in a given date range.</p>
+
+<p><h2 id='keyword-stats'>Keyword Stats</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/keyword_stats?access_token=ACCESS_TOKEN&amp;start_date=07-03-2019&amp;end_date=08-02-2019&amp;dynamic_view_id=5106&amp;url_id=80337&#39;</span> <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">&quot;average_position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">39.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;average_position_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-24.3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;search_visibility_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">3.7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;search_visibility_index_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-76.7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;click_potential&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">163.2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;click_potential_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-412.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;top3_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;top3_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;top10_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;top10_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;top100_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;top100_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;no_rank_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;no_rank_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;keywords_went_up&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;keywords_went_down&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;keywords_unchanged&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;keyword_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;url_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;average_positions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">[</span><span class="s2">&quot;2019-07-03&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">14.67</span><span class="p">],</span><span class="w">
+      </span><span class="p">[</span><span class="s2">&quot;2019-07-04&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">8.0</span><span class="p">],</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">&quot;search_visibility_series&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">[</span><span class="s2">&quot;2019-07-03&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">80.4</span><span class="p">],</span><span class="w">
+      </span><span class="p">[</span><span class="s2">&quot;2019-07-04&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">8.17</span><span class="p">],</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">&quot;click_potential_series&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">[</span><span class="s2">&quot;2019-07-03&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">575.16</span><span class="p">],</span><span class="w">
+      </span><span class="p">[</span><span class="s2">&quot;2019-07-04&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">348.37</span><span class="p">],</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">&quot;keyword_distribution_series&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">[</span><span class="w">
+        </span><span class="s2">&quot;2019-07-03&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">&quot;top_3&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">&quot;top_10&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">&quot;top_100&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">&quot;no_rank&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="p">[</span><span class="w">
+        </span><span class="s2">&quot;2019-07-04&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">&quot;top_3&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">&quot;top_10&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">&quot;top_100&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">&quot;no_rank&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">&quot;keyword_up_down_series&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">[</span><span class="w">
+        </span><span class="s2">&quot;2019-07-03&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">&quot;went_up&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">&quot;went_down&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">&quot;stagnant&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="p">[</span><span class="w">
+        </span><span class="s2">&quot;2019-07-04&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">&quot;went_up&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">&quot;went_down&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">&quot;stagnant&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">&quot;indexed_pages&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">289</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;indexed_pages_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-117</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;indexed_pages_series&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">[</span><span class="s2">&quot;2019-07-03&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">406</span><span class="p">],</span><span class="w">
+      </span><span class="p">[</span><span class="s2">&quot;2019-07-04&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">317</span><span class="p">],</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/keyword_stats?access_token=ACCESS_TOKEN</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start_date*</td>
+<td>The starting date in YYYY-MM-DD format (e.g. 2019-01-01)</td>
+</tr>
+<tr>
+<td>end_date*</td>
+<td>The ending date in YYYY-MM-DD format (e.g. 2019-01-31)</td>
+</tr>
+<tr>
+<td>url_id</td>
+<td>The URL id to calculate stats for</td>
+</tr>
+<tr>
+<td>dynamic_view_id</td>
+<td>The dynamic view id to calculate stats for</td>
+</tr>
+</tbody></table></p>
+
+<p>It&#39;s mandatory to specify either an <code>url_id</code> or <code>dynamic_view_id</code>.</p>
+
+<p>Available stats:</p>
+
+<table><thead>
+<tr>
+<th>Stat</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>average_position</td>
+<td>Latest average rank</td>
+</tr>
+<tr>
+<td>average_position_change</td>
+<td>Average rank change</td>
+</tr>
+<tr>
+<td>search_visibility_index</td>
+<td>Latest search visibility index (<a href="https://docs.nightwatch.io/article/51-metrics-explanation">more info</a>)</td>
+</tr>
+<tr>
+<td>search_visibility_index_change</td>
+<td>Search visibility index change</td>
+</tr>
+<tr>
+<td>click_potential</td>
+<td>Latest click potential (<a href="https://docs.nightwatch.io/article/51-metrics-explanation">more info</a>)</td>
+</tr>
+<tr>
+<td>click_potential_change</td>
+<td>Click potential change</td>
+</tr>
+<tr>
+<td>top3_count</td>
+<td>Latest distribution of keywords in top 3 ranks</td>
+</tr>
+<tr>
+<td>top3_change</td>
+<td>Change in distribution of keywords in top 3 ranks</td>
+</tr>
+<tr>
+<td>top10_count</td>
+<td>Latest distribution of keywords in top 10 ranks</td>
+</tr>
+<tr>
+<td>top10_change</td>
+<td>Change in distribution of keywords in top 10 ranks</td>
+</tr>
+<tr>
+<td>top100_count</td>
+<td>Latest distribution of keywords in top 100 ranks</td>
+</tr>
+<tr>
+<td>top100_change</td>
+<td>Change in distribution of keywords in top 100 ranks</td>
+</tr>
+<tr>
+<td>no_rank_count</td>
+<td>Latest distribution of keywords not ranking</td>
+</tr>
+<tr>
+<td>no_rank_change</td>
+<td>Change in distribution of keywords not ranking</td>
+</tr>
+<tr>
+<td>keywords_went_up</td>
+<td>Number of keywords that went up</td>
+</tr>
+<tr>
+<td>keywords_went_down</td>
+<td>Number of keywords that went down</td>
+</tr>
+<tr>
+<td>keywords_unchanged</td>
+<td>Number of keywords that remained unchanged</td>
+</tr>
+<tr>
+<td>keyword_count</td>
+<td>Total number of keywords</td>
+</tr>
+<tr>
+<td>url_count</td>
+<td>Total number of URLs</td>
+</tr>
+<tr>
+<td>average_positions</td>
+<td>Average position time series</td>
+</tr>
+<tr>
+<td>search_visibility_series</td>
+<td>Search visibility time series</td>
+</tr>
+<tr>
+<td>click_potential_series</td>
+<td>Click potential time series</td>
+</tr>
+<tr>
+<td>keyword_distribution_series</td>
+<td>Keyword distribution time series</td>
+</tr>
+<tr>
+<td>keyword_up_down_series</td>
+<td>Keywords up/down time series</td>
+</tr>
+<tr>
+<td>indexed_pages</td>
+<td>Latest number of pages indexed by Google</td>
+</tr>
+<tr>
+<td>indexed_pages_change</td>
+<td>The change of number of pages indexed by Google</td>
+</tr>
+<tr>
+<td>indexed_pages_series</td>
+<td>The number of pages indexed by Google time series</td>
 </tr>
 </tbody></table>
 
