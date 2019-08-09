@@ -1,0 +1,191 @@
+<h1 id='competitors'>Competitors</h1>
+<p>Competitors are additional URLs that will be tracked along with the main URL.
+They are used to track competitor sites with the same set of keywords as the
+parent URL.</p>
+
+<aside class="notice">
+  The prerequisite for adding competitors is the existence of a URL. All
+  competitors need to be referenced to a specific URL.
+</aside>
+<h2 id='competitor-data'>Competitor data</h2>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Competitor ID</td>
+</tr>
+<tr>
+<td>url</td>
+<td>URL of the competitor</td>
+</tr>
+<tr>
+<td>search_keyword_url_id</td>
+<td>URL ID this competitor belong to</td>
+</tr>
+<tr>
+<td>custom_name</td>
+<td>Competitor custom name</td>
+</tr>
+<tr>
+<td>match_subdomains</td>
+<td>Whether this competitor matches subdomains</td>
+</tr>
+<tr>
+<td>match_nested_urls</td>
+<td>Whether this competitor matches nested URL paths</td>
+</tr>
+<tr>
+<td>places_image_title</td>
+<td>Title for tracking in image carousel</td>
+</tr>
+<tr>
+<td>places_info</td>
+<td>Place extended matching data</td>
+</tr>
+<tr>
+<td>places_info.place_cid</td>
+<td>Match place by CID</td>
+</tr>
+<tr>
+<td>places_info.place_title</td>
+<td>Match place by title</td>
+</tr>
+<tr>
+<td>places_info.place_description</td>
+<td>Places description, informational, no matching is performed on description</td>
+</tr>
+<tr>
+<td>places_match</td>
+<td>Place&#39;s CID (<code>cid_&lt;CID&gt;</code> format) or, if CID is empty, place&#39;s title</td>
+</tr>
+</tbody></table>
+<h2 id='list-competitors'>List competitors</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/competitors?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> 
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"match_nested_urls"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"match_subdomains"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"places_image_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"places_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"places_match"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"custom_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Competitor"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url_id</td>
+<td>The id of the URL to fetch competitors for</td>
+</tr>
+</tbody></table>
+<h2 id='add-competitors'>Add competitors</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/competitors?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\\</span>
+  -X POST <span class="se">\\</span>
+  -d <span class="s1">'{
+        "competitor": {
+          "id": 2,
+          "url": "http://new.example.com/",
+          "match_subdomains": true,
+          "match_nested_urls": false,
+          "places_match": false,
+          "places_image_title": null,
+          "custom_name": "New Example Competitor"
+        }
+      }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://new.example.com/"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"match_nested_urls"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"match_subdomains"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_image_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_match"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"custom_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Example Competitor"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN</code></p>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url*</td>
+<td>URL to track</td>
+</tr>
+<tr>
+<td>match_subdomains</td>
+<td>Whether to match subdomains</td>
+</tr>
+<tr>
+<td>match_nested_urls</td>
+<td>Whether to match subpaths in the URL</td>
+</tr>
+<tr>
+<td>places_match</td>
+<td>Place name or CID</td>
+</tr>
+<tr>
+<td>places_image_title</td>
+<td>Title for tracking in image carousel</td>
+</tr>
+<tr>
+<td>custom_name</td>
+<td>Custom competitor name</td>
+</tr>
+</tbody></table>
+
+<p>Parameters marked with * are mandatory.</p>
+<h2 id='remove-keywords'>Remove keywords</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/competitors/COMPETITOR_ID?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -X DELETE <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\\</span>
+</code></pre>
+<blockquote>
+<p>The above command returns a HTTP 204 response.</p>
+</blockquote>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/batch_destroy?access_token=ACCESS_TOKEN</code></p>
+<h3 id='parameters-2'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url_id*</td>
+<td>URL ID the competitor belongs to</td>
+</tr>
+<tr>
+<td>competitor_id*</td>
+<td>Competitor ID to be deleted</td>
+</tr>
+</tbody></table>
+
+<p>Parameters marked with * are mandatory.</p>

@@ -323,6 +323,23 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#competitors" class="toc-h1 toc-link" data-title="Competitors">Competitors</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#competitor-data" class="toc-h2 toc-link" data-title="Competitor data">Competitor data</a>
+                  </li>
+                  <li>
+                    <a href="#list-competitors" class="toc-h2 toc-link" data-title="List competitors">List competitors</a>
+                  </li>
+                  <li>
+                    <a href="#add-competitors" class="toc-h2 toc-link" data-title="Add competitors">Add competitors</a>
+                  </li>
+                  <li>
+                    <a href="#remove-keywords" class="toc-h2 toc-link" data-title="Remove keywords">Remove keywords</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://nightwatch.io'>Sign Up for Nightwatch</a></li>
@@ -783,35 +800,35 @@ specific settings are configured with the URL endpoint.</p>
 </tr>
 </tbody></table>
 
-<p><h2 id='list-urls'>List URLs</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
-  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+<h2 id='list-urls'>List URLs</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31234</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;google&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;url_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-    </span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.com&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;last_processed_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-07-21T00:00:53.892Z&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2013-10-08T17:38:43.800Z&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;keyword_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;domain_authority&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;domain_authority_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;google_indexed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;keyword_changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;-1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">31234</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_processed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-21T00:00:53.892Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-10-08T17:38:43.800Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"domain_authority"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"domain_authority_change"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"google_indexed"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keyword_changes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"0"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"-1"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">&quot;url_group_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36241</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;places_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;places_match&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;places_keyword&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;places_image_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;custom_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36241</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_match"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_keyword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_image_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"custom_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="err">...</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="err">...</span><span class="w">
@@ -830,34 +847,34 @@ specific settings are configured with the URL endpoint.</p>
 <td>Only return URLs belonging to this group (optional)</td>
 </tr>
 </tbody></table>
-<h2 id='get-a-url'>Get a URL</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/31234?access_token=ACCESS_TOKEN&#39;</span> <span class="se">&lt;/span&gt;
-  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+<h2 id='get-a-url'>Get a URL</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/31234?access_token=ACCESS_TOKEN'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31234</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;google&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;url_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-  </span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.com&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;last_processed_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-07-21T00:00:53.892Z&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2013-10-08T17:38:43.800Z&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;keyword_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;domain_authority&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;domain_authority_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;google_indexed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;keyword_changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;-1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">31234</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_processed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-21T00:00:53.892Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-10-08T17:38:43.800Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"domain_authority"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"domain_authority_change"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"google_indexed"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"keyword_changes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"0"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"-1"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">&quot;url_group_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36241</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;places_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;places_match&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;places_keyword&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;places_image_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;custom_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36241</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"places_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"places_match"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"places_keyword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"places_image_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"custom_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="err">...</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
@@ -874,49 +891,49 @@ specific settings are configured with the URL endpoint.</p>
 <td>The id of the URL to be fetched</td>
 </tr>
 </tbody></table>
-<h2 id='create-a-url'>Create a URL</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
-  -X POST <span class="se">\</span>
-  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
-  -d <span class="s1">&#39;
+<h2 id='create-a-url'>Create a URL</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -X POST <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\\</span>
+  -d <span class="s1">'
     {
-      &quot;url&quot;: {
-        &quot;url&quot;: &quot;example.com&quot;,
-        &quot;custom_name&quot;: &quot;Example Site&quot;,
-        &quot;country_code&quot;: &quot;us&quot;,
-        &quot;language_code&quot;: &quot;en&quot;,
-        &quot;places_match&quot;: null,
-        &quot;match_nested_urls&quot;: false,
-        &quot;match_subdomains&quot;: false,
-        &quot;url_group_id&quot;: 1234,
+      "url": {
+        "url": "example.com",
+        "custom_name": "Example Site",
+        "country_code": "us",
+        "language_code": "en",
+        "places_match": null,
+        "match_nested_urls": false,
+        "match_subdomains": false,
+        "url_group_id": 1234,
       }
     }
-  &#39;</span>
+  '</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31234</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;google&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;url_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-  </span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.com&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;last_processed_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-07-21T00:00:53.892Z&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2013-10-08T17:38:43.800Z&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;keyword_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;domain_authority&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;domain_authority_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;google_indexed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;keyword_changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;-1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">31234</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_processed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-21T00:00:53.892Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-10-08T17:38:43.800Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"domain_authority"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"domain_authority_change"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"google_indexed"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"keyword_changes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"0"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"-1"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">&quot;url_group_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36241</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;places_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;places_match&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;places_keyword&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;places_image_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;custom_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36241</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"places_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"places_match"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"places_keyword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"places_image_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"custom_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="err">...</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
@@ -960,7 +977,7 @@ specific settings are configured with the URL endpoint.</p>
 <td>url_group_id*</td>
 <td>Group this URL will belong to</td>
 </tr>
-</tbody></table></p>
+</tbody></table>
 
 <p>Parameters marked with * are mandatory.</p>
 
@@ -968,21 +985,20 @@ specific settings are configured with the URL endpoint.</p>
 pages by Google, and as a default setting for keywords. However, keywords have
 their own location and language specification, and are not affected by these
 settings.</p>
-
-<p><h2 id='update-a-url'>Update a URL</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/31234?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
--X PUT <span class="se">\</span>
--H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
--d <span class="s1">&#39;
+<h2 id='update-a-url'>Update a URL</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/31234?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+-X PUT <span class="se">\\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\\</span>
+-d <span class="s1">'
   {
-    &quot;url&quot;: {
-      &quot;url&quot;: &quot;www.example.com&quot;
-      &quot;custom_name&quot;: &quot;Example URL&quot;
-      &quot;country_code&quot;: &quot;si&quot;
-      &quot;language_code&quot;: &quot;sl&quot;
-      &quot;places_match&quot;: &quot;cid_123456789&quot;
-      &quot;match_nested_urls&quot;: true
-      &quot;match_subdomains&quot;: false
-      &quot;url_group_id&quot;: 12345
+    "url": {
+      "url": "www.example.com"
+      "custom_name": "Example URL"
+      "country_code": "si"
+      "language_code": "sl"
+      "places_match": "cid_123456789"
+      "match_nested_urls": true
+      "match_subdomains": false
+      "url_group_id": 12345
     }
   }
 </span></code></pre>
@@ -991,27 +1007,27 @@ settings.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31234</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;google&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;url_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-    </span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.com&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;last_processed_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-07-21T00:00:53.892Z&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2013-10-08T17:38:43.800Z&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;keyword_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;domain_authority&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;domain_authority_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;google_indexed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;keyword_changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;-1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">31234</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_processed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-21T00:00:53.892Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-10-08T17:38:43.800Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"domain_authority"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"domain_authority_change"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"google_indexed"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keyword_changes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"0"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"-1"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">&quot;url_group_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36241</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;places_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;places_match&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;places_keyword&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;places_image_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;custom_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36241</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_match"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_keyword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_image_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"custom_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="err">...</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -1097,35 +1113,35 @@ settings.</p>
 <td>Minimum URL rating for backlink domains</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-url'>Delete a URL</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/31234?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
-  -X DELETE <span class="se">\</span>
-  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+<h2 id='delete-a-url'>Delete a URL</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/31234?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -X DELETE <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31234</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;url_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;google&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;url_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-  </span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.com&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;last_processed_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-07-21T00:00:53.892Z&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2013-10-08T17:38:43.800Z&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;keyword_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;domain_authority&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;domain_authority_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;google_indexed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;keyword_changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;-1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">31234</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_processed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-21T00:00:53.892Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-10-08T17:38:43.800Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"domain_authority"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"domain_authority_change"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"google_indexed"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"keyword_changes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"0"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"-1"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">&quot;url_group_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36241</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;places_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;places_match&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;places_keyword&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;places_image_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;custom_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36241</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"places_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"places_match"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"places_keyword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"places_image_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"custom_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="err">...</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
@@ -1141,64 +1157,62 @@ settings.</p>
 <td>group_id</td>
 <td>The id of the group</td>
 </tr>
-</tbody></table></p>
+</tbody></table>
 
 <h1 id='keywords'>Keywords</h1>
-
 <p>Keywords are queries or terms that are used to perform searches in search engines.</p>
 
 <aside class="notice">Keywords are uniquely defined with a specific combination of query, location, language, search engine, term and mobile setting.
 <br><br>
   The prerequisite for adding keywords is the existence of a URL. All keywords need to be referenced to a specific URL.
 </aside>
-
-<p><h2 id='list-keywords'>List keywords</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
-  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+<h2 id='list-keywords'>List keywords</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;last_processed_at&quot;</span><span class="p">:</span><span class="s2">&quot;2019-06-04T00:18:23.187Z&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;query&quot;</span><span class="p">:</span><span class="s2">&quot;goji berries&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="s2">&quot;2016-10-08T11:30:07.923Z&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;position&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;search_keyword_url_id&quot;</span><span class="p">:</span><span class="mi">22199</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;mobile&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;local_search&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;google_hl&quot;</span><span class="p">:</span><span class="s2">&quot;sl&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;google_gl&quot;</span><span class="p">:</span><span class="s2">&quot;si&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;last_day_change&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;last_week_change&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;last_month_change&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;uri&quot;</span><span class="p">:</span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;result_url&quot;</span><span class="p">:</span><span class="s2">&quot;https://topgojiberries.com/&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;last_position_change&quot;</span><span class="p">:[</span><span class="mi">-1</span><span class="p">,</span><span class="s2">&quot;2019-05-26T00:18:40.646Z&quot;</span><span class="p">,</span><span class="kc">true</span><span class="p">],</span><span class="w">
-      </span><span class="s2">&quot;results_count&quot;</span><span class="p">:</span><span class="mi">2770</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;adwords_local_search_volume&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;adwords_local_average_cpc&quot;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;adwords_global_search_volume&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;adwords_global_average_cpc&quot;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;position_type&quot;</span><span class="p">:</span><span class="s2">&quot;organic&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;position_organic&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;position_places&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;position_places_image&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;position_local_pack&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;position_featured_snippet&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;position_knowledge_panel&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;tags&quot;</span><span class="p">:[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;Branded&quot;</span><span class="p">,</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Branded&quot;</span><span class="p">},{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;Difficult&quot;</span><span class="p">,</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Difficult&quot;</span><span class="p">}],</span><span class="w">
-      </span><span class="s2">&quot;engine&quot;</span><span class="p">:</span><span class="s2">&quot;google&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;http://topgojiberries.com&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;previous_position&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;best_position&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;position_changed_during_last_day&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;position_changed_during_last_week&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;position_changed_during_last_month&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;historic_positions&quot;</span><span class="p">:[</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="w">
-      </span><span class="s2">&quot;last_historic_position_on&quot;</span><span class="p">:</span><span class="s2">&quot;2019-06-04&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;position_change&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;available_serp_features&quot;</span><span class="p">:{</span><span class="s2">&quot;places_image&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="s2">&quot;organic&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">&quot;local_pack&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="s2">&quot;knowledge_panel&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">&quot;featured_snippet&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">}</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_processed_at"</span><span class="p">:</span><span class="s2">"2019-06-04T00:18:23.187Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"query"</span><span class="p">:</span><span class="s2">"goji berries"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2016-10-08T11:30:07.923Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="mi">22199</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"mobile"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"local_search"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"google_hl"</span><span class="p">:</span><span class="s2">"sl"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"google_gl"</span><span class="p">:</span><span class="s2">"si"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_day_change"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_week_change"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_month_change"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"result_url"</span><span class="p">:</span><span class="s2">"https://topgojiberries.com/"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_position_change"</span><span class="p">:[</span><span class="mi">-1</span><span class="p">,</span><span class="s2">"2019-05-26T00:18:40.646Z"</span><span class="p">,</span><span class="kc">true</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"results_count"</span><span class="p">:</span><span class="mi">2770</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"adwords_local_search_volume"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"adwords_local_average_cpc"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"adwords_global_search_volume"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"adwords_global_average_cpc"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_type"</span><span class="p">:</span><span class="s2">"organic"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_organic"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_places"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_places_image"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_local_pack"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_featured_snippet"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_knowledge_panel"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tags"</span><span class="p">:[{</span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"Branded"</span><span class="p">,</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Branded"</span><span class="p">},{</span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"Difficult"</span><span class="p">,</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Difficult"</span><span class="p">}],</span><span class="w">
+      </span><span class="s2">"engine"</span><span class="p">:</span><span class="s2">"google"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"http://topgojiberries.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"previous_position"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"best_position"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_changed_during_last_day"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_changed_during_last_week"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_changed_during_last_month"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"historic_positions"</span><span class="p">:[</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"last_historic_position_on"</span><span class="p">:</span><span class="s2">"2019-06-04"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_change"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"available_serp_features"</span><span class="p">:{</span><span class="s2">"places_image"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="s2">"organic"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"local_pack"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="s2">"knowledge_panel"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"featured_snippet"</span><span class="p">:</span><span class="kc">false</span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
@@ -1247,29 +1261,29 @@ settings.</p>
 <td>Total number of keywords</td>
 </tr>
 </tbody></table>
-<h2 id='add-keywords'>Add keywords</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/batch_create?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
-  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
-  -X POST <span class="se">\</span>
-  -d <span class="s1">&#39;{&quot;keywords&quot;:&quot;keyword1\nkeyword2\nkeyword3&quot;,
-        &quot;tags&quot;:[],
-        &quot;google_gl&quot;:&quot;us&quot;,
-        &quot;google_hl&quot;:&quot;en&quot;,
-        &quot;mobile&quot;:false,
-        &quot;desktop&quot;:true,
-        &quot;search_engine&quot;:
-        &quot;google&quot;
-      }&#39;</span>
+<h2 id='add-keywords'>Add keywords</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/batch_create?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\\</span>
+  -X POST <span class="se">\\</span>
+  -d <span class="s1">'{"keywords":"keyword1\nkeyword2\nkeyword3",
+        "tags":[],
+        "google_gl":"us",
+        "google_hl":"en",
+        "mobile":false,
+        "desktop":true,
+        "search_engine":
+        "google"
+      }'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;query&quot;</span><span class="p">:</span><span class="s2">&quot;keyword1&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"query"</span><span class="p">:</span><span class="s2">"keyword1"</span><span class="p">,</span><span class="w">
       </span><span class="err">...</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;query&quot;</span><span class="p">:</span><span class="s2">&quot;keyword2&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"query"</span><span class="p">:</span><span class="s2">"keyword2"</span><span class="p">,</span><span class="w">
       </span><span class="err">...</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="err">...</span><span class="w">
@@ -1311,17 +1325,16 @@ settings.</p>
 <td>desktop</td>
 <td>Search adjusted for desktop devices (true or false, default: true)</td>
 </tr>
-</tbody></table></p>
+</tbody></table>
 
 <p>Parameters marked with * are mandatory.</p>
 
 <aside class="notice">
   Creating keywords with both mobile and desktop set to true will create 2 separate instances for every provided keyword.
 </aside>
-
-<p><h2 id='remove-keywords'>Remove keywords</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/batch_destroy?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
-  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
-  -d <span class="s1">&#39;{&quot;keyword_ids&quot;:[&quot;1&quot;,&quot;2&quot;]}&#39;</span>
+<h2 id='remove-keywords'>Remove keywords</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/batch_destroy?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\\</span>
+  -d <span class="s1">'{"keyword_ids":["1","2"]}'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns a HTTP 204 response.</p>
@@ -1339,16 +1352,15 @@ settings.</p>
 <td>keyword_ids*</td>
 <td>An array of keyword IDs for removal</td>
 </tr>
-</tbody></table></p>
+</tbody></table>
 
 <p>Parameters marked with * are mandatory.</p>
-
-<p><h2 id='update-a-keyword'>Update a keyword</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/KEYWORD_ID?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
-  -X PUT <span class="se">\</span>
-  -H <span class="s1">&#39;Content-Type: application/json; charset=UTF-8&#39;</span> <span class="se">\</span>
-  -d <span class="s1">&#39;{&quot;keyword&quot;:
-       {&quot;tags&quot;:[&quot;Branded&quot;]&quot;}
-      }&#39;</span>
+<h2 id='update-a-keyword'>Update a keyword</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/KEYWORD_ID?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -X PUT <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json; charset=UTF-8'</span> <span class="se">\\</span>
+  -d <span class="s1">'{"keyword":
+       {"tags":["Branded"]"}
+      }'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns a HTTP 204 response.</p>
@@ -1366,14 +1378,13 @@ settings.</p>
 <td>tags</td>
 <td>An array of tags</td>
 </tr>
-</tbody></table></p>
+</tbody></table>
 
 <aside class="notice">
   Currently keyword tags are the only attribute that can be updated on a keyword.
 </aside>
 
 <h1 id='data-series'>Data Series</h1>
-
 <p>Using Nightwatch API, you can retrieve data series for the following resources:</p>
 
 <ul>
@@ -1387,32 +1398,31 @@ settings.</p>
 
 <p>All series are represented by an array of date-value pairs, which you can use to visualize graphs
 and calculate statistics.</p>
-
-<p><h2 id='url-series'>URL Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&amp;url_ids%5B%5D=161490&amp;date_from=2019-04-02&amp;date_to=2019-07-01&amp;with_competitors=false&#39;</span>
+<h2 id='url-series'>URL Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&amp;url_ids%5B%5D=161490&amp;date_from=2019-04-02&amp;date_to=2019-07-01&amp;with_competitors=false'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
   </span><span class="err">url_id</span><span class="p">:</span><span class="w"> </span><span class="mi">161490</span><span class="p">,</span><span class="w">
-  </span><span class="err">url</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;example.com&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="err">url</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
   </span><span class="err">url_series</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;average_position&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">&quot;2019-04-22&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
+      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"average_position"</span><span class="p">,</span><span class="w">
+      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">"2019-04-22"</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="err">...</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="err">competitor_series</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="err">competitor_id</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-      </span><span class="err">competitor_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;example.com&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;average_position&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">&quot;2019-04-22&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
+      </span><span class="err">competitor_url</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"average_position"</span><span class="p">,</span><span class="w">
+      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">"2019-04-22"</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="err">...</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN</code></p></p>
+<p><code>GET https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN</code></p>
 
 <table><thead>
 <tr>
@@ -1525,32 +1535,31 @@ and calculate statistics.</p>
 <td> Search Console CTR (when Search Console property is connected)</td>
 </tr>
 </tbody></table>
-
-<p><h2 id='keyword-series'>Keyword series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&amp;keyword_ids%5B%5D=1212189&amp;date_from=2019-06-04&amp;date_to=2019-07-04&#39;</span>
+<h2 id='keyword-series'>Keyword series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&amp;keyword_ids%5B%5D=1212189&amp;date_from=2019-06-04&amp;date_to=2019-07-04'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
   </span><span class="err">keyword_id</span><span class="p">:</span><span class="w"> </span><span class="mi">1212189</span><span class="p">,</span><span class="w">
-  </span><span class="err">keyword</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;goji berries&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="err">keyword</span><span class="p">:</span><span class="w"> </span><span class="s2">"goji berries"</span><span class="p">,</span><span class="w">
   </span><span class="err">keyword_series</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;position&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">&quot;2019-04-22&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
+      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"position"</span><span class="p">,</span><span class="w">
+      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">"2019-04-22"</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="err">...</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="err">competitor_series</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="err">competitor_id</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-      </span><span class="err">competitor_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;example.com&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;position&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">&quot;2019-04-22&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
+      </span><span class="err">competitor_url</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"position"</span><span class="p">,</span><span class="w">
+      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">"2019-04-22"</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="err">...</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN</code></p></p>
+<p><code>GET https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN</code></p>
 
 <table><thead>
 <tr>
@@ -1619,20 +1628,19 @@ and calculate statistics.</p>
 <td> Search Console CTR (when Search Console property is connected)</td>
 </tr>
 </tbody></table>
-
-<p><h2 id='keyword-view-series'>Keyword view series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&amp;dynamic_view_ids%5B%5D=123&amp;date_from=2019-06-04&amp;date_to=2019-07-04&#39;</span>
+<h2 id='keyword-view-series'>Keyword view series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&amp;dynamic_view_ids%5B%5D=123&amp;date_from=2019-06-04&amp;date_to=2019-07-04'</span>
 </code></pre><pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
   </span><span class="err">dynamic_view_id</span><span class="p">:</span><span class="w"> </span><span class="mi">161490</span><span class="p">,</span><span class="w">
-  </span><span class="err">dynamic_view_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A view&quot;</span><span class="w">
+  </span><span class="err">dynamic_view_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"A view"</span><span class="w">
   </span><span class="err">dynamic_view_series</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;average_position&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">&quot;2019-06-04&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
+      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"average_position"</span><span class="p">,</span><span class="w">
+      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">"2019-06-04"</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="err">...</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN</code></p></p>
+<p><code>GET https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN</code></p>
 
 <table><thead>
 <tr>
@@ -1689,20 +1697,19 @@ and calculate statistics.</p>
 <td>Number of keywords whose position increased and decreased</td>
 </tr>
 </tbody></table>
-
-<p><h2 id='group-series'>Group series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&amp;url_group_ids%5B%5D=123&amp;date_from=2019-06-04&amp;date_to=2019-07-04&#39;</span>
+<h2 id='group-series'>Group series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&amp;url_group_ids%5B%5D=123&amp;date_from=2019-06-04&amp;date_to=2019-07-04'</span>
 </code></pre><pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
   </span><span class="err">url_group_id</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-  </span><span class="err">url_group_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A group&quot;</span><span class="w">
+  </span><span class="err">url_group_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"A group"</span><span class="w">
   </span><span class="err">url_group_series</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;average_position&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">&quot;2019-06-04&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
+      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"average_position"</span><span class="p">,</span><span class="w">
+      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">"2019-06-04"</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="err">...</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN</code></p></p>
+<p><code>GET https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN</code></p>
 
 <table><thead>
 <tr>
@@ -1759,22 +1766,21 @@ and calculate statistics.</p>
 <td>Number of keywords whose position increased and decreased</td>
 </tr>
 </tbody></table>
-
-<p><h2 id='backlink-series-all'>Backlink series (all)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&amp;url_id_for_all_backlinks=123&amp;date_from=2019-06-04&amp;date_to=2019-07-04&#39;</span>
+<h2 id='backlink-series-all'>Backlink series (all)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&amp;url_id_for_all_backlinks=123&amp;date_from=2019-06-04&amp;date_to=2019-07-04'</span>
 </code></pre><pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
   </span><span class="err">backlink_view_series</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;backlinks_total&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">&quot;2019-06-04&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
+      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"backlinks_total"</span><span class="p">,</span><span class="w">
+      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">"2019-06-04"</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;backlinks_referring_ips&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">&quot;2019-06-04&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
+      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"backlinks_referring_ips"</span><span class="p">,</span><span class="w">
+      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">"2019-06-04"</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="err">...</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN</code></p></p>
+<p><code>GET https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN</code></p>
 
 <table><thead>
 <tr>
@@ -1827,24 +1833,23 @@ and calculate statistics.</p>
 <td>Referring Subnets</td>
 </tr>
 </tbody></table>
-
-<p><h2 id='backlink-series-view'>Backlink series (view)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&amp;backlink_view_ids%5B%5D=123&amp;date_from=2019-04-02&amp;date_to=2019-07-01&#39;</span>
+<h2 id='backlink-series-view'>Backlink series (view)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&amp;backlink_view_ids%5B%5D=123&amp;date_from=2019-04-02&amp;date_to=2019-07-01'</span>
 </code></pre><pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
   </span><span class="err">backlink_view_id</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-  </span><span class="err">backlink_view_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DR &gt; 10&quot;</span><span class="w">
+  </span><span class="err">backlink_view_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"DR &gt; 10"</span><span class="w">
   </span><span class="err">backlink_view_series</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;backlinks_total&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">&quot;2019-06-04&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
+      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"backlinks_total"</span><span class="p">,</span><span class="w">
+      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">"2019-06-04"</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;backlinks_referring_ips&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">&quot;2019-06-04&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
+      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"backlinks_referring_ips"</span><span class="p">,</span><span class="w">
+      </span><span class="err">series</span><span class="p">:</span><span class="w">  </span><span class="p">[[</span><span class="s2">"2019-06-04"</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="err">...</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN</code></p></p>
+<p><code>GET https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN</code></p>
 
 <table><thead>
 <tr>
@@ -1899,95 +1904,93 @@ and calculate statistics.</p>
 </tbody></table>
 
 <h1 id='data-stats'>Data Stats</h1>
-
 <p>Calculates statistics for a specified URL or View in a given date range.</p>
-
-<p><h2 id='keyword-stats'>Keyword Stats</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/keyword_stats?access_token=ACCESS_TOKEN&amp;start_date=07-03-2019&amp;end_date=08-02-2019&amp;dynamic_view_id=5106&amp;url_id=80337&#39;</span> <span class="se">\</span>
-  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+<h2 id='keyword-stats'>Keyword Stats</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/keyword_stats?access_token=ACCESS_TOKEN&amp;start_date=07-03-2019&amp;end_date=08-02-2019&amp;dynamic_view_id=5106&amp;url_id=80337'</span> <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">&quot;average_position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">39.0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;average_position_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-24.3</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;search_visibility_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">3.7</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;search_visibility_index_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-76.7</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;click_potential&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">163.2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;click_potential_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-412.0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;top3_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;top3_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;top10_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;top10_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;top100_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;top100_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;no_rank_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;no_rank_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;keywords_went_up&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;keywords_went_down&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;keywords_unchanged&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;keyword_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;url_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;average_positions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">[</span><span class="s2">&quot;2019-07-03&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">14.67</span><span class="p">],</span><span class="w">
-      </span><span class="p">[</span><span class="s2">&quot;2019-07-04&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">8.0</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"average_position"</span><span class="p">:</span><span class="w"> </span><span class="mf">39.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"average_position_change"</span><span class="p">:</span><span class="w"> </span><span class="mf">-24.3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"search_visibility_index"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"search_visibility_index_change"</span><span class="p">:</span><span class="w"> </span><span class="mf">-76.7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"click_potential"</span><span class="p">:</span><span class="w"> </span><span class="mf">163.2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"click_potential_change"</span><span class="p">:</span><span class="w"> </span><span class="mf">-412.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"top3_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"top3_change"</span><span class="p">:</span><span class="w"> </span><span class="mi">-2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"top10_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"top10_change"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"top100_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"top100_change"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"no_rank_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"no_rank_change"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keywords_went_up"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keywords_went_down"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keywords_unchanged"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"average_positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">[</span><span class="s2">"2019-07-03"</span><span class="p">,</span><span class="w"> </span><span class="mf">14.67</span><span class="p">],</span><span class="w">
+      </span><span class="p">[</span><span class="s2">"2019-07-04"</span><span class="p">,</span><span class="w"> </span><span class="mf">8.0</span><span class="p">],</span><span class="w">
       </span><span class="err">...</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">&quot;search_visibility_series&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">[</span><span class="s2">&quot;2019-07-03&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">80.4</span><span class="p">],</span><span class="w">
-      </span><span class="p">[</span><span class="s2">&quot;2019-07-04&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">8.17</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"search_visibility_series"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">[</span><span class="s2">"2019-07-03"</span><span class="p">,</span><span class="w"> </span><span class="mf">80.4</span><span class="p">],</span><span class="w">
+      </span><span class="p">[</span><span class="s2">"2019-07-04"</span><span class="p">,</span><span class="w"> </span><span class="mf">8.17</span><span class="p">],</span><span class="w">
       </span><span class="err">...</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">&quot;click_potential_series&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">[</span><span class="s2">&quot;2019-07-03&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">575.16</span><span class="p">],</span><span class="w">
-      </span><span class="p">[</span><span class="s2">&quot;2019-07-04&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">348.37</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"click_potential_series"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">[</span><span class="s2">"2019-07-03"</span><span class="p">,</span><span class="w"> </span><span class="mf">575.16</span><span class="p">],</span><span class="w">
+      </span><span class="p">[</span><span class="s2">"2019-07-04"</span><span class="p">,</span><span class="w"> </span><span class="mf">348.37</span><span class="p">],</span><span class="w">
       </span><span class="err">...</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">&quot;keyword_distribution_series&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"keyword_distribution_series"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">[</span><span class="w">
-        </span><span class="s2">&quot;2019-07-03&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"2019-07-03"</span><span class="p">,</span><span class="w">
         </span><span class="p">{</span><span class="w">
-          </span><span class="s2">&quot;top_3&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">&quot;top_10&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">&quot;top_100&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">&quot;no_rank&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+          </span><span class="s2">"top_3"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"top_10"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"top_100"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"no_rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="p">[</span><span class="w">
-        </span><span class="s2">&quot;2019-07-04&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"2019-07-04"</span><span class="p">,</span><span class="w">
         </span><span class="p">{</span><span class="w">
-          </span><span class="s2">&quot;top_3&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">&quot;top_10&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">&quot;top_100&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">&quot;no_rank&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="err">...</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">&quot;keyword_up_down_series&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">[</span><span class="w">
-        </span><span class="s2">&quot;2019-07-03&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">&quot;went_up&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">&quot;went_down&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">&quot;stagnant&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="p">[</span><span class="w">
-        </span><span class="s2">&quot;2019-07-04&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">&quot;went_up&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">&quot;went_down&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">&quot;stagnant&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+          </span><span class="s2">"top_3"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"top_10"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"top_100"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"no_rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="err">...</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">&quot;indexed_pages&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">289</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;indexed_pages_change&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-117</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;indexed_pages_series&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">[</span><span class="s2">&quot;2019-07-03&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">406</span><span class="p">],</span><span class="w">
-      </span><span class="p">[</span><span class="s2">&quot;2019-07-04&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">317</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"keyword_up_down_series"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"2019-07-03"</span><span class="p">,</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"went_up"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"went_down"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"stagnant"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"2019-07-04"</span><span class="p">,</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"went_up"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"went_down"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"stagnant"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"indexed_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">289</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"indexed_pages_change"</span><span class="p">:</span><span class="w"> </span><span class="mi">-117</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"indexed_pages_series"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">[</span><span class="s2">"2019-07-03"</span><span class="p">,</span><span class="w"> </span><span class="mi">406</span><span class="p">],</span><span class="w">
+      </span><span class="p">[</span><span class="s2">"2019-07-04"</span><span class="p">,</span><span class="w"> </span><span class="mi">317</span><span class="p">],</span><span class="w">
       </span><span class="err">...</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -2016,7 +2019,7 @@ and calculate statistics.</p>
 <td>dynamic_view_id</td>
 <td>The dynamic view id to calculate stats for</td>
 </tr>
-</tbody></table></p>
+</tbody></table>
 
 <p>It&#39;s mandatory to specify either an <code>url_id</code> or <code>dynamic_view_id</code>.</p>
 
@@ -2137,6 +2140,201 @@ and calculate statistics.</p>
 <td>The number of pages indexed by Google time series</td>
 </tr>
 </tbody></table>
+
+<h1 id='competitors'>Competitors</h1>
+<p>Competitors are additional URLs that will be tracked along with the main URL.
+They are used to track competitor sites with the same set of keywords as the
+parent URL.</p>
+
+<aside class="notice">
+  The prerequisite for adding competitors is the existence of a URL. All
+  competitors need to be referenced to a specific URL.
+</aside>
+<h2 id='competitor-data'>Competitor data</h2>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Competitor ID</td>
+</tr>
+<tr>
+<td>url</td>
+<td>URL of the competitor</td>
+</tr>
+<tr>
+<td>search_keyword_url_id</td>
+<td>URL ID this competitor belong to</td>
+</tr>
+<tr>
+<td>custom_name</td>
+<td>Competitor custom name</td>
+</tr>
+<tr>
+<td>match_subdomains</td>
+<td>Whether this competitor matches subdomains</td>
+</tr>
+<tr>
+<td>match_nested_urls</td>
+<td>Whether this competitor matches nested URL paths</td>
+</tr>
+<tr>
+<td>places_image_title</td>
+<td>Title for tracking in image carousel</td>
+</tr>
+<tr>
+<td>places_info</td>
+<td>Place extended matching data</td>
+</tr>
+<tr>
+<td>places_info.place_cid</td>
+<td>Match place by CID</td>
+</tr>
+<tr>
+<td>places_info.place_title</td>
+<td>Match place by title</td>
+</tr>
+<tr>
+<td>places_info.place_description</td>
+<td>Places description, informational, no matching is performed on description</td>
+</tr>
+<tr>
+<td>places_match</td>
+<td>Place&#39;s CID (<code>cid_&lt;CID&gt;</code> format) or, if CID is empty, place&#39;s title</td>
+</tr>
+</tbody></table>
+
+<p><h2 id='list-competitors'>List competitors</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/URL_ID/competitors?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> 
+      </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.com&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;match_nested_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;match_subdomains&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;places_image_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;places_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;places_match&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;search_keyword_url_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="s2">&quot;custom_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example Competitor&quot;</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url_id</td>
+<td>The id of the URL to fetch competitors for</td>
+</tr>
+</tbody></table>
+<h2 id='add-competitors'>Add competitors</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/URL_ID/competitors?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">&#39;{
+        &quot;competitor&quot;: {
+          &quot;id&quot;: 2,
+          &quot;url&quot;: &quot;http://new.example.com/&quot;,
+          &quot;match_subdomains&quot;: true,
+          &quot;match_nested_urls&quot;: false,
+          &quot;places_match&quot;: false,
+          &quot;places_image_title&quot;: null,
+          &quot;custom_name&quot;: &quot;New Example Competitor&quot;
+        }
+      }&#39;</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://new.example.com/&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;match_nested_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;match_subdomains&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;places_image_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;places_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;places_match&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;search_keyword_url_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;custom_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;New Example Competitor&quot;</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN</code></p>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url*</td>
+<td>URL to track</td>
+</tr>
+<tr>
+<td>match_subdomains</td>
+<td>Whether to match subdomains</td>
+</tr>
+<tr>
+<td>match_nested_urls</td>
+<td>Whether to match subpaths in the URL</td>
+</tr>
+<tr>
+<td>places_match</td>
+<td>Place name or CID</td>
+</tr>
+<tr>
+<td>places_image_title</td>
+<td>Title for tracking in image carousel</td>
+</tr>
+<tr>
+<td>custom_name</td>
+<td>Custom competitor name</td>
+</tr>
+</tbody></table></p>
+
+<p>Parameters marked with * are mandatory.</p>
+
+<p><h2 id='remove-keywords'>Remove keywords</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/URL_ID/competitors/COMPETITOR_ID?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
+  -X DELETE <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>The above command returns a HTTP 204 response.</p>
+</blockquote>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/batch_destroy?access_token=ACCESS_TOKEN</code></p>
+<h3 id='parameters-2'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url_id*</td>
+<td>URL ID the competitor belongs to</td>
+</tr>
+<tr>
+<td>competitor_id*</td>
+<td>Competitor ID to be deleted</td>
+</tr>
+</tbody></table></p>
+
+<p>Parameters marked with * are mandatory.</p>
 
       </div>
       <div class="dark-box">
