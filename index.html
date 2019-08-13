@@ -336,7 +336,30 @@
                     <a href="#add-competitors" class="toc-h2 toc-link" data-title="Add competitors">Add competitors</a>
                   </li>
                   <li>
-                    <a href="#remove-keywords" class="toc-h2 toc-link" data-title="Remove keywords">Remove keywords</a>
+                    <a href="#remove-competitor" class="toc-h2 toc-link" data-title="Remove competitor">Remove competitor</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#subusers" class="toc-h1 toc-link" data-title="Subusers">Subusers</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#subusers-data" class="toc-h2 toc-link" data-title="Subusers data">Subusers data</a>
+                  </li>
+                  <li>
+                    <a href="#list-subusers" class="toc-h2 toc-link" data-title="List subusers">List subusers</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-subuser" class="toc-h2 toc-link" data-title="Get a subuser">Get a subuser</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-subuser" class="toc-h2 toc-link" data-title="Create a subuser">Create a subuser</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-subuser" class="toc-h2 toc-link" data-title="Update a subuser">Update a subuser</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-subuser" class="toc-h2 toc-link" data-title="Delete a subuser">Delete a subuser</a>
                   </li>
               </ul>
           </li>
@@ -2208,28 +2231,28 @@ parent URL.</p>
 </tr>
 </tbody></table>
 
-<p><h2 id='list-competitors'>List competitors</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/URL_ID/competitors?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
-  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+<h2 id='list-competitors'>List competitors</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/competitors?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w"> 
-      </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.com&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;match_nested_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;match_subdomains&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;places_image_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;places_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;places_match&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;search_keyword_url_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="s2">&quot;custom_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example Competitor&quot;</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"match_nested_urls"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"match_subdomains"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"places_image_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"places_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"places_match"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"custom_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Competitor"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="err">...</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN</code></p>
+<p><code>GET https://api.nightwatch.io/api/v1/urls/URL_ID/competitors?access_token=ACCESS_TOKEN</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -2242,37 +2265,37 @@ parent URL.</p>
 <td>The id of the URL to fetch competitors for</td>
 </tr>
 </tbody></table>
-<h2 id='add-competitors'>Add competitors</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/URL_ID/competitors?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
-  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
-  -X POST <span class="se">\</span>
-  -d <span class="s1">&#39;{
-        &quot;competitor&quot;: {
-          &quot;id&quot;: 2,
-          &quot;url&quot;: &quot;http://new.example.com/&quot;,
-          &quot;match_subdomains&quot;: true,
-          &quot;match_nested_urls&quot;: false,
-          &quot;places_match&quot;: false,
-          &quot;places_image_title&quot;: null,
-          &quot;custom_name&quot;: &quot;New Example Competitor&quot;
+<h2 id='add-competitors'>Add competitors</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/competitors?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\\</span>
+  -X POST <span class="se">\\</span>
+  -d <span class="s1">'{
+        "competitor": {
+          "id": 2,
+          "url": "http://new.example.com/",
+          "match_subdomains": true,
+          "match_nested_urls": false,
+          "places_match": false,
+          "places_image_title": null,
+          "custom_name": "New Example Competitor"
         }
-      }&#39;</span>
+      }'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://new.example.com/&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;match_nested_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;match_subdomains&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;places_image_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;places_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;places_match&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;search_keyword_url_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;custom_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;New Example Competitor&quot;</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://new.example.com/"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"match_nested_urls"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"match_subdomains"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_image_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_match"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"custom_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Example Competitor"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN</code></p>
+<p><code>POST https://api.nightwatch.io/api/v1/urls/URL_ID/competitors?access_token=ACCESS_TOKEN</code></p>
 <h3 id='parameters'>Parameters</h3>
 <table><thead>
 <tr>
@@ -2304,19 +2327,18 @@ parent URL.</p>
 <td>custom_name</td>
 <td>Custom competitor name</td>
 </tr>
-</tbody></table></p>
+</tbody></table>
 
 <p>Parameters marked with * are mandatory.</p>
-
-<p><h2 id='remove-keywords'>Remove keywords</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">&#39;https://api.nightwatch.io/api/v1/urls/URL_ID/competitors/COMPETITOR_ID?access_token=ACCESS_TOKEN&#39;</span> <span class="se">\</span>
-  -X DELETE <span class="se">\</span>
-  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
+<h2 id='remove-competitor'>Remove competitor</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/competitors/COMPETITOR_ID?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -X DELETE <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\\</span>
 </code></pre>
 <blockquote>
 <p>The above command returns a HTTP 204 response.</p>
 </blockquote>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/batch_destroy?access_token=ACCESS_TOKEN</code></p>
+<p><code>POST https://api.nightwatch.io/api/v1/urls/URL_ID/competitors/COMPETITOR_ID?access_token=ACCESS_TOKEN</code></p>
 <h3 id='parameters-2'>Parameters</h3>
 <table><thead>
 <tr>
@@ -2332,7 +2354,373 @@ parent URL.</p>
 <td>competitor_id*</td>
 <td>Competitor ID to be deleted</td>
 </tr>
-</tbody></table></p>
+</tbody></table>
+
+<p>Parameters marked with * are mandatory.</p>
+
+<h1 id='subusers'>Subusers</h1>
+<p>Besides the main account with which a Nightwatch account was created, accounts
+can also have a number of users that can access its data or just part of it.
+These are called subusers, and there are two kinds: <code>admin</code> and <code>limited</code>. Admin
+users can access every aspect of an account, including invoicing, billing
+settings, and subuser administration. Limited subusers can only access URL
+groups they&#39;ve been granted access to. Additionally, permissions can be granted
+to limited subusers to create new keywords and URLs.</p>
+
+<p>A third special class of subusers is <code>owner</code>, there is only one of this kind,
+and it&#39;s a read-only property, that is, another subuser cannot be made owner.
+Owner subusers are an account&#39;s registration users. Onwers cannot be deleted, to
+switch the owner of an account you need to contact support.</p>
+
+<aside class="notice">
+  Subusers password administration is not managed by this but by the `user`
+  endpoint.
+</aside>
+<h2 id='subusers-data'>Subusers data</h2>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Subuser ID</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Subuser email</td>
+</tr>
+<tr>
+<td>access_type</td>
+<td>Whether this is an &quot;admin&quot; or &quot;limited&quot; subuser</td>
+</tr>
+<tr>
+<td>owner</td>
+<td>Whether this subuser is the owner of the account</td>
+</tr>
+<tr>
+<td>adding_keywords</td>
+<td>Whether this user can create new keywords</td>
+</tr>
+<tr>
+<td>adding_urls</td>
+<td>Whether this user can create new URLs</td>
+</tr>
+<tr>
+<td>group_ids</td>
+<td>URL groups&#39; IDs this subuser has access to</td>
+</tr>
+<tr>
+<td>keyword_limit</td>
+<td>Number of keywords this subuser can create</td>
+</tr>
+<tr>
+<td>keyword_limit_enabled</td>
+<td>Whether keywords limit is enabled</td>
+</tr>
+<tr>
+<td>url_limit</td>
+<td>Number of URLs this subuser can create</td>
+</tr>
+<tr>
+<td>url_limit_enabled</td>
+<td>Whether URLs limit is enabled</td>
+</tr>
+<tr>
+<td>last_access</td>
+<td>Last time this user logged in</td>
+</tr>
+<tr>
+<td>last_login_ip</td>
+<td>Last IP address this subuser logged in from</td>
+</tr>
+<tr>
+<td>created</td>
+<td>When this user was created</td>
+</tr>
+</tbody></table>
+
+<h2 id='list-subusers'>List subusers</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/subusers?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> 
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"access_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"adding_keywords"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"adding_urls"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"about 6 years ago"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"group_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"keyword_limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"keyword_limit_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_access"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3 minutes ago"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_login_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url_limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url_limit_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/subusers/keywords?access_token=ACCESS_TOKEN</code></p>
+<h2 id='get-a-subuser'>Get a subuser</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/subusers/SUBUSER_ID?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"access_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limited"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limited@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"group_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"adding_keywords"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"adding_urls"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keyword_limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keyword_limit_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_limit_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://api.nightwatch.io/api/v1/subusers/SUBUSER_ID?access_token=ACCESS_TOKEN</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>subuser_id*</td>
+<td>Subuser ID to fetch</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-subuser'>Create a subuser</h2>
+
+<p>After creating a subuser, the system will send an email to the address provided
+with a confirmation link. This link will redirect the user to a page where they
+can set their password, and confirm the registration. Only after this process is
+completed the subuser account can be used.</p>
+
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/subusers?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\\</span>
+  -X POST <span class="se">\\</span>
+  -d <span class="s1">'{
+        "subuser": {
+          "access_type": "limited",
+          "email": "limited@example.com",
+          "group_ids": [100, 101, 102],
+          "adding_keywords": true,
+          "adding_urls": true,
+          "keyword_limit": 10,
+          "keyword_limit_enabled": true,
+          "url_limit": 10,
+          "url_limit_enabled": true,
+          "created": "less than a minute ago",
+          "last_access": null,
+          "last_login_ip": ""
+        }
+      }'</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"access_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limited"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limited@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"group_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"adding_keywords"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"adding_urls"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keyword_limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keyword_limit_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_limit_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://api.nightwatch.io/api/v1/subusers?access_token=ACCESS_TOKEN</code></p>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email*</td>
+<td>Subuser email</td>
+</tr>
+<tr>
+<td>access_type*</td>
+<td>Whether this is an &quot;admin&quot; or &quot;limited&quot; subuser</td>
+</tr>
+<tr>
+<td>adding_keywords</td>
+<td>Whether this user can create new keywords</td>
+</tr>
+<tr>
+<td>adding_urls</td>
+<td>Whether this user can create new URLs</td>
+</tr>
+<tr>
+<td>group_ids</td>
+<td>URL groups&#39; IDs this subuser has access to</td>
+</tr>
+<tr>
+<td>keyword_limit</td>
+<td>Number of keywords this subuser can create</td>
+</tr>
+<tr>
+<td>keyword_limit_enabled</td>
+<td>Whether keywords limit is enabled</td>
+</tr>
+<tr>
+<td>url_limit</td>
+<td>Number of URLs this subuser can create</td>
+</tr>
+<tr>
+<td>url_limit_enabled</td>
+<td>Whether URLs limit is enabled</td>
+</tr>
+</tbody></table>
+
+<p>Parameters marked with * are mandatory.</p>
+<h2 id='update-a-subuser'>Update a subuser</h2>
+<aside class="notice">
+  Subusers emails cannot be change.
+</aside>
+
+<aside class="notice">
+  URL groups are modified as a whole, individual groups cannot be attached or
+  removed from the access list. To grant access to an additional URL group, you
+  must first fetch the subuser access list, append the URL to it, and then save
+  the entire list.
+</aside>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/subusers/SUBUSER_ID?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\\</span>
+  -X PUT <span class="se">\\</span>
+  -d <span class="s1">'{
+        "subuser": {
+          "access_type": "limited",
+          "email": "limited@example.com",
+          "group_ids": [100, 101, 102],
+          "adding_keywords": true,
+          "adding_urls": true,
+          "keyword_limit": 10,
+          "keyword_limit_enabled": true,
+          "url_limit": 10,
+          "url_limit_enabled": true,
+          "created": "less than a minute ago",
+          "last_access": null,
+          "last_login_ip": ""
+        }
+      }'</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"access_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limited"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"group_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="mi">103</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"adding_keywords"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"adding_urls"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keyword_limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keyword_limit_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_limit_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT https://api.nightwatch.io/api/v1/subusers/SUBUSER_ID?access_token=ACCESS_TOKEN</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>subuser_id*</td>
+<td>Subuser ID to be updated</td>
+</tr>
+</tbody></table>
+
+<p>Parameters marked with * are mandatory.</p>
+<h3 id='parameters-2'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_type</td>
+<td>Whether this is an &quot;admin&quot; or &quot;limited&quot; subuser</td>
+</tr>
+<tr>
+<td>adding_keywords</td>
+<td>Whether this user can create new keywords</td>
+</tr>
+<tr>
+<td>adding_urls</td>
+<td>Whether this user can create new URLs</td>
+</tr>
+<tr>
+<td>group_ids</td>
+<td>URL groups&#39; IDs this subuser has access to</td>
+</tr>
+<tr>
+<td>keyword_limit</td>
+<td>Number of keywords this subuser can create</td>
+</tr>
+<tr>
+<td>keyword_limit_enabled</td>
+<td>Whether keywords limit is enabled</td>
+</tr>
+<tr>
+<td>url_limit</td>
+<td>Number of URLs this subuser can create</td>
+</tr>
+<tr>
+<td>url_limit_enabled</td>
+<td>Whether URLs limit is enabled</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-subuser'>Delete a subuser</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/subusers/SUBUSER_ID?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -X DELETE <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\\</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns a HTTP 204 response.</p>
+</blockquote>
+
+<h3 id='http-request-5'>HTTP Request</h3>
+
+<p><code>POST https://api.nightwatch.io/api/v1/subusers?access_token=ACCESS_TOKEN</code></p>
+
+<h3 id='parameters-3'>Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>subuser_id*</td>
+<td>Subuser ID to be deleted</td>
+</tr>
+</tbody></table>
 
 <p>Parameters marked with * are mandatory.</p>
 

@@ -84,7 +84,7 @@ parent URL.</p>
     </span><span class="err">...</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN</code></p>
+<p><code>GET https://api.nightwatch.io/api/v1/urls/URL_ID/competitors?access_token=ACCESS_TOKEN</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -127,7 +127,7 @@ parent URL.</p>
     </span><span class="s2">"custom_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Example Competitor"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN</code></p>
+<p><code>POST https://api.nightwatch.io/api/v1/urls/URL_ID/competitors?access_token=ACCESS_TOKEN</code></p>
 <h3 id='parameters'>Parameters</h3>
 <table><thead>
 <tr>
@@ -162,7 +162,7 @@ parent URL.</p>
 </tbody></table>
 
 <p>Parameters marked with * are mandatory.</p>
-<h2 id='remove-keywords'>Remove keywords</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/competitors/COMPETITOR_ID?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+<h2 id='remove-competitor'>Remove competitor</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/competitors/COMPETITOR_ID?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
   -X DELETE <span class="se">\\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\\</span>
 </code></pre>
@@ -170,7 +170,7 @@ parent URL.</p>
 <p>The above command returns a HTTP 204 response.</p>
 </blockquote>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST https://api.nightwatch.io/api/v1/urls/URL_ID/keywords/batch_destroy?access_token=ACCESS_TOKEN</code></p>
+<p><code>POST https://api.nightwatch.io/api/v1/urls/URL_ID/competitors/COMPETITOR_ID?access_token=ACCESS_TOKEN</code></p>
 <h3 id='parameters-2'>Parameters</h3>
 <table><thead>
 <tr>
