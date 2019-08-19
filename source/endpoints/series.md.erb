@@ -217,7 +217,7 @@ keyword_distribution | Distribution of keyword positions in Top 3, Top 10, Top 1
 total_keywords | Number of keywords in the group on specified days
 up_down | Number of keywords whose position increased and decreased
 
-## Backlink series (all)
+## Backlink series (for a URL)
 
 ```shell
 curl 'https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&url_id_for_all_backlinks=123&date_from=2019-06-04&date_to=2019-07-04'
@@ -260,7 +260,7 @@ backlinks_referring_ips   | Referring IPs
 backlinks_referring_domains | Referring Domains
 backlinks_referring_subnets |Referring Subnets
 
-## Backlink series (view)
+## Backlink series (for a view)
 
 ```shell
 curl 'https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&backlink_view_ids%5B%5D=123&date_from=2019-04-02&date_to=2019-07-01'
