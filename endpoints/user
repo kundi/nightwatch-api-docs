@@ -1,0 +1,210 @@
+<h1 id='user'>User</h1>
+<p>This endpoint deals with the current user data. If you want to manage users under
+your account (add, remove subusers or change their permissions),
+head over to the <a href="#subusers">subusers</a> section.</p>
+<h2 id='get-user'>Get user</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/user?access_token=ACCESS_TOKEN'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/user?access_token=ACCESS_TOKEN</code></p>
+
+<p>Available fields:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>User&#39;s internal ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>User&#39;s name</td>
+</tr>
+<tr>
+<td>report_interval</td>
+<td>Summary report interval (in seconds)</td>
+</tr>
+<tr>
+<td>report_hour</td>
+<td>Hour of the summary report</td>
+</tr>
+<tr>
+<td>payment_active</td>
+<td>Whether or not the paid subscription is active</td>
+</tr>
+<tr>
+<td>plan</td>
+<td>Info about the subscription plan</td>
+</tr>
+<tr>
+<td>account_access</td>
+<td>Info about the current user account access</td>
+</tr>
+<tr>
+<td>keyword_limit</td>
+<td>Keyword limit</td>
+</tr>
+<tr>
+<td>url_limit</td>
+<td>URL limit</td>
+</tr>
+<tr>
+<td>backlinks_limit</td>
+<td>Backlinks limit</td>
+</tr>
+<tr>
+<td>timezone</td>
+<td>User&#39;s timezone</td>
+</tr>
+<tr>
+<td>whitelabel</td>
+<td>Whether or not the account is whitelabeled</td>
+</tr>
+<tr>
+<td>agency</td>
+<td>Whether or not the account is whitelabeled</td>
+</tr>
+<tr>
+<td>invoice_email</td>
+<td>Email used on the invoice</td>
+</tr>
+<tr>
+<td>invoice_name</td>
+<td>Name used on the invoice</td>
+</tr>
+<tr>
+<td>invoice_address</td>
+<td>Address used on the invoice</td>
+</tr>
+<tr>
+<td>invoice_state</td>
+<td>State used on the invoice</td>
+</tr>
+<tr>
+<td>invoice_city</td>
+<td>City used on the invoice</td>
+</tr>
+<tr>
+<td>invoice_postcode</td>
+<td>Postcode used on the invoice</td>
+</tr>
+<tr>
+<td>invoice_country</td>
+<td>Country used on the invoice</td>
+</tr>
+<tr>
+<td>invoice_vat_number</td>
+<td>Country used on the invoice</td>
+</tr>
+<tr>
+<td>is_company</td>
+<td>Whether or not the account is a company</td>
+</tr>
+<tr>
+<td>credits</td>
+<td>How many Partner API credits the account has</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Account status (trial, expired, paying, subuser, cancelled)</td>
+</tr>
+<tr>
+<td>active_until</td>
+<td>Until when the subscription is good for (this extends on every billing cycle)</td>
+</tr>
+<tr>
+<td>next_payment_due_on</td>
+<td>Date of next billing</td>
+</tr>
+<tr>
+<td>keywords_remaining</td>
+<td>Keywords remaining until limit is reached</td>
+</tr>
+<tr>
+<td>urls_remaining</td>
+<td>URLs remaining until limit is reached</td>
+</tr>
+<tr>
+<td>keyword_count</td>
+<td>Keywords used</td>
+</tr>
+<tr>
+<td>url_count</td>
+<td>URLs used</td>
+</tr>
+<tr>
+<td>last_login_ip</td>
+<td>Last login IP</td>
+</tr>
+</tbody></table>
+<h2 id='update-user'>Update user</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/user?access_token=ACCESS_TOKEN'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PUT https://api.nightwatch.io/api/v1/user?access_token=ACCESS_TOKEN</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Name</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Email</td>
+</tr>
+<tr>
+<td>password</td>
+<td>Password</td>
+</tr>
+<tr>
+<td>timezone</td>
+<td>Timezone in <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">TZ database name format</a></td>
+</tr>
+<tr>
+<td>report_interval</td>
+<td>Summary report interval in seconds (available options: 86400, 604800, 2592000)</td>
+</tr>
+<tr>
+<td>invoice_email</td>
+<td>Email for invoices</td>
+</tr>
+<tr>
+<td>invoice_name</td>
+<td>Name on the invoice</td>
+</tr>
+<tr>
+<td>invoice_address</td>
+<td>Address on the invoice</td>
+</tr>
+<tr>
+<td>invoice_state</td>
+<td>State on the invoice</td>
+</tr>
+<tr>
+<td>invoice_city</td>
+<td>City on the invoice</td>
+</tr>
+<tr>
+<td>invoice_postcode</td>
+<td>Postcode on the invoice</td>
+</tr>
+<tr>
+<td>invoice_country</td>
+<td>Postcode on the invoice (Full name format, e.g New Zealand)</td>
+</tr>
+<tr>
+<td>invoice_vat_number</td>
+<td>Company&#39;s VAT number</td>
+</tr>
+<tr>
+<td>is_company</td>
+<td>Is the account a company (needed for VAT exempt: true/false)</td>
+</tr>
+</tbody></table>

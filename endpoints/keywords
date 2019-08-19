@@ -84,6 +84,10 @@
 <td>Amount of keywords in a page</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+  It's possible to use advanced filtering for retrieving a list of keywords. Head over to the <a href="#keyword-filtering">Views</a> section.
+</aside>
 <h3 id='response-headers'>Response headers</h3>
 <table><thead>
 <tr>

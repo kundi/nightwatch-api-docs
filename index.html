@@ -233,6 +233,17 @@
               </ul>
           </li>
           <li>
+            <a href="#user" class="toc-h1 toc-link" data-title="User">User</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-user" class="toc-h2 toc-link" data-title="Get user">Get user</a>
+                  </li>
+                  <li>
+                    <a href="#update-user" class="toc-h2 toc-link" data-title="Update user">Update user</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#groups" class="toc-h1 toc-link" data-title="Groups">Groups</a>
               <ul class="toc-list-h2">
                   <li>
@@ -293,6 +304,23 @@
               </ul>
           </li>
           <li>
+            <a href="#competitors" class="toc-h1 toc-link" data-title="Competitors">Competitors</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#competitor-data" class="toc-h2 toc-link" data-title="Competitor data">Competitor data</a>
+                  </li>
+                  <li>
+                    <a href="#list-competitors" class="toc-h2 toc-link" data-title="List competitors">List competitors</a>
+                  </li>
+                  <li>
+                    <a href="#add-competitors" class="toc-h2 toc-link" data-title="Add competitors">Add competitors</a>
+                  </li>
+                  <li>
+                    <a href="#remove-competitor" class="toc-h2 toc-link" data-title="Remove competitor">Remove competitor</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#data-series" class="toc-h1 toc-link" data-title="Data Series">Data Series</a>
               <ul class="toc-list-h2">
                   <li>
@@ -308,10 +336,10 @@
                     <a href="#group-series" class="toc-h2 toc-link" data-title="Group series">Group series</a>
                   </li>
                   <li>
-                    <a href="#backlink-series-all" class="toc-h2 toc-link" data-title="Backlink series (all)">Backlink series (all)</a>
+                    <a href="#backlink-series-for-a-url" class="toc-h2 toc-link" data-title="Backlink series (for a URL)">Backlink series (for a URL)</a>
                   </li>
                   <li>
-                    <a href="#backlink-series-view" class="toc-h2 toc-link" data-title="Backlink series (view)">Backlink series (view)</a>
+                    <a href="#backlink-series-for-a-view" class="toc-h2 toc-link" data-title="Backlink series (for a view)">Backlink series (for a view)</a>
                   </li>
               </ul>
           </li>
@@ -360,6 +388,32 @@
                   </li>
                   <li>
                     <a href="#delete-a-subuser" class="toc-h2 toc-link" data-title="Delete a subuser">Delete a subuser</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#keyword-views" class="toc-h1 toc-link" data-title="Keyword Views">Keyword Views</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#available-filters-and-conditions" class="toc-h2 toc-link" data-title="Available filters and conditions">Available filters and conditions</a>
+                  </li>
+                  <li>
+                    <a href="#keyword-filtering" class="toc-h2 toc-link" data-title="Keyword filtering">Keyword filtering</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-view" class="toc-h2 toc-link" data-title="Create a view">Create a view</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-view" class="toc-h2 toc-link" data-title="Get a view">Get a view</a>
+                  </li>
+                  <li>
+                    <a href="#get-view-39-s-filtered-keywords" class="toc-h2 toc-link" data-title="Get view's filtered keywords">Get view's filtered keywords</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-view" class="toc-h2 toc-link" data-title="Update a view">Update a view</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-view" class="toc-h2 toc-link" data-title="Delete a view">Delete a view</a>
                   </li>
               </ul>
           </li>
@@ -420,12 +474,223 @@
   This token is permanent and you only need to get it once. It is only necessary to get it again when you revoke it.
 </aside>
 
-<h1 id='groups'>Groups</h1>
+<h1 id='user'>User</h1>
 
-<p>A group is a top-level container for your URLs and global views.</p>
+<p>This endpoint deals with the current user data. If you want to manage users under
+your account (add, remove subusers or change their permissions),
+head over to the <a href="#subusers">subusers</a> section.</p>
+
+<h2 id='get-user'>Get user</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/user?access_token=ACCESS_TOKEN'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/user?access_token=ACCESS_TOKEN</code></p>
+
+<p>Available fields:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>User&#39;s internal ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>User&#39;s name</td>
+</tr>
+<tr>
+<td>report_interval</td>
+<td>Summary report interval (in seconds)</td>
+</tr>
+<tr>
+<td>report_hour</td>
+<td>Hour of the summary report</td>
+</tr>
+<tr>
+<td>payment_active</td>
+<td>Whether or not the paid subscription is active</td>
+</tr>
+<tr>
+<td>plan</td>
+<td>Info about the subscription plan</td>
+</tr>
+<tr>
+<td>account_access</td>
+<td>Info about the current user account access</td>
+</tr>
+<tr>
+<td>keyword_limit</td>
+<td>Keyword limit</td>
+</tr>
+<tr>
+<td>url_limit</td>
+<td>URL limit</td>
+</tr>
+<tr>
+<td>backlinks_limit</td>
+<td>Backlinks limit</td>
+</tr>
+<tr>
+<td>timezone</td>
+<td>User&#39;s timezone</td>
+</tr>
+<tr>
+<td>whitelabel</td>
+<td>Whether or not the account is whitelabeled</td>
+</tr>
+<tr>
+<td>agency</td>
+<td>Whether or not the account is whitelabeled</td>
+</tr>
+<tr>
+<td>invoice_email</td>
+<td>Email used on the invoice</td>
+</tr>
+<tr>
+<td>invoice_name</td>
+<td>Name used on the invoice</td>
+</tr>
+<tr>
+<td>invoice_address</td>
+<td>Address used on the invoice</td>
+</tr>
+<tr>
+<td>invoice_state</td>
+<td>State used on the invoice</td>
+</tr>
+<tr>
+<td>invoice_city</td>
+<td>City used on the invoice</td>
+</tr>
+<tr>
+<td>invoice_postcode</td>
+<td>Postcode used on the invoice</td>
+</tr>
+<tr>
+<td>invoice_country</td>
+<td>Country used on the invoice</td>
+</tr>
+<tr>
+<td>invoice_vat_number</td>
+<td>Country used on the invoice</td>
+</tr>
+<tr>
+<td>is_company</td>
+<td>Whether or not the account is a company</td>
+</tr>
+<tr>
+<td>credits</td>
+<td>How many Partner API credits the account has</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Account status (trial, expired, paying, subuser, cancelled)</td>
+</tr>
+<tr>
+<td>active_until</td>
+<td>Until when the subscription is good for (this extends on every billing cycle)</td>
+</tr>
+<tr>
+<td>next_payment_due_on</td>
+<td>Date of next billing</td>
+</tr>
+<tr>
+<td>keywords_remaining</td>
+<td>Keywords remaining until limit is reached</td>
+</tr>
+<tr>
+<td>urls_remaining</td>
+<td>URLs remaining until limit is reached</td>
+</tr>
+<tr>
+<td>keyword_count</td>
+<td>Keywords used</td>
+</tr>
+<tr>
+<td>url_count</td>
+<td>URLs used</td>
+</tr>
+<tr>
+<td>last_login_ip</td>
+<td>Last login IP</td>
+</tr>
+</tbody></table>
+<h2 id='update-user'>Update user</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/user?access_token=ACCESS_TOKEN'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PUT https://api.nightwatch.io/api/v1/user?access_token=ACCESS_TOKEN</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Name</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Email</td>
+</tr>
+<tr>
+<td>password</td>
+<td>Password</td>
+</tr>
+<tr>
+<td>timezone</td>
+<td>Timezone in <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">TZ database name format</a></td>
+</tr>
+<tr>
+<td>report_interval</td>
+<td>Summary report interval in seconds (available options: 86400, 604800, 2592000)</td>
+</tr>
+<tr>
+<td>invoice_email</td>
+<td>Email for invoices</td>
+</tr>
+<tr>
+<td>invoice_name</td>
+<td>Name on the invoice</td>
+</tr>
+<tr>
+<td>invoice_address</td>
+<td>Address on the invoice</td>
+</tr>
+<tr>
+<td>invoice_state</td>
+<td>State on the invoice</td>
+</tr>
+<tr>
+<td>invoice_city</td>
+<td>City on the invoice</td>
+</tr>
+<tr>
+<td>invoice_postcode</td>
+<td>Postcode on the invoice</td>
+</tr>
+<tr>
+<td>invoice_country</td>
+<td>Postcode on the invoice (Full name format, e.g New Zealand)</td>
+</tr>
+<tr>
+<td>invoice_vat_number</td>
+<td>Company&#39;s VAT number</td>
+</tr>
+<tr>
+<td>is_company</td>
+<td>Is the account a company (needed for VAT exempt: true/false)</td>
+</tr>
+</tbody></table>
+
+<h1 id='groups'>Groups</h1>
+<p>A group is a top-level container for your URLs and global keyword views.</p>
 
 <aside class="notice">Having at least one group is the prerequisite for adding URLs, keywords and other resources.</aside>
-
 <h2 id='list-groups'>List groups</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
   -H <span class="s1">'Content-Type: application/json'</span>
 </code></pre>
@@ -1268,6 +1533,10 @@ settings.</p>
 <td>Amount of keywords in a page</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+  It's possible to use advanced filtering for retrieving a list of keywords. Head over to the <a href="#keyword-filtering">Views</a> section.
+</aside>
 <h3 id='response-headers'>Response headers</h3>
 <table><thead>
 <tr>
@@ -1406,6 +1675,200 @@ settings.</p>
 <aside class="notice">
   Currently keyword tags are the only attribute that can be updated on a keyword.
 </aside>
+
+<h1 id='competitors'>Competitors</h1>
+<p>Competitors are additional URLs that will be tracked along with the main URL.
+They are used to track competitor sites with the same set of keywords as the
+parent URL.</p>
+
+<aside class="notice">
+  The prerequisite for adding competitors is the existence of a URL. All
+  competitors need to be referenced to a specific URL.
+</aside>
+<h2 id='competitor-data'>Competitor data</h2>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Competitor ID</td>
+</tr>
+<tr>
+<td>url</td>
+<td>URL of the competitor</td>
+</tr>
+<tr>
+<td>search_keyword_url_id</td>
+<td>URL ID this competitor belong to</td>
+</tr>
+<tr>
+<td>custom_name</td>
+<td>Competitor custom name</td>
+</tr>
+<tr>
+<td>match_subdomains</td>
+<td>Whether this competitor matches subdomains</td>
+</tr>
+<tr>
+<td>match_nested_urls</td>
+<td>Whether this competitor matches nested URL paths</td>
+</tr>
+<tr>
+<td>places_image_title</td>
+<td>Title for tracking in image carousel</td>
+</tr>
+<tr>
+<td>places_info</td>
+<td>Place extended matching data</td>
+</tr>
+<tr>
+<td>places_info.place_cid</td>
+<td>Match place by CID</td>
+</tr>
+<tr>
+<td>places_info.place_title</td>
+<td>Match place by title</td>
+</tr>
+<tr>
+<td>places_info.place_description</td>
+<td>Places description, informational, no matching is performed on description</td>
+</tr>
+<tr>
+<td>places_match</td>
+<td>Place&#39;s CID (<code>cid_&lt;CID&gt;</code> format) or, if CID is empty, place&#39;s title</td>
+</tr>
+</tbody></table>
+
+<h2 id='list-competitors'>List competitors</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/competitors?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> 
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"match_nested_urls"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"match_subdomains"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"places_image_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"places_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"places_match"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"custom_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Competitor"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/urls/URL_ID/competitors?access_token=ACCESS_TOKEN</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url_id</td>
+<td>The id of the URL to fetch competitors for</td>
+</tr>
+</tbody></table>
+<h2 id='add-competitors'>Add competitors</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/competitors?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\\</span>
+  -X POST <span class="se">\\</span>
+  -d <span class="s1">'{
+        "competitor": {
+          "id": 2,
+          "url": "http://new.example.com/",
+          "match_subdomains": true,
+          "match_nested_urls": false,
+          "places_match": false,
+          "places_image_title": null,
+          "custom_name": "New Example Competitor"
+        }
+      }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://new.example.com/"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"match_nested_urls"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"match_subdomains"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_image_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_match"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"custom_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Example Competitor"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://api.nightwatch.io/api/v1/urls/URL_ID/competitors?access_token=ACCESS_TOKEN</code></p>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url*</td>
+<td>URL to track</td>
+</tr>
+<tr>
+<td>match_subdomains</td>
+<td>Whether to match subdomains</td>
+</tr>
+<tr>
+<td>match_nested_urls</td>
+<td>Whether to match subpaths in the URL</td>
+</tr>
+<tr>
+<td>places_match</td>
+<td>Place name or CID</td>
+</tr>
+<tr>
+<td>places_image_title</td>
+<td>Title for tracking in image carousel</td>
+</tr>
+<tr>
+<td>custom_name</td>
+<td>Custom competitor name</td>
+</tr>
+</tbody></table>
+
+<p>Parameters marked with * are mandatory.</p>
+<h2 id='remove-competitor'>Remove competitor</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/competitors/COMPETITOR_ID?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+  -X DELETE <span class="se">\\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\\</span>
+</code></pre>
+<blockquote>
+<p>The above command returns a HTTP 204 response.</p>
+</blockquote>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://api.nightwatch.io/api/v1/urls/URL_ID/competitors/COMPETITOR_ID?access_token=ACCESS_TOKEN</code></p>
+<h3 id='parameters-2'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url_id*</td>
+<td>URL ID the competitor belongs to</td>
+</tr>
+<tr>
+<td>competitor_id*</td>
+<td>Competitor ID to be deleted</td>
+</tr>
+</tbody></table>
+
+<p>Parameters marked with * are mandatory.</p>
 
 <h1 id='data-series'>Data Series</h1>
 <p>Using Nightwatch API, you can retrieve data series for the following resources:</p>
@@ -1789,7 +2252,7 @@ and calculate statistics.</p>
 <td>Number of keywords whose position increased and decreased</td>
 </tr>
 </tbody></table>
-<h2 id='backlink-series-all'>Backlink series (all)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&amp;url_id_for_all_backlinks=123&amp;date_from=2019-06-04&amp;date_to=2019-07-04'</span>
+<h2 id='backlink-series-for-a-url'>Backlink series (for a URL)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&amp;url_id_for_all_backlinks=123&amp;date_from=2019-06-04&amp;date_to=2019-07-04'</span>
 </code></pre><pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
   </span><span class="err">backlink_view_series</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -1856,7 +2319,7 @@ and calculate statistics.</p>
 <td>Referring Subnets</td>
 </tr>
 </tbody></table>
-<h2 id='backlink-series-view'>Backlink series (view)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&amp;backlink_view_ids%5B%5D=123&amp;date_from=2019-04-02&amp;date_to=2019-07-01'</span>
+<h2 id='backlink-series-for-a-view'>Backlink series (for a view)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/series?access_token=ACCESS_TOKEN&amp;backlink_view_ids%5B%5D=123&amp;date_from=2019-04-02&amp;date_to=2019-07-01'</span>
 </code></pre><pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
   </span><span class="err">backlink_view_id</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
   </span><span class="err">backlink_view_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"DR &gt; 10"</span><span class="w">
@@ -2723,6 +3186,588 @@ completed the subuser account can be used.</p>
 </tbody></table>
 
 <p>Parameters marked with * are mandatory.</p>
+
+<h1 id='keyword-views'>Keyword Views</h1>
+
+<p>Keyword views are segmented keyword lists defined by a set of filters. They can match
+keywords across the whole account (global views) or they can be scoped to a single URL (URL views).</p>
+
+<aside class="notice">
+  All views need a filter definition. Individual filters can be chained by AND / OR.
+</aside>
+
+<h2 id='available-filters-and-conditions'>Available filters and conditions</h2>
+
+<table><thead>
+<tr>
+<th>Filter</th>
+<th>Data type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>query</td>
+<td>string</td>
+<td>Keyword term</td>
+</tr>
+<tr>
+<td>position_changed_at</td>
+<td>date</td>
+<td>Time of last position change</td>
+</tr>
+<tr>
+<td>location</td>
+<td>string</td>
+<td>Keyword&#39;s location</td>
+</tr>
+<tr>
+<td>language</td>
+<td>string</td>
+<td>Keyword&#39;s name</td>
+</tr>
+<tr>
+<td>position</td>
+<td>number</td>
+<td>Keyword&#39;s position</td>
+</tr>
+<tr>
+<td>position_organic</td>
+<td>number</td>
+<td>Keyword&#39;s organic position</td>
+</tr>
+<tr>
+<td>position_local_pack</td>
+<td>number</td>
+<td>Keyword&#39;s local pack position</td>
+</tr>
+<tr>
+<td>position_featured_snippet</td>
+<td>number</td>
+<td>Keyword&#39;s featured snippet position</td>
+</tr>
+<tr>
+<td>position_knowledge_panel</td>
+<td>number</td>
+<td>Keyword&#39;s knowledge panel position</td>
+</tr>
+<tr>
+<td>search_volume_global</td>
+<td>number</td>
+<td>Keyword&#39;s global SV</td>
+</tr>
+<tr>
+<td>search_volume_local</td>
+<td>number</td>
+<td>Keyword&#39;s local SV</td>
+</tr>
+<tr>
+<td>average_cpc_global</td>
+<td>number</td>
+<td>Keyword&#39;s global CPC</td>
+</tr>
+<tr>
+<td>average_cpc_local</td>
+<td>number</td>
+<td>Keyword&#39;s local CPC</td>
+</tr>
+<tr>
+<td>day_change</td>
+<td>number</td>
+<td>Position change in the last day</td>
+</tr>
+<tr>
+<td>week_change</td>
+<td>number</td>
+<td>Position change in the last week</td>
+</tr>
+<tr>
+<td>month_change</td>
+<td>number</td>
+<td>Position change in the last month</td>
+</tr>
+<tr>
+<td>keyword_created_at</td>
+<td>date</td>
+<td>Keyword&#39;s creation date</td>
+</tr>
+<tr>
+<td>keyword_tag</td>
+<td>string</td>
+<td>Keyword&#39;s tag</td>
+</tr>
+<tr>
+<td>engine</td>
+<td>string</td>
+<td>Engine (possible values: google, bing, yahoo, youtube, places)</td>
+</tr>
+<tr>
+<td>mobile</td>
+<td>boolean</td>
+<td>Whether the keyword is mobile (possible values: true, false)</td>
+</tr>
+<tr>
+<td>keyword_last_processed_at</td>
+<td>date</td>
+<td>Time of last position refresh</td>
+</tr>
+<tr>
+<td>result_url</td>
+<td>string</td>
+<td>Keyword&#39;s ranking URL in SERP</td>
+</tr>
+</tbody></table>
+
+<h3 id='string-data-type-conditions'>String data type conditions</h3>
+
+<table><thead>
+<tr>
+<th>Condition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contains</td>
+</tr>
+<tr>
+<td>starts_with</td>
+</tr>
+<tr>
+<td>ends_with</td>
+</tr>
+<tr>
+<td>equals</td>
+</tr>
+<tr>
+<td>not_contains</td>
+</tr>
+<tr>
+<td>not_starts_with</td>
+</tr>
+<tr>
+<td>not_ends_with</td>
+</tr>
+<tr>
+<td>not_equals</td>
+</tr>
+</tbody></table>
+
+<h3 id='number-and-date-data-type-conditions'>Number and date data type conditions</h3>
+
+<table><thead>
+<tr>
+<th>Condition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>less</td>
+</tr>
+<tr>
+<td>more</td>
+</tr>
+<tr>
+<td>less_or_equal</td>
+</tr>
+<tr>
+<td>more_or_equal</td>
+</tr>
+<tr>
+<td>equals</td>
+</tr>
+</tbody></table>
+
+<h3 id='presence-and-absence-conditions'>Presence and absence conditions</h3>
+
+<table><thead>
+<tr>
+<th>Condition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>present</td>
+</tr>
+<tr>
+<td>absent</td>
+</tr>
+</tbody></table>
+
+<p>These conditions only apply to the following fields: position_organic, position_local_pack, position_places_image,
+position_featured_snippet, position_knowledge_panel, search_volume_global, search_volume_local, average_cpc_global, average_cpc_local, result_url.</p>
+
+<h3 id='forming-filters'>Forming filters</h3>
+
+<p>Using the provided filters and conditions, you can freely form a filter block using the following form:</p>
+
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// A filter block to search for keywords with global SV larger than 200</span>
+<span class="p">{</span>
+  <span class="nl">field</span><span class="p">:</span><span class="s2">"search_volume_global"</span><span class="p">,</span>
+  <span class="nx">condition</span><span class="p">:</span><span class="s2">"more"</span><span class="p">,</span>
+  <span class="nx">value</span><span class="p">:</span><span class="mi">2000</span>
+<span class="p">}</span>
+
+<span class="c1">// A filter block to search for keywords that have a position (they are ranking)</span>
+<span class="p">{</span>
+  <span class="nl">field</span><span class="p">:</span><span class="s2">"position"</span><span class="p">,</span>
+  <span class="nx">condition</span><span class="p">:</span><span class="s2">"present"</span>
+<span class="p">}</span>
+
+<span class="c1">// A filter block to search for keywords with a specific tag:</span>
+<span class="p">{</span>
+  <span class="nl">field</span><span class="p">:</span><span class="s2">"keyword_tag"</span><span class="p">,</span>
+  <span class="nx">condition</span><span class="p">:</span><span class="s2">"equals"</span><span class="p">,</span>
+  <span class="nx">value</span><span class="p">:</span><span class="s2">"Branded"</span>
+<span class="p">}</span>
+</code></pre><h3 id='combining-filters'>Combining filters</h3>
+<p>To prepare filter blocks to be used in a query, they need to be put in <code>filter groups</code>.</p>
+
+<p>A filter group is a group of filters tied together with <code>OR</code> logical operator.</p>
+
+<p>Multiple filter groups are tied together with <code>AND</code> logical operator.</p>
+
+<p><code>filter groups</code> are used for advanced keyword filtering and saving views (described in the next sections).</p>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Joining filters into a group.</span>
+
+<span class="c1">// OR example:</span>
+<span class="c1">// This example reads as: "return keywords with position 1 together with keywords with position more than 50"</span>
+<span class="nx">filter_groups</span> <span class="o">=</span> <span class="p">[{</span>
+  <span class="na">filters</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">field</span><span class="p">:</span><span class="s2">"position"</span><span class="p">,</span>
+      <span class="na">condition</span><span class="p">:</span><span class="s2">"equals"</span><span class="p">,</span>
+      <span class="na">value</span><span class="p">:</span><span class="s2">"1"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="na">field</span><span class="p">:</span><span class="s2">"position"</span><span class="p">,</span>
+      <span class="na">condition</span><span class="p">:</span><span class="s2">"more"</span><span class="p">,</span>
+      <span class="na">value</span><span class="p">:</span><span class="s2">"50"</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}]</span>
+
+<span class="c1">// AND example:</span>
+<span class="c1">// This example reads as: "return keywords with position 1 that have search volume larger than 10000"</span>
+<span class="nx">filter_groups</span> <span class="o">=</span> <span class="p">[{</span>
+  <span class="na">filters</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">field</span><span class="p">:</span><span class="s2">"position"</span><span class="p">,</span>
+      <span class="na">condition</span><span class="p">:</span><span class="s2">"equals"</span><span class="p">,</span>
+      <span class="na">value</span><span class="p">:</span><span class="s2">"1"</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">},</span> <span class="p">{</span>
+  <span class="na">filters</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">field</span><span class="p">:</span><span class="s2">"search_volume_local"</span><span class="p">,</span>
+      <span class="na">condition</span><span class="p">:</span><span class="s2">"more"</span><span class="p">,</span>
+      <span class="na">value</span><span class="p">:</span><span class="mi">10000</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}]</span>
+</code></pre><h2 id='keyword-filtering'>Keyword filtering</h2>
+<p>While views are intended for saving a particular filter set and then being used as saved keyword segments, it&#39;s also
+possible to use them to filter keywords on the fly.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN \
+  filter_groups=[{"filters":[{"field":"position","condition":"equals","value":"1"}]}]
+</span></code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_processed_at"</span><span class="p">:</span><span class="s2">"2019-06-04T00:18:23.187Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"query"</span><span class="p">:</span><span class="s2">"goji berries"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2016-10-08T11:30:07.923Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="mi">22199</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/urls/URL_ID/keywords</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>filter_groups</td>
+<td>Filter configuration</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>The direction to sort by. <br><br>Possible values: asc, desc</td>
+</tr>
+<tr>
+<td>search</td>
+<td>A general search string to filter by keywords&#39; term, tags, result URL and location</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Page number (pagination)</td>
+</tr>
+<tr>
+<td>group_id</td>
+<td>Group ID</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>When group ID is not provided, this value has to be &quot;account&quot;</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Amount of keywords in a page</td>
+</tr>
+</tbody></table>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/dynamic_views?access_token=ACCESS_TOKEN&amp;group_id=123
+</span></code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">5878</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Branded"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="mi">22199</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"report_count"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/dynamic_views?access_token=ACCESS_TOKEN</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>group_id</td>
+<td>Views belonging to a specific group</td>
+</tr>
+<tr>
+<td>search_keyword_url_id</td>
+<td>Views belonging to a specific url</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>at least one of the group_id or search_keyword_url_id parameters must be present</li>
+</ul>
+<h2 id='create-a-view'>Create a view</h2>
+<p>A view is set up in two phases. First we create the view, and then we create the filters.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/dynamic_views?access_token=access_token  \
+  -H '</span>Accept: application/json<span class="s1">' \
+  -X POST \
+  -d '</span><span class="o">{</span><span class="s2">"dynamic_view"</span>:<span class="o">{</span><span class="s2">"name"</span>:<span class="s2">"Example view"</span>,<span class="s2">"url_group_id"</span>:<span class="s2">"26738"</span><span class="o">}}</span><span class="s1">'
+</span></code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">58375</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Example view"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="mi">26738</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="mi">397</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"report_count"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://api.nightwatch.io/api/v1/dynamic_views</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>View&#39;s name</td>
+</tr>
+<tr>
+<td>group_id</td>
+<td>View belonging to a specific group</td>
+</tr>
+<tr>
+<td>search_keyword_url_id</td>
+<td>View belonging to a specific url</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>at least one of the group_id or search_keyword_url_id parameters must be present</li>
+</ul>
+
+<aside class="notice">
+  A view referenced to a group is not tied to the group's scope, it's just an organizational container
+  for a view. When a view is referenced to a URL (search_keyword_url_id), it is scoped to that URL's
+  keywords. A view can belong to either a group or URL, never both.
+</aside>
+
+<p>Next, after a view has been created, we need to create create its filter groups:</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/dynamic_views/VIEW_ID/filter_groups?access_token=ACCESS_TOKEN \
+    -H '</span>Content-Type: application/json<span class="s1">' \
+    -X POST \
+    -d '</span><span class="o">{</span><span class="s2">"filter_group"</span>:<span class="o">{</span><span class="s2">"filters"</span>:[<span class="o">{</span><span class="s2">"field"</span>:<span class="s2">"query"</span>,<span class="s2">"condition"</span>:<span class="s2">"contains"</span>,<span class="s2">"value"</span>:<span class="s2">"example"</span><span class="o">}]}}</span><span class="s1">'
+</span></code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="mi">60091</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"dynamic_view_id"</span><span class="p">:</span><span class="mi">58375</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"filters"</span><span class="p">:[{</span><span class="s2">"id"</span><span class="p">:</span><span class="mi">64359</span><span class="p">,</span><span class="s2">"field"</span><span class="p">:</span><span class="s2">"query"</span><span class="p">,</span><span class="s2">"condition"</span><span class="p">:</span><span class="s2">"contains"</span><span class="p">,</span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"example"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST https://api.nightwatch.io/api/v1/dynamic_views/VIEW_ID/filter_groups</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>filters</td>
+<td>Array of filter groups</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>If you have multiple filter groups (AND filters chaining), you have to make multiple <code>filter_groups</code> <code>POST</code> requests.</li>
+</ul>
+<h2 id='get-a-view'>Get a view</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/dynamic_views/VIEW_ID?access_token=ACCESS_TOKEN
+</span></code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">58375</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Example view"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="mi">26738</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="mi">397</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"report_count"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/dynamic_views/VIEW_ID</code></p>
+<h2 id='get-view-39-s-filtered-keywords'>Get view&#39;s filtered keywords</h2>
+<p>Once the view is persisted and its filters configured, we can use it to get its filtered
+keywords.</p>
+<pre class="highlight shell tab-shell"><code>  curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN&amp;dynamic_view_id=VIEW_ID'</span>
+</code></pre><h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/urls/URL_ID/keywords</code></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>dynamic_view_id*</td>
+<td>View&#39;s ID</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>The name of the field to sort by. <br><br>Possible values: id, query, google_gl, google_hl, last_processed_at, created_at, updated_at, position, position_type, position_organic, position_places, position_places_image, position_changed_by, position_changed_status, position_changed_at, position_local_pack, position_featured_snippet, position_knowledge_panel, local_search, position_changed_during_last_day, position_changed_during_last_week, position_changed_during_last_month, mobile, engine, previous_position, best_position, available_serp_features, adwords_global_search_volume, adwords_global_average_cpc, adwords_local_search_volume, adwords_local_average_cpc</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>The direction to sort by. <br><br>Possible values: asc, desc</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Page number (pagination)</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>When group ID is not provided, this value has to be &quot;account&quot;</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Amount of keywords in a page</td>
+</tr>
+</tbody></table>
+
+<p>Parameters marked with * are mandatory.</p>
+<h2 id='update-a-view'>Update a view</h2>
+<p>You can update the view&#39;s name.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/dynamic_views/59203?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+     -X PUT <span class="se">\\</span>
+     -H <span class="s1">'Content-Type: application/json; charset=UTF-8'</span> <span class="se">\\</span>
+     --data-binary <span class="s1">'{"dynamic_view":{"name":"Top 3 keywords"}}'</span>
+</code></pre><h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/dynamic_views/VIEW_ID</code></p>
+<h3 id='url-parameters-6'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name*</td>
+<td>View&#39;s name</td>
+</tr>
+</tbody></table>
+
+<p>Parameters marked with * are mandatory.</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">58375</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Example view"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="mi">26738</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="mi">397</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"report_count"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='delete-a-view'>Delete a view</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/dynamic_views/59203?access_token=ACCESS_TOKEN \
+      -X DELETE
+</span></code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">58375</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Example view"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="mi">26738</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="mi">397</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"report_count"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-8'>HTTP Request</h3>
+<p><code>DELETE https://api.nightwatch.io/api/v1/dynamic_views/VIEW_ID</code></p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">58375</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Example view"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="mi">26738</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="mi">397</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"report_count"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
 
       </div>
       <div class="dark-box">

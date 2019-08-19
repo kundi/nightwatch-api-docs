@@ -1,0 +1,557 @@
+<h1 id='keyword-views'>Keyword Views</h1>
+<p>Keyword views are segmented keyword lists defined by a set of filters. They can match
+keywords across the whole account (global views) or they can be scoped to a single URL (URL views).</p>
+
+<aside class="notice">
+  All views need a filter definition. Individual filters can be chained by AND / OR.
+</aside>
+<h2 id='available-filters-and-conditions'>Available filters and conditions</h2>
+<table><thead>
+<tr>
+<th>Filter</th>
+<th>Data type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>query</td>
+<td>string</td>
+<td>Keyword term</td>
+</tr>
+<tr>
+<td>position_changed_at</td>
+<td>date</td>
+<td>Time of last position change</td>
+</tr>
+<tr>
+<td>location</td>
+<td>string</td>
+<td>Keyword&#39;s location</td>
+</tr>
+<tr>
+<td>language</td>
+<td>string</td>
+<td>Keyword&#39;s name</td>
+</tr>
+<tr>
+<td>position</td>
+<td>number</td>
+<td>Keyword&#39;s position</td>
+</tr>
+<tr>
+<td>position_organic</td>
+<td>number</td>
+<td>Keyword&#39;s organic position</td>
+</tr>
+<tr>
+<td>position_local_pack</td>
+<td>number</td>
+<td>Keyword&#39;s local pack position</td>
+</tr>
+<tr>
+<td>position_featured_snippet</td>
+<td>number</td>
+<td>Keyword&#39;s featured snippet position</td>
+</tr>
+<tr>
+<td>position_knowledge_panel</td>
+<td>number</td>
+<td>Keyword&#39;s knowledge panel position</td>
+</tr>
+<tr>
+<td>search_volume_global</td>
+<td>number</td>
+<td>Keyword&#39;s global SV</td>
+</tr>
+<tr>
+<td>search_volume_local</td>
+<td>number</td>
+<td>Keyword&#39;s local SV</td>
+</tr>
+<tr>
+<td>average_cpc_global</td>
+<td>number</td>
+<td>Keyword&#39;s global CPC</td>
+</tr>
+<tr>
+<td>average_cpc_local</td>
+<td>number</td>
+<td>Keyword&#39;s local CPC</td>
+</tr>
+<tr>
+<td>day_change</td>
+<td>number</td>
+<td>Position change in the last day</td>
+</tr>
+<tr>
+<td>week_change</td>
+<td>number</td>
+<td>Position change in the last week</td>
+</tr>
+<tr>
+<td>month_change</td>
+<td>number</td>
+<td>Position change in the last month</td>
+</tr>
+<tr>
+<td>keyword_created_at</td>
+<td>date</td>
+<td>Keyword&#39;s creation date</td>
+</tr>
+<tr>
+<td>keyword_tag</td>
+<td>string</td>
+<td>Keyword&#39;s tag</td>
+</tr>
+<tr>
+<td>engine</td>
+<td>string</td>
+<td>Engine (possible values: google, bing, yahoo, youtube, places)</td>
+</tr>
+<tr>
+<td>mobile</td>
+<td>boolean</td>
+<td>Whether the keyword is mobile (possible values: true, false)</td>
+</tr>
+<tr>
+<td>keyword_last_processed_at</td>
+<td>date</td>
+<td>Time of last position refresh</td>
+</tr>
+<tr>
+<td>result_url</td>
+<td>string</td>
+<td>Keyword&#39;s ranking URL in SERP</td>
+</tr>
+</tbody></table>
+<h3 id='string-data-type-conditions'>String data type conditions</h3>
+<table><thead>
+<tr>
+<th>Condition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contains</td>
+</tr>
+<tr>
+<td>starts_with</td>
+</tr>
+<tr>
+<td>ends_with</td>
+</tr>
+<tr>
+<td>equals</td>
+</tr>
+<tr>
+<td>not_contains</td>
+</tr>
+<tr>
+<td>not_starts_with</td>
+</tr>
+<tr>
+<td>not_ends_with</td>
+</tr>
+<tr>
+<td>not_equals</td>
+</tr>
+</tbody></table>
+<h3 id='number-and-date-data-type-conditions'>Number and date data type conditions</h3>
+<table><thead>
+<tr>
+<th>Condition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>less</td>
+</tr>
+<tr>
+<td>more</td>
+</tr>
+<tr>
+<td>less_or_equal</td>
+</tr>
+<tr>
+<td>more_or_equal</td>
+</tr>
+<tr>
+<td>equals</td>
+</tr>
+</tbody></table>
+<h3 id='presence-and-absence-conditions'>Presence and absence conditions</h3>
+<table><thead>
+<tr>
+<th>Condition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>present</td>
+</tr>
+<tr>
+<td>absent</td>
+</tr>
+</tbody></table>
+
+<p>These conditions only apply to the following fields: position_organic, position_local_pack, position_places_image,
+position_featured_snippet, position_knowledge_panel, search_volume_global, search_volume_local, average_cpc_global, average_cpc_local, result_url.</p>
+<h3 id='forming-filters'>Forming filters</h3>
+<p>Using the provided filters and conditions, you can freely form a filter block using the following form:</p>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// A filter block to search for keywords with global SV larger than 200</span>
+<span class="p">{</span>
+  <span class="nl">field</span><span class="p">:</span><span class="s2">"search_volume_global"</span><span class="p">,</span>
+  <span class="nx">condition</span><span class="p">:</span><span class="s2">"more"</span><span class="p">,</span>
+  <span class="nx">value</span><span class="p">:</span><span class="mi">2000</span>
+<span class="p">}</span>
+
+<span class="c1">// A filter block to search for keywords that have a position (they are ranking)</span>
+<span class="p">{</span>
+  <span class="nl">field</span><span class="p">:</span><span class="s2">"position"</span><span class="p">,</span>
+  <span class="nx">condition</span><span class="p">:</span><span class="s2">"present"</span>
+<span class="p">}</span>
+
+<span class="c1">// A filter block to search for keywords with a specific tag:</span>
+<span class="p">{</span>
+  <span class="nl">field</span><span class="p">:</span><span class="s2">"keyword_tag"</span><span class="p">,</span>
+  <span class="nx">condition</span><span class="p">:</span><span class="s2">"equals"</span><span class="p">,</span>
+  <span class="nx">value</span><span class="p">:</span><span class="s2">"Branded"</span>
+<span class="p">}</span>
+</code></pre><h3 id='combining-filters'>Combining filters</h3>
+<p>To prepare filter blocks to be used in a query, they need to be put in <code>filter groups</code>.</p>
+
+<p>A filter group is a group of filters tied together with <code>OR</code> logical operator.</p>
+
+<p>Multiple filter groups are tied together with <code>AND</code> logical operator.</p>
+
+<p><code>filter groups</code> are used for advanced keyword filtering and saving views (described in the next sections).</p>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Joining filters into a group.</span>
+
+<span class="c1">// OR example:</span>
+<span class="c1">// This example reads as: "return keywords with position 1 together with keywords with position more than 50"</span>
+<span class="nx">filter_groups</span> <span class="o">=</span> <span class="p">[{</span>
+  <span class="na">filters</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">field</span><span class="p">:</span><span class="s2">"position"</span><span class="p">,</span>
+      <span class="na">condition</span><span class="p">:</span><span class="s2">"equals"</span><span class="p">,</span>
+      <span class="na">value</span><span class="p">:</span><span class="s2">"1"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="na">field</span><span class="p">:</span><span class="s2">"position"</span><span class="p">,</span>
+      <span class="na">condition</span><span class="p">:</span><span class="s2">"more"</span><span class="p">,</span>
+      <span class="na">value</span><span class="p">:</span><span class="s2">"50"</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}]</span>
+
+<span class="c1">// AND example:</span>
+<span class="c1">// This example reads as: "return keywords with position 1 that have search volume larger than 10000"</span>
+<span class="nx">filter_groups</span> <span class="o">=</span> <span class="p">[{</span>
+  <span class="na">filters</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">field</span><span class="p">:</span><span class="s2">"position"</span><span class="p">,</span>
+      <span class="na">condition</span><span class="p">:</span><span class="s2">"equals"</span><span class="p">,</span>
+      <span class="na">value</span><span class="p">:</span><span class="s2">"1"</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">},</span> <span class="p">{</span>
+  <span class="na">filters</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">field</span><span class="p">:</span><span class="s2">"search_volume_local"</span><span class="p">,</span>
+      <span class="na">condition</span><span class="p">:</span><span class="s2">"more"</span><span class="p">,</span>
+      <span class="na">value</span><span class="p">:</span><span class="mi">10000</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}]</span>
+</code></pre><h2 id='keyword-filtering'>Keyword filtering</h2>
+<p>While views are intended for saving a particular filter set and then being used as saved keyword segments, it&#39;s also
+possible to use them to filter keywords on the fly.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN \
+  filter_groups=[{"filters":[{"field":"position","condition":"equals","value":"1"}]}]
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_processed_at"</span><span class="p">:</span><span class="s2">"2019-06-04T00:18:23.187Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"query"</span><span class="p">:</span><span class="s2">"goji berries"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2016-10-08T11:30:07.923Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="mi">22199</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/urls/URL_ID/keywords</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>filter_groups</td>
+<td>Filter configuration</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>The direction to sort by. <br><br>Possible values: asc, desc</td>
+</tr>
+<tr>
+<td>search</td>
+<td>A general search string to filter by keywords&#39; term, tags, result URL and location</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Page number (pagination)</td>
+</tr>
+<tr>
+<td>group_id</td>
+<td>Group ID</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>When group ID is not provided, this value has to be &quot;account&quot;</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Amount of keywords in a page</td>
+</tr>
+</tbody></table>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/dynamic_views?access_token=ACCESS_TOKEN&amp;group_id=123
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">5878</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Branded"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="mi">22199</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"report_count"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/dynamic_views?access_token=ACCESS_TOKEN</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>group_id</td>
+<td>Views belonging to a specific group</td>
+</tr>
+<tr>
+<td>search_keyword_url_id</td>
+<td>Views belonging to a specific url</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>at least one of the group_id or search_keyword_url_id parameters must be present</li>
+</ul>
+<h2 id='create-a-view'>Create a view</h2>
+<p>A view is set up in two phases. First we create the view, and then we create the filters.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/dynamic_views?access_token=access_token  \
+  -H '</span>Accept: application/json<span class="s1">' \
+  -X POST \
+  -d '</span><span class="o">{</span><span class="s2">"dynamic_view"</span>:<span class="o">{</span><span class="s2">"name"</span>:<span class="s2">"Example view"</span>,<span class="s2">"url_group_id"</span>:<span class="s2">"26738"</span><span class="o">}}</span><span class="s1">'
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">58375</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Example view"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="mi">26738</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="mi">397</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"report_count"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://api.nightwatch.io/api/v1/dynamic_views</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>View&#39;s name</td>
+</tr>
+<tr>
+<td>group_id</td>
+<td>View belonging to a specific group</td>
+</tr>
+<tr>
+<td>search_keyword_url_id</td>
+<td>View belonging to a specific url</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>at least one of the group_id or search_keyword_url_id parameters must be present</li>
+</ul>
+
+<aside class="notice">
+  A view referenced to a group is not tied to the group's scope, it's just an organizational container
+  for a view. When a view is referenced to a URL (search_keyword_url_id), it is scoped to that URL's
+  keywords. A view can belong to either a group or URL, never both.
+</aside>
+
+<p>Next, after a view has been created, we need to create create its filter groups:</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/dynamic_views/VIEW_ID/filter_groups?access_token=ACCESS_TOKEN \
+    -H '</span>Content-Type: application/json<span class="s1">' \
+    -X POST \
+    -d '</span><span class="o">{</span><span class="s2">"filter_group"</span>:<span class="o">{</span><span class="s2">"filters"</span>:[<span class="o">{</span><span class="s2">"field"</span>:<span class="s2">"query"</span>,<span class="s2">"condition"</span>:<span class="s2">"contains"</span>,<span class="s2">"value"</span>:<span class="s2">"example"</span><span class="o">}]}}</span><span class="s1">'
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="mi">60091</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"dynamic_view_id"</span><span class="p">:</span><span class="mi">58375</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"filters"</span><span class="p">:[{</span><span class="s2">"id"</span><span class="p">:</span><span class="mi">64359</span><span class="p">,</span><span class="s2">"field"</span><span class="p">:</span><span class="s2">"query"</span><span class="p">,</span><span class="s2">"condition"</span><span class="p">:</span><span class="s2">"contains"</span><span class="p">,</span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"example"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST https://api.nightwatch.io/api/v1/dynamic_views/VIEW_ID/filter_groups</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>filters</td>
+<td>Array of filter groups</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>If you have multiple filter groups (AND filters chaining), you have to make multiple <code>filter_groups</code> <code>POST</code> requests.</li>
+</ul>
+<h2 id='get-a-view'>Get a view</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/dynamic_views/VIEW_ID?access_token=ACCESS_TOKEN
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">58375</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Example view"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="mi">26738</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="mi">397</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"report_count"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/dynamic_views/VIEW_ID</code></p>
+<h2 id='get-view-39-s-filtered-keywords'>Get view&#39;s filtered keywords</h2>
+<p>Once the view is persisted and its filters configured, we can use it to get its filtered
+keywords.</p>
+<pre class="highlight shell tab-shell"><code>  curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN&amp;dynamic_view_id=VIEW_ID'</span>
+</code></pre><h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/urls/URL_ID/keywords</code></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>dynamic_view_id*</td>
+<td>View&#39;s ID</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>The name of the field to sort by. <br><br>Possible values: id, query, google_gl, google_hl, last_processed_at, created_at, updated_at, position, position_type, position_organic, position_places, position_places_image, position_changed_by, position_changed_status, position_changed_at, position_local_pack, position_featured_snippet, position_knowledge_panel, local_search, position_changed_during_last_day, position_changed_during_last_week, position_changed_during_last_month, mobile, engine, previous_position, best_position, available_serp_features, adwords_global_search_volume, adwords_global_average_cpc, adwords_local_search_volume, adwords_local_average_cpc</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>The direction to sort by. <br><br>Possible values: asc, desc</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Page number (pagination)</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>When group ID is not provided, this value has to be &quot;account&quot;</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Amount of keywords in a page</td>
+</tr>
+</tbody></table>
+
+<p>Parameters marked with * are mandatory.</p>
+<h2 id='update-a-view'>Update a view</h2>
+<p>You can update the view&#39;s name.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/dynamic_views/59203?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
+     -X PUT <span class="se">\\</span>
+     -H <span class="s1">'Content-Type: application/json; charset=UTF-8'</span> <span class="se">\\</span>
+     --data-binary <span class="s1">'{"dynamic_view":{"name":"Top 3 keywords"}}'</span>
+</code></pre><h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/dynamic_views/VIEW_ID</code></p>
+<h3 id='url-parameters-6'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name*</td>
+<td>View&#39;s name</td>
+</tr>
+</tbody></table>
+
+<p>Parameters marked with * are mandatory.</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">58375</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Example view"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="mi">26738</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="mi">397</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"report_count"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='delete-a-view'>Delete a view</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/dynamic_views/59203?access_token=ACCESS_TOKEN \
+      -X DELETE
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">58375</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Example view"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="mi">26738</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="mi">397</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"report_count"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-8'>HTTP Request</h3>
+<p><code>DELETE https://api.nightwatch.io/api/v1/dynamic_views/VIEW_ID</code></p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">58375</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Example view"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"search_keyword_url_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="mi">26738</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="mi">397</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"report_count"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>

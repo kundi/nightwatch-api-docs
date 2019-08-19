@@ -1,5 +1,5 @@
 <h1 id='groups'>Groups</h1>
-<p>A group is a top-level container for your URLs and global views.</p>
+<p>A group is a top-level container for your URLs and global keyword views.</p>
 
 <aside class="notice">Having at least one group is the prerequisite for adding URLs, keywords and other resources.</aside>
 <h2 id='list-groups'>List groups</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/url_groups?access_token=ACCESS_TOKEN'</span> <span class="se">\\</span>
