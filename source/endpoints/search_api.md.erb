@@ -1,0 +1,285 @@
+# Search API
+
+The Search API is a feature in Nightwatch where you submit a search engine query to Nightwatch,
+then Nightwatch performs a search engine query, gets the SERP, extracts data and enables you to
+download it.
+
+This feature is useful for scraping Google via Nightwatch's system and getting SERP data for
+specified queries.
+
+<aside class="notice">
+  This is a Nightwatch feature that is available only to accounts that have it enabled.
+  If you want to enable it on your account, contact support at <a href="mailto:info@nightwatch.io">info@nightwatch.io</a>.
+</aside>
+
+The Search API is used to perform on demand search requests using your allocated account credits.
+Credits can be bought via an external form. Please contact [support](mailto:info@nightwatch.io) if you want to buy more.
+To check how many credits you have, check the <a href="#user">user</a> endpoint.
+
+Every search request costs a certain amount of credits, depending on the request type.
+You can learn more about it in our [docs](https://docs.nightwatch.io/article/91-nightwatch-api) - check the
+section under "Partner API" (this is a legacy name for Search API).
+
+The searches are always performed asynchronously, and you can subscribe to them using the callback url that you've provided to our support team.
+Alternatively you can also poll a serach request until it is processed and the `done` flag is set to `true`.
+You can also query search requests using the `custom_id` in place of the serach request id.
+
+## List search requests
+
+Return a list of the 100 most recent search requests.
+
+```shell
+curl 'https://api.nightwatch.io/api/v1/partner/search_requests?access_token=ACCESS_TOKEN' \\
+  -H 'Content-Type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+  [
+    {
+      "id": 1,
+      "engine": "google",
+      "query": "coffee shop",
+      "done": true,
+      "processed_at": "2019-08-27T20:02:00.000+02:00",
+      "created_at": "2019-08-27T20:01:00.000+02:00",
+      "results_url": "https://example.com/results/search_request_1.json"
+      "google_gl": "us",
+      "google_hl": "en",
+      "error": false,
+      "location_text": null,
+      "location_criteria_id": null,
+      "instant": true,
+      "accuracy": "normal",
+      "custom_id": null,
+      "mobile": false
+    }
+  ]
+
+```
+
+### HTTP Request
+
+`GET https://api.nightwatch.io/api/v1/partner/search_requests?access_token=ACCESS_TOKEN`
+
+
+
+## Show search request
+
+```shell
+curl 'https://api.nightwatch.io/api/v1/partner/search_requests/REQUEST_ID?access_token=ACCESS_TOKEN' \\
+  -H 'Content-Type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+  {
+    "id": 1,
+    "engine": "google",
+    "query": "coffee shop",
+    "done": true,
+    "processed_at": "2019-08-27T20:02:00.000+02:00",
+    "created_at": "2019-08-27T20:01:00.000+02:00",
+    "results_url": "https://example.com/results/search_request_1.json"
+    "google_gl": "us",
+    "google_hl": "en",
+    "error": false,
+    "location_text": null,
+    "location_criteria_id": null,
+    "instant": true,
+    "accuracy": "normal",
+    "custom_id": null,
+    "mobile": false
+  }
+
+```
+
+### HTTP Request
+
+`GET https://api.nightwatch.io/api/v1/partner/search_requests/REQUEST_ID?access_token=ACCESS_TOKEN`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+custom_id | Set to true if you would like to query the search request by `custom_id` instead
+
+
+
+
+
+## Make a search request
+
+```shell
+curl 'https://api.nightwatch.io/api/v1/partner/search_requests?access_token=ACCESS_TOKEN' \\
+  -H 'Content-Type: application/json' \\
+  -X POST \\
+  -d '{
+        "engine": "google",
+        "query": "coffee shop",
+        "google_hl": "en",
+        "google_gl": "us",
+        "location_criteria_id": 1014221,
+        "instant": true,
+        "mobile": false,
+        "accuracy": "normal"
+      }'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+  {
+    "id": 1,
+    "engine": "google",
+    "query": "coffee shop",
+    "done": false, // true once processed
+    "processed_at": null, // set once processed
+    "created_at": "2019-08-27T20:02:00.000+02:00",
+    "results_url": null, // url to the SERP JSON once processed
+    "google_gl": "us",
+    "google_hl": "en",
+    "error": false,
+    "location_text": null,
+    "location_criteria_id": null,
+    "instant": true,
+    "accuracy": "normal",
+    "custom_id": null,
+    "mobile": false
+  }
+```
+
+> When the search request is performed, you will receive the [SERP JSON](#get-serp-data) on your configured callback URL like this:
+
+```json
+{
+  "_id": 1, // search request id
+  "keyword":"coffee shop",
+  "engine":"google",
+  "rank_time":"2019-08-25T03:11:51.614409Z",
+  "rank_date":"2019-08-25",
+  "locale":"en",
+  "data_center":"us",
+  "location":nil,
+  "total_number_of_results":160000,
+  "serp":{ ... },
+  "local_pack":{ ... },
+  "local_image_carousel":{ ... },
+  "knowledge_panel":{ ... },
+  "featured_snippets":{ ... },
+}
+```
+
+### HTTP Request
+
+`POST https://api.nightwatch.io/api/v1/partner/search_requests?access_token=ACCESS_TOKEN`
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+engine*   | Search engine (google, places, bing, yahoo, youtube)
+query*    | Keyword query string
+google_hl | Language (e.g. en)
+google_gl | Location (e.g. us)
+location_criteria_id | Search location Criteria ID (see https://developers.google.com/ad-exchange/rtb/geotargeting) - Google only
+custom_id | Custom ID used in your system
+mobile    | Mobile search (true/false) - Google only
+instant*  | Instant processing - true (process as soon as possible) / false (process when available)
+accuracy* | Accuracy - normal (100 results per page) / high (10 results per page concatenated)
+
+Parameters marked with * are mandatory.
+
+
+
+## Make search requests (batch)
+
+You can create multiple search requests in batches of max 100.
+
+```shell
+curl 'https://api.nightwatch.io/api/v1/partner/search_requests?access_token=ACCESS_TOKEN' \\
+  -H 'Content-Type: application/json' \\
+  -X POST \\
+  -d '{
+        "batch": [
+          {
+            "engine": "google",
+            "query": "coffee shop",
+            "google_hl": "en",
+            "google_gl": "us",
+            "location_criteria_id": 1014221,
+            "instant": true,
+            "mobile": false,
+            "accuracy": "normal"
+          },
+          {
+            "engine": "google",
+            "query": "diner",
+            "google_hl": "en",
+            "google_gl": "us",
+            "location_criteria_id": 1014221,
+            "instant": true,
+            "mobile": false,
+            "accuracy": "normal"
+          },
+        ]
+      }'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "engine": "google",
+    "query": "coffee shop",
+    "done": false, // true once processed
+    "processed_at": null, // set once processed
+    "created_at": "2019-08-27T20:02:00.000+02:00",
+    "results_url": null, // url to the SERP JSON once processed
+    "google_gl": "us",
+    "google_hl": "en",
+    "error": false,
+    "location_text": null,
+    "location_criteria_id": null,
+    "instant": true,
+    "accuracy": "normal",
+    "custom_id": null,
+    "mobile": false
+  },
+  {
+    "id": 1,
+    "engine": "google",
+    "query": "diner",
+    "done": false, // true once processed
+    "processed_at": null, // set once processed
+    "created_at": "2019-08-27T20:02:00.000+02:00",
+    "results_url": null, // url to the SERP JSON once processed
+    "google_gl": "us",
+    "google_hl": "en",
+    "error": false,
+    "location_text": null,
+    "location_criteria_id": null,
+    "instant": true,
+    "accuracy": "normal",
+    "custom_id": null,
+    "mobile": false
+  }
+  // ...
+]
+```
+
+### HTTP Request
+
+`POST https://api.nightwatch.io/api/v1/partner/search_requests?access_token=ACCESS_TOKEN`
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+batch*    | A list of search requests to perform (max 100). See [search request](#make-a-search-request) params.
+
+Parameters marked with * are mandatory.
