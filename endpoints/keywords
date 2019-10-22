@@ -81,7 +81,7 @@
 </tr>
 <tr>
 <td>limit</td>
-<td>Amount of keywords in a page</td>
+<td>Amount of keywords in a page (max: 500)</td>
 </tr>
 </tbody></table>
 
