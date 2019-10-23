@@ -1290,7 +1290,7 @@ specific settings are configured with the URL endpoint.</p>
 </tr>
 <tr>
 <td>google_indexed</td>
-<td>Number of pages indexed by Google (will be removed on November 5th 2019)</td>
+<td>Number of pages indexed by Google</td>
 </tr>
 <tr>
 <td>keyword_changes</td>
@@ -1358,7 +1358,7 @@ specific settings are configured with the URL endpoint.</p>
 </tr>
 <tr>
 <td>google_analytics_profile_id</td>
-<td>Google Analytics profile ID, might be empty if GA integration is not set up</td>
+<td>Google Analytics profile ID, might be empty if GA integration is not setup</td>
 </tr>
 <tr>
 <td>country_code</td>
@@ -1480,83 +1480,34 @@ specific settings are configured with the URL endpoint.</p>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// This is the new format that will be applied on November 5th 2019:</span>
-<span class="p">[{</span>
-  <span class="s2">"id"</span><span class="p">:</span><span class="mi">22199</span><span class="p">,</span>
-  <span class="s2">"url_type"</span><span class="p">:</span><span class="s2">"google"</span><span class="p">,</span>
-  <span class="s2">"url_info"</span><span class="p">:{</span><span class="s2">"place_title"</span><span class="p">:</span><span class="s2">"example"</span><span class="p">,</span><span class="s2">"place_description"</span><span class="p">:</span><span class="s2">"example"</span><span class="p">},</span>
-  <span class="s2">"url"</span><span class="p">:</span><span class="s2">"http://example.com"</span><span class="p">,</span>
-  <span class="s2">"url_group_id"</span><span class="p">:</span><span class="mi">26738</span><span class="p">,</span>
-  <span class="s2">"last_processed_at"</span><span class="p">:</span><span class="s2">"2018-12-24T00:00:50.612Z"</span><span class="p">,</span>
-  <span class="s2">"places_info"</span><span class="p">:{</span><span class="s2">"place_title"</span><span class="p">:</span><span class="s2">"example"</span><span class="p">,</span><span class="s2">"place_description"</span><span class="p">:</span><span class="s2">"example"</span><span class="p">},</span>
-  <span class="s2">"places_match"</span><span class="p">:</span><span class="s2">"example"</span><span class="p">,</span><span class="s2">"places_keyword"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="s2">"places_image_title"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"custom_name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span>
-  <span class="s2">"country_code"</span><span class="p">:</span><span class="s2">"us"</span><span class="p">,</span>
-  <span class="s2">"language_code"</span><span class="p">:</span><span class="s2">"en"</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2015-07-08T11:19:10.216Z"</span><span class="p">,</span>
-  <span class="s2">"domain_authority"</span><span class="p">:</span><span class="mf">14.0</span><span class="p">,</span>
-  <span class="s2">"domain_authority_change"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-  <span class="s2">"youtube_video_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"youtube_channel"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"search_console_url"</span><span class="p">:</span><span class="s2">"http://example.com/"</span><span class="p">,</span>
-  <span class="s2">"google_analytics_updated_at"</span><span class="p">:</span><span class="s2">"2018-12-24T05:17:40.946Z"</span><span class="p">,</span>
-  <span class="s2">"backlinks_enabled"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"backlinks_count"</span><span class="p">:</span><span class="mi">53</span><span class="p">,</span>
-  <span class="s2">"backlinks_fetching_enabled"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"backlinks_settings"</span><span class="p">:{</span><span class="s2">"ignored_domains"</span><span class="p">:[],</span><span class="s2">"min_url_rating"</span><span class="p">:</span><span class="mi">5</span><span class="p">},</span>
-  <span class="s2">"next_site_audit_crawl_at"</span><span class="p">:</span><span class="s2">"2019-06-18T09:57:42.799Z"</span><span class="p">,</span>
-  <span class="s2">"site_audit_interval"</span><span class="p">:</span><span class="mi">604800</span><span class="p">,</span>
-  <span class="s2">"crawling_session_url_params_enabled"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crawling_session_follow_nofollow_links"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crawling_session_path_ignore_pattern"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"match_subdomains"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"match_nested_urls"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"include_places_image_in_main_position"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"include_featured_snippet_in_main_position"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"include_knowledge_panel_in_main_position"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"include_local_pack_in_main_position"</span><span class="p">:</span><span class="kc">true</span>
-<span class="p">},</span> <span class="p">...]</span>
-
-<span class="c1">// This is the current format that will change on November 5th 2019 (see above):</span>
-<span class="p">[{</span>
-  <span class="s2">"id"</span><span class="p">:</span> <span class="mi">31234</span><span class="p">,</span>
-  <span class="s2">"url_type"</span><span class="p">:</span> <span class="s2">"google"</span><span class="p">,</span>
-  <span class="s2">"url_info"</span><span class="p">:</span> <span class="p">{},</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"http://example.com"</span><span class="p">,</span>
-  <span class="s2">"last_processed_at"</span><span class="p">:</span> <span class="s2">"2019-07-21T00:00:53.892Z"</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="p">:</span> <span class="s2">"2013-10-08T17:38:43.800Z"</span><span class="p">,</span>
-  <span class="s2">"keyword_count"</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
-  <span class="s2">"domain_authority"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">"domain_authority_change"</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-  <span class="s2">"google_indexed"</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
-  <span class="s2">"keyword_changes"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"0"</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-    <span class="s2">"1"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"-1"</span><span class="p">:</span> <span class="mi">0</span>
-  <span class="p">},</span>
-  <span class="s2">"url_group_id"</span><span class="p">:</span> <span class="mi">36241</span><span class="p">,</span>
-  <span class="s2">"places_info"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"places_match"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"places_keyword"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"places_image_title"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"custom_name"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
-  <span class="s2">"competitors"</span><span class="p">:</span> <span class="p">[],</span>
-  <span class="s2">"errors"</span><span class="p">:</span> <span class="p">{},</span>
-  <span class="s2">"owner_name"</span><span class="p">:</span> <span class="s2">"James"</span><span class="p">,</span>
-  <span class="s2">"report_count"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-  <span class="s2">"seo_metrics"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"ahrefs_domain_rating"</span><span class="p">:</span> <span class="mi">6</span>
-    <span class="s2">"ahrefs_rank"</span><span class="p">:</span> <span class="mi">13</span>
-    <span class="s2">"majestic_citation_flow"</span><span class="p">:</span> <span class="mi">18</span>
-    <span class="s2">"majestic_trust_flow"</span><span class="p">:</span> <span class="mi">6</span>
-    <span class="s2">"moz_domain_authority"</span><span class="p">:</span> <span class="mi">14</span>
-    <span class="s2">"moz_page_authority"</span><span class="p">:</span> <span class="mi">18</span>
-    <span class="s2">"moz_rank"</span><span class="p">:</span> <span class="mf">1.8</span>
-  <span class="p">},</span>
-  <span class="s2">"youtube_channel"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"youtube_video_id"</span><span class="p">:</span> <span class="kc">null</span>
-<span class="p">},</span> <span class="p">...]</span>
-</code></pre><h3 id='http-request'>HTTP Request</h3>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">31234</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_processed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-21T00:00:53.892Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-10-08T17:38:43.800Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"domain_authority"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"domain_authority_change"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"google_indexed"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keyword_changes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"0"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"-1"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36241</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_match"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_keyword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_image_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"custom_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://api.nightwatch.io/api/v1/urls?access_token=ACCESS_TOKEN</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -1569,36 +1520,12 @@ specific settings are configured with the URL endpoint.</p>
 <td>group_id</td>
 <td>Only return URLs belonging to this group (optional)</td>
 </tr>
-<tr>
-<td>page</td>
-<td>Page number (pagination)</td>
-</tr>
-<tr>
-<td>limit</td>
-<td>Amount of URLs in a page (max: 500)</td>
-</tr>
-</tbody></table>
-<h3 id='response-headers'>Response headers</h3>
-<table><thead>
-<tr>
-<th>Header</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>X-Page-Count</td>
-<td>Number of pages for specified page limit</td>
-</tr>
-<tr>
-<td>X-Total-Count</td>
-<td>Total number of keywords</td>
-</tr>
 </tbody></table>
 <h2 id='get-a-url'>Get a URL</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/31234?access_token=ACCESS_TOKEN'</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this. Note that the format changes on November 5th 2019.</p>
+<p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">31234</span><span class="p">,</span><span class="w">
@@ -1622,21 +1549,7 @@ specific settings are configured with the URL endpoint.</p>
   </span><span class="s2">"places_keyword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"places_image_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"custom_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"competitors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-  </span><span class="s2">"owner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"James"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"report_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"seo_metrics"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"ahrefs_domain_rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
-    </span><span class="s2">"ahrefs_rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="w">
-    </span><span class="s2">"majestic_citation_flow"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="w">
-    </span><span class="s2">"majestic_trust_flow"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
-    </span><span class="s2">"moz_domain_authority"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="w">
-    </span><span class="s2">"moz_page_authority"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="w">
-    </span><span class="s2">"moz_rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.8</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"youtube_channel"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"youtube_video_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="err">...</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://api.nightwatch.io/api/v1/urls/URL_ID?access_token=ACCESS_TOKEN</code></p>
@@ -1695,21 +1608,7 @@ specific settings are configured with the URL endpoint.</p>
   </span><span class="s2">"places_keyword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"places_image_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"custom_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"competitors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-  </span><span class="s2">"owner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"James"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"report_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"seo_metrics"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"ahrefs_domain_rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
-    </span><span class="s2">"ahrefs_rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="w">
-    </span><span class="s2">"majestic_citation_flow"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="w">
-    </span><span class="s2">"majestic_trust_flow"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
-    </span><span class="s2">"moz_domain_authority"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="w">
-    </span><span class="s2">"moz_page_authority"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="w">
-    </span><span class="s2">"moz_rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.8</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"youtube_channel"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"youtube_video_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="err">...</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://api.nightwatch.io/api/v1/urls?access_token=ACCESS_TOKEN</code></p>
@@ -1780,44 +1679,32 @@ settings.</p>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">31234</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"url_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"url_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"last_processed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-21T00:00:53.892Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-10-08T17:38:43.800Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"domain_authority"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"domain_authority_change"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"google_indexed"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"keyword_changes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"0"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"-1"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36241</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"places_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"places_match"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"places_keyword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"places_image_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"custom_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"competitors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-  </span><span class="s2">"owner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"James"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"report_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"seo_metrics"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"ahrefs_domain_rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
-    </span><span class="s2">"ahrefs_rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="w">
-    </span><span class="s2">"majestic_citation_flow"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="w">
-    </span><span class="s2">"majestic_trust_flow"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
-    </span><span class="s2">"moz_domain_authority"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="w">
-    </span><span class="s2">"moz_page_authority"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="w">
-    </span><span class="s2">"moz_rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.8</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"youtube_channel"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"youtube_video_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">31234</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_processed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-21T00:00:53.892Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-10-08T17:38:43.800Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"domain_authority"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"domain_authority_change"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"google_indexed"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keyword_changes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"0"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"-1"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36241</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_match"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_keyword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"places_image_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"custom_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>PUT https://api.nightwatch.io/api/v1/urls/URL_ID?access_token=ACCESS_TOKEN</code></p>
 <h3 id='body-parameters-2'>Body Parameters</h3>
@@ -1929,21 +1816,7 @@ settings.</p>
   </span><span class="s2">"places_keyword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"places_image_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"custom_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"competitors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-  </span><span class="s2">"owner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"James"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"report_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"seo_metrics"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"ahrefs_domain_rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
-    </span><span class="s2">"ahrefs_rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="w">
-    </span><span class="s2">"majestic_citation_flow"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="w">
-    </span><span class="s2">"majestic_trust_flow"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
-    </span><span class="s2">"moz_domain_authority"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="w">
-    </span><span class="s2">"moz_page_authority"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="w">
-    </span><span class="s2">"moz_rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.8</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"youtube_channel"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"youtube_video_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="err">...</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
 <p><code>DELETE https://api.nightwatch.io/api/v1/urls/URL_ID?access_token=ACCESS_TOKEN</code></p>
@@ -2043,7 +1916,7 @@ settings.</p>
 </tr>
 <tr>
 <td>limit</td>
-<td>Amount of keywords in a page (max: 500)</td>
+<td>Amount of keywords in a page</td>
 </tr>
 </tbody></table>
 
@@ -3510,7 +3383,7 @@ possible to use them to filter keywords on the fly.</p>
 </tr>
 <tr>
 <td>limit</td>
-<td>Amount of keywords in a page (max: 500)</td>
+<td>Amount of keywords in a page</td>
 </tr>
 </tbody></table>
 <pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/dynamic_views?access_token=ACCESS_TOKEN&amp;group_id=123
@@ -3691,7 +3564,7 @@ keywords.</p>
 </tr>
 <tr>
 <td>limit</td>
-<td>Amount of keywords in a page (max: 500)</td>
+<td>Amount of keywords in a page</td>
 </tr>
 </tbody></table>
 
