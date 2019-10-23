@@ -23,7 +23,7 @@ keyword_count                            | Number of keywords this URL has
 domain_authority                         | Domain authority ranking
 domain_authority_change                  | Last observed change in domain authority
 google_indexed                           | Number of pages indexed by Google (will be removed on November 5th 2019)
-keyword_changes                          | How many keywords went up (1), went down (-1), or stayed the same (0)
+keyword_changes                          | How many keywords went up (1), went down (-1), or stayed the same (0) (will be removed on November 5th 2019)
 url_group_id                             | Group ID this URL belongs to
 places_info                              | Place extended matching data
 places_info.place_cid                    | Match place by CID
@@ -36,10 +36,10 @@ places_image_title                       | Title for tracking in image carousel
 custom_name                              | Custom URL name
 youtube_video_id                         | Youtube video ID, for Youtube video tracking purposes
 youtube_channel                          | Youtube channel name, for Youtube channel tracking purposes
-competitors                              | List of competitors this URL has
-google_indexed_change                    | Daily change of number of pages index by Google
-report_count                             | How many reports this URL has
-google_analytics_profile_id              | Google Analytics profile ID, might be empty if GA integration is not set up
+competitors                              | List of competitors this URL has (will be removed on November 5th 2019)
+google_indexed_change                    | Daily change of number of pages index by Google (will be removed on November 5th 2019)
+report_count                             | How many reports this URL has (will be removed on November 5th 2019)
+google_analytics_profile_id              | Google Analytics profile ID, might be empty if GA integration is not set up (will be removed on November 5th 2019)
 country_code                             | ISO3166 alpha-2 country code
 language_code                            | ISO639 language code
 search_console_url                       | Google Search Console URL this URL matches with
@@ -64,8 +64,8 @@ next_site_audit_crawl_at                 | Next time a recurring site audit will
 site_audit_interval                      | Recurring site audit intervals (in seconds, accepted valud are: 604800 (1 week) and 2592000 (30 days))
 backlinks_settings.ignored_domains       | List of domain backlinks from will be ignored
 backlinks_settings.min_url_rating        | Minimum URL rating for backlink domains
-seo_metrics                              | Moz, Majestic, and Ahref SEO metrics
-seo_metrics_changes                      | Last observed changes for Moz, Majestic, and Ahref SEO metrics
+seo_metrics                              | Moz, Majestic, and Ahref SEO metrics (will be removed on November 5th 2019)
+seo_metrics_changes                      | Last observed changes for Moz, Majestic, and Ahref SEO metrics (will be removed on November 5th 2019)
 match_subdomains                         | Whether to match URL subdomains
 match_nested_urls                        | Whether to match URL subpaths
 
@@ -80,7 +80,7 @@ curl 'https://api.nightwatch.io/api/v1/urls?access_token=ACCESS_TOKEN' \\
 > The above command returns JSON structured like this:
 
 ```javascript
-// This is the new format that will be applied on November 5th 2019:
+// This is a new format that will be applied on November 5th 2019:
 [{
   "id":22199,
   "url_type":"google",
@@ -186,7 +186,45 @@ curl 'https://api.nightwatch.io/api/v1/urls/31234?access_token=ACCESS_TOKEN' \
 
 > The above command returns JSON structured like this. Note that the format changes on November 5th 2019.
 
-```json
+```javascript
+// This is a new format that will be applied on November 5th 2019:
+{
+  "id":22199,
+  "url_type":"google",
+  "url_info":{"place_title":"example","place_description":"example"},
+  "url":"http://example.com",
+  "url_group_id":26738,
+  "last_processed_at":"2018-12-24T00:00:50.612Z",
+  "places_info":{"place_title":"example","place_description":"example"},
+  "places_match":"example","places_keyword":null,"places_image_title":null,
+  "custom_name":"",
+  "country_code":"us",
+  "language_code":"en",
+  "created_at":"2015-07-08T11:19:10.216Z",
+  "domain_authority":14.0,
+  "domain_authority_change":1.0,
+  "youtube_video_id":null,
+  "youtube_channel":null,
+  "search_console_url":"http://example.com/",
+  "google_analytics_updated_at":"2018-12-24T05:17:40.946Z",
+  "backlinks_enabled":true,
+  "backlinks_count":53,
+  "backlinks_fetching_enabled":true,
+  "backlinks_settings":{"ignored_domains":[],"min_url_rating":5},
+  "next_site_audit_crawl_at":"2019-06-18T09:57:42.799Z",
+  "site_audit_interval":604800,
+  "crawling_session_url_params_enabled":true,
+  "crawling_session_follow_nofollow_links":true,
+  "crawling_session_path_ignore_pattern":null,
+  "match_subdomains":false,
+  "match_nested_urls":true,
+  "include_places_image_in_main_position":true,
+  "include_featured_snippet_in_main_position":true,
+  "include_knowledge_panel_in_main_position":true,
+  "include_local_pack_in_main_position":true
+}
+
+// This is the current format that will change on November 5th 2019 (see above):
 {
   "id": 31234,
   "url_type": "google",
@@ -262,7 +300,45 @@ curl 'https://api.nightwatch.io/api/v1/urls?access_token=ACCESS_TOKEN' \\
 
 > The above command returns JSON structured like this:
 
-```json
+```javascript
+// This is a new format that will be applied on November 5th 2019:
+{
+  "id":22199,
+  "url_type":"google",
+  "url_info":{"place_title":"example","place_description":"example"},
+  "url":"http://example.com",
+  "url_group_id":26738,
+  "last_processed_at":"2018-12-24T00:00:50.612Z",
+  "places_info":{"place_title":"example","place_description":"example"},
+  "places_match":"example","places_keyword":null,"places_image_title":null,
+  "custom_name":"",
+  "country_code":"us",
+  "language_code":"en",
+  "created_at":"2015-07-08T11:19:10.216Z",
+  "domain_authority":14.0,
+  "domain_authority_change":1.0,
+  "youtube_video_id":null,
+  "youtube_channel":null,
+  "search_console_url":"http://example.com/",
+  "google_analytics_updated_at":"2018-12-24T05:17:40.946Z",
+  "backlinks_enabled":true,
+  "backlinks_count":53,
+  "backlinks_fetching_enabled":true,
+  "backlinks_settings":{"ignored_domains":[],"min_url_rating":5},
+  "next_site_audit_crawl_at":"2019-06-18T09:57:42.799Z",
+  "site_audit_interval":604800,
+  "crawling_session_url_params_enabled":true,
+  "crawling_session_follow_nofollow_links":true,
+  "crawling_session_path_ignore_pattern":null,
+  "match_subdomains":false,
+  "match_nested_urls":true,
+  "include_places_image_in_main_position":true,
+  "include_featured_snippet_in_main_position":true,
+  "include_knowledge_panel_in_main_position":true,
+  "include_local_pack_in_main_position":true
+}
+
+// This is the current format that will change on November 5th 2019 (see above):
 {
   "id": 31234,
   "url_type": "google",
@@ -350,7 +426,45 @@ curl 'https://api.nightwatch.io/api/v1/urls/31234?access_token=ACCESS_TOKEN' \\
 
 > The above command returns JSON structured like this:
 
-```json
+```javascript
+// This is a new format that will be applied on November 5th 2019:
+{
+  "id":22199,
+  "url_type":"google",
+  "url_info":{"place_title":"example","place_description":"example"},
+  "url":"http://example.com",
+  "url_group_id":26738,
+  "last_processed_at":"2018-12-24T00:00:50.612Z",
+  "places_info":{"place_title":"example","place_description":"example"},
+  "places_match":"example","places_keyword":null,"places_image_title":null,
+  "custom_name":"",
+  "country_code":"us",
+  "language_code":"en",
+  "created_at":"2015-07-08T11:19:10.216Z",
+  "domain_authority":14.0,
+  "domain_authority_change":1.0,
+  "youtube_video_id":null,
+  "youtube_channel":null,
+  "search_console_url":"http://example.com/",
+  "google_analytics_updated_at":"2018-12-24T05:17:40.946Z",
+  "backlinks_enabled":true,
+  "backlinks_count":53,
+  "backlinks_fetching_enabled":true,
+  "backlinks_settings":{"ignored_domains":[],"min_url_rating":5},
+  "next_site_audit_crawl_at":"2019-06-18T09:57:42.799Z",
+  "site_audit_interval":604800,
+  "crawling_session_url_params_enabled":true,
+  "crawling_session_follow_nofollow_links":true,
+  "crawling_session_path_ignore_pattern":null,
+  "match_subdomains":false,
+  "match_nested_urls":true,
+  "include_places_image_in_main_position":true,
+  "include_featured_snippet_in_main_position":true,
+  "include_knowledge_panel_in_main_position":true,
+  "include_local_pack_in_main_position":true
+}
+
+// This is the current format that will change on November 5th 2019 (see above):
 {
   "id": 31234,
   "url_type": "google",
@@ -429,7 +543,45 @@ curl 'https://api.nightwatch.io/api/v1/urls/31234?access_token=ACCESS_TOKEN' \\
 
 > The above command returns JSON structured like this:
 
-```json
+```javascript
+// This is a new format that will be applied on November 5th 2019:
+{
+  "id":22199,
+  "url_type":"google",
+  "url_info":{"place_title":"example","place_description":"example"},
+  "url":"http://example.com",
+  "url_group_id":26738,
+  "last_processed_at":"2018-12-24T00:00:50.612Z",
+  "places_info":{"place_title":"example","place_description":"example"},
+  "places_match":"example","places_keyword":null,"places_image_title":null,
+  "custom_name":"",
+  "country_code":"us",
+  "language_code":"en",
+  "created_at":"2015-07-08T11:19:10.216Z",
+  "domain_authority":14.0,
+  "domain_authority_change":1.0,
+  "youtube_video_id":null,
+  "youtube_channel":null,
+  "search_console_url":"http://example.com/",
+  "google_analytics_updated_at":"2018-12-24T05:17:40.946Z",
+  "backlinks_enabled":true,
+  "backlinks_count":53,
+  "backlinks_fetching_enabled":true,
+  "backlinks_settings":{"ignored_domains":[],"min_url_rating":5},
+  "next_site_audit_crawl_at":"2019-06-18T09:57:42.799Z",
+  "site_audit_interval":604800,
+  "crawling_session_url_params_enabled":true,
+  "crawling_session_follow_nofollow_links":true,
+  "crawling_session_path_ignore_pattern":null,
+  "match_subdomains":false,
+  "match_nested_urls":true,
+  "include_places_image_in_main_position":true,
+  "include_featured_snippet_in_main_position":true,
+  "include_knowledge_panel_in_main_position":true,
+  "include_local_pack_in_main_position":true
+}
+
+// This is the current format that will change on November 5th 2019 (see above):
 {
   "id": 31234,
   "url_type": "google",
