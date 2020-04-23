@@ -106,7 +106,7 @@ keywords across the whole account (global views) or they can be scoped to a sing
 <tr>
 <td>engine</td>
 <td>string</td>
-<td>Engine (possible values: google, bing, yahoo, youtube, places)</td>
+<td>Engine (possible values: google, bing, yahoo, duckduckgo, youtube, places)</td>
 </tr>
 <tr>
 <td>mobile</td>

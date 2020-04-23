@@ -154,7 +154,7 @@
 </tr>
 <tr>
 <td>search_engine*</td>
-<td>Search engine (&#39;google&#39;, &#39;youtube&#39;, &#39;places&#39;, &#39;bing&#39; or &#39;yahoo&#39;)</td>
+<td>Search engine (&#39;google&#39;, &#39;youtube&#39;, &#39;places&#39;, &#39;bing&#39;, &#39;yahoo&#39; or &#39;duckduckgo&#39;)</td>
 </tr>
 <tr>
 <td>adwords_location_id</td>

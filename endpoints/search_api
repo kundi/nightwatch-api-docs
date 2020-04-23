@@ -158,7 +158,7 @@ You can also query search requests using the <code>custom_id</code> in place of 
 </thead><tbody>
 <tr>
 <td>engine*</td>
-<td>Search engine (google, places, bing, yahoo, youtube)</td>
+<td>Search engine (google, places, bing, yahoo, duckduckgo, youtube)</td>
 </tr>
 <tr>
 <td>query*</td>

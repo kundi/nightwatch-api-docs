@@ -91,7 +91,7 @@
 </tr>
 <tr>
 <td>engine</td>
-<td>Search engine (google, places, bing, yahoo, youtube)</td>
+<td>Search engine (google, places, bing, yahoo, duckduckgo, youtube)</td>
 </tr>
 <tr>
 <td>rank_time</td>
