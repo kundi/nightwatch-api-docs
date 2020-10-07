@@ -295,6 +295,38 @@ filters  | Array of filter groups
 * If you have multiple filter groups (AND filters chaining), you have to make multiple `filter_groups` `POST` requests.
 
 
+## List views
+
+```shell
+curl 'https://api.nightwatch.io/api/v1/dynamic_views?url_id=123&access_token=ACCESS_TOKEN
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id":58375,
+    "name":"Example view",
+    "url_group_id":26738,
+    "keyword_count":397,
+    "report_count":0
+  }
+]
+```
+
+### HTTP Request
+
+`GET https://api.nightwatch.io/api/v1/dynamic_views`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+url_id    | Filter by URL ID (get views belonging to specified URL)
+group_id  | Filter by GROUP ID (get views belonging to specified group)
+without_counts | When true, there is no keyword_count and report_count in the response (makes querying faster)
+
 ## Get a view
 
 ```shell
