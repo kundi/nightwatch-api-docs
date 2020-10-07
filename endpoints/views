@@ -437,6 +437,42 @@ possible to use them to filter keywords on the fly.</p>
 <ul>
 <li>If you have multiple filter groups (AND filters chaining), you have to make multiple <code>filter_groups</code> <code>POST</code> requests.</li>
 </ul>
+<h2 id='list-views'>List views</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/dynamic_views?url_id=123&amp;access_token=ACCESS_TOKEN
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">58375</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Example view"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url_group_id"</span><span class="p">:</span><span class="mi">26738</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="mi">397</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"report_count"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://api.nightwatch.io/api/v1/dynamic_views</code></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url_id</td>
+<td>Filter by URL ID (get views belonging to specified URL)</td>
+</tr>
+<tr>
+<td>group_id</td>
+<td>Filter by GROUP ID (get views belonging to specified group)</td>
+</tr>
+<tr>
+<td>without_counts</td>
+<td>When true, there is no keyword_count and report_count in the response (makes querying faster)</td>
+</tr>
+</tbody></table>
 <h2 id='get-a-view'>Get a view</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.nightwatch.io/api/v1/dynamic_views/VIEW_ID?access_token=ACCESS_TOKEN
 </span></code></pre>
 <blockquote>
@@ -450,15 +486,15 @@ possible to use them to filter keywords on the fly.</p>
   </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="mi">397</span><span class="p">,</span><span class="w">
   </span><span class="s2">"report_count"</span><span class="p">:</span><span class="mi">0</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET https://api.nightwatch.io/api/v1/dynamic_views/VIEW_ID</code></p>
 <h2 id='get-view-39-s-filtered-keywords'>Get view&#39;s filtered keywords</h2>
 <p>Once the view is persisted and its filters configured, we can use it to get its filtered
 keywords.</p>
 <pre class="highlight shell tab-shell"><code>  curl <span class="s1">'https://api.nightwatch.io/api/v1/urls/URL_ID/keywords?access_token=ACCESS_TOKEN&amp;dynamic_view_id=VIEW_ID'</span>
-</code></pre><h3 id='http-request-6'>HTTP Request</h3>
+</code></pre><h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET https://api.nightwatch.io/api/v1/urls/URL_ID/keywords</code></p>
-<h3 id='url-parameters-5'>URL Parameters</h3>
+<h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -498,9 +534,9 @@ keywords.</p>
      -X PUT <span class="se">\\</span>
      -H <span class="s1">'Content-Type: application/json; charset=UTF-8'</span> <span class="se">\\</span>
      --data-binary <span class="s1">'{"dynamic_view":{"name":"Top 3 keywords"}}'</span>
-</code></pre><h3 id='http-request-7'>HTTP Request</h3>
+</code></pre><h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET https://api.nightwatch.io/api/v1/dynamic_views/VIEW_ID</code></p>
-<h3 id='url-parameters-6'>URL Parameters</h3>
+<h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -540,7 +576,7 @@ keywords.</p>
   </span><span class="s2">"keyword_count"</span><span class="p">:</span><span class="mi">397</span><span class="p">,</span><span class="w">
   </span><span class="s2">"report_count"</span><span class="p">:</span><span class="mi">0</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-8'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-9'>HTTP Request</h3>
 <p><code>DELETE https://api.nightwatch.io/api/v1/dynamic_views/VIEW_ID</code></p>
 
 <blockquote>
